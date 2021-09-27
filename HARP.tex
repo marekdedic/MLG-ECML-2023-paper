@@ -2,6 +2,7 @@
 
 \subsection{Method overview}
 
+\todo{R2: In my understanding, the function $\psi$ should be between the graphs' vertices, i.e., $\psi_i: V(G_i) -> V(G_{i+1})$}
 HARP is a method for improving the performance of graph-based learning algorithms such as DeepWalk \cite{perozzi_deepwalk_2014}, LINE \cite{tang_line_2015}, PTE \cite{tang_pte_2015} or node2vec \cite{grover_node2vec_2016}. The method is a combination of dataset augmentation and pre-training based on the general principle that graph-based models train more efficiently on smaller graphs and can thus be pre-trained on a coarsened representation of the graph task at hand. In an overview, the method consists of the following steps:
 \begin{enumerate}
   \item \textbf{Dataset augmentation}. The graph is consecutively reduced in size by the application of several graph coarsening schemas. In each step, the coarsened can be viewed as a representation of ever more global structure in the task.
