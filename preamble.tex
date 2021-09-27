@@ -1,0 +1,44 @@
+\documentclass[english]{ddny}
+
+\usepackage{polyglossia} % Must come before biblatex
+\usepackage{todonotes}
+
+\usepackage[centertags, intlimits]{amsmath}
+\usepackage{amssymb}
+%\usepackage[backend=biber,style=splncs04.bst,sortlocale=en_US,bibencoding=UTF8]{biblatex}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage[inline, shortlabels]{enumitem}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{subcaption}
+%\usepackage[strings]{underscore}
+\usepackage{url}
+
+
+\setmainfont{TeX Gyre Termes}
+\setdefaultlanguage{english}
+
+\hypersetup{
+	pdfencoding=auto,
+	unicode=true,
+	bookmarksopen=true,
+	bookmarksopenlevel=3
+}
+
+\bibliographystyle{dd-refstyle}
+%\bibliography{zotero}
+
+\newcommand{\name}[1]{\textbf{#1}}
+\newcommand{\mathfield}{\ensuremath{\mathbb}}
+\newcommand{\mathmat}{\ensuremath{\mathbf}}
+\newcommand{\mathset}{\ensuremath{\mathbb}}
+\newcommand{\mathspace}{\ensuremath{\mathcal}}
+\newcommand{\mathvec}{\ensuremath{\bm}}
+
+\newcounter{enumroman}
+\newenvironment{romanitems}{\begin{list}{\bfseries(\roman{enumroman})\hfill}{\usecounter{enumroman}\setlength{\labelwidth}{\leftmargin}\addtolength{\labelwidth}{-1\labelsep}\topsep=0mm plus 2pt\itemsep=0mm\parsep=0mm plus 2pt\itemindent=0mm}}{\end{list}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}

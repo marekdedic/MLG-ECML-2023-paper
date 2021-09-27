@@ -1,0 +1,33 @@
+\section{Experimental evaluation}\label{sec:experiments}
+
+The experiments proposed in the previous sections were run on the OGBN-ArXiv dataset (see \cite{hu_open_2021}) with node2vec as the underlying graph learning algorithm. The experiments build upon the SOTA node2vec implementation for this dataset.
+
+\subsection{Experiment setup}
+
+The configurations of both the node2vec and the MLP models are taken from the PyTorch Geometric implementation of node2vec on the ogbn-arxiv dataset (see \cite{paszke_pytorch_2019}). The node2vec model generated an embedding into \( \mathfield{R}^{128} \) from \( 10 \) random walks of length \( 80 \) for each node with a context window size of \( 20 \). The optimizer ADAM \cite{kingma_adam:_2017} was used with a learning rate of \( 0.01 \) and batches of \( 256 \) samples. The MLP classifier using the embeddings featured \( 3 \) linear layers of \( 256 \) neurons with batch normalization after each layer. Finally, a linear layer was used for the class prediction. ADAM with a learning rate of \( 0.01 \) and a dropout rate of \( 0.5 \) was used for \( 200 \) epochs of training with the cross-entropy loss function. The experiments were implemented using PyTorch\footnote{https://pytorch.org/} and PyTorch Geometric \cite{paszke_pytorch_2019}.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/steps_accur/steps_accur.pdf}
+    \caption{Performance over epochs of models pretrained on different coarsening levels.}\label{fig:steps-accuracy}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/pihom_comparison/pihom_comparison.pdf}
+    \caption{Standard HARP compared to the version built on partially injective homomorphisms.}\label{fig:HARP-vs-PIHom}
+  \end{subfigure}
+\end{figure}
+
+\subsection{Effect of HARP pretraining}
+
+To asses the effect of HARP as a pretraining, the main question is how does HARP pretraining change the behaviour of the node2vec training?
+
+Figure \ref{fig:steps-accuracy} compares the accuracy of several models over learning epochs on the original graph \( G_0 \). An MLP using just dataset features and an ordinary node2vec model are provided as a reference. The models \( M_0, \dots, M_L \) from Section \ref{sec:performance-vs-complexity} are then compared.
+
+As can be seen, there is no noticeable difference in the performance of a pretrained node2vec in comparison to an ordinary one when it comes to performance after 4 or more training epochs. Our explanation is that the configuration used for node2vec training already samples large parts of the graph thanks to a relatively high number of long random walks. There is, however, a noticeable improvement in the performance of models when only very few training epochs are available.
+
+\subsection{Feasibility of partially injective transformations}\label{sec:harp-vs-pihom}
+
+In order to test the feasibility of HARP-like algorithms based purely on partially injective homomorphisms, ordinary HARP is compared to one with the coarsening proposed in Section \ref{sec:harp-as-pihom}. Figure \ref{fig:HARP-vs-PIHom} shows the performance of such a model compared to ordinary HARP, node2vec and purely feature-based MLP classifier. As can be seen, there is no meaningful difference between the two models.

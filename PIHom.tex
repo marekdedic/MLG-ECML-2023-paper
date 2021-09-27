@@ -1,0 +1,13 @@
+\section{Partially injective homomorphism}
+
+In \cite{schulz_mining_2019}, the authors present the notion of \textbf{partially injective homomorphisms} as a bridge between the comparatively weak concept of a homomorphism and the much stronger concept of an injective homomorphism (i.e., a subgraph isomorphism). This section presents these concepts and explores some of their properties. In Section \ref{sec:harp-as-pihom}, graph homomorphisms are then used as a general framework for graph coarsening.
+
+A \textbf{graph homomorphism} between graphs \( G \) and \( H \) is a mapping \( \varphi: V \left( G \right) \to V \left( H \right) \) that preserves edges, thus
+\[ \left( u, v \right) \in E \left( G \right) \implies \left( \varphi \left( u \right), \varphi \left( v \right) \right) \in E \left( H \right) \text{.} \]
+A homomorphism is \textbf{injective} iff \( \forall u, v \in V \left( G \right) \quad \varphi \left( u \right) = \varphi \left( v \right) \implies u = v \text{.} \)
+Finally, a homomorphism is \textbf{partially injective} iff
+\( \forall \left( u, v \right) \in \mathcal{C} \quad \varphi \left( u \right) = \varphi \left( v \right) \implies u = v \)
+for some \( \mathcal{C} \subseteq \left( V \left( G \right) \right)^2 \setminus E \left( G \right) \), that is, \( \mathcal{C} \) is a set of \textit{non-edges} of the graph \( G \).
+Observe that for any \( \left( u, v \right) \in E \left( G \right) \) the condition holds in general per the definition of a homomorphism, which justifies the limitation of \( \mathcal{C} \) to non-edges of the graph.
+
+For given graphs \( G \) and \( H \), let \( \mathcal{L} \) denote the finite set of all partially injective homomorphisms between them. Let a particular partially injective homomorphism described by \( \mathcal{C} \) be denoted as \( \mathrm{PIHom} \left( G, H, \mathcal{C} \right) \). \( \mathcal{L} \) has a natural partial order \( \preceq \) where \( \mathrm{PIHom} \left( G, H, \mathcal{C}_1 \right) \preceq \mathrm{PIHom} \left( G, H, \mathcal{C}_2 \right) \) iff \( \mathcal{C}_1 \subseteq \mathcal{C}_2 \) and forms a lattice with order \( \preceq \). The minimum of this lattice \( \mathrm{PIHom} \left( G, H, \emptyset \right) \) corresponds to an ordinary homomorphism while the maximum \(\mathrm{PIHom} \left( G, H, \left( V \left( G \right) \right)^2 \setminus E \left( G \right) \right) \) corresponds to an injective homomorphism.
