@@ -1,27 +1,46 @@
 \input{preamble.tex}
 
-\title{Targeted coarsening for hierarchical graph representation learning\thanks{The research reported in this paper has been supported by the Czech Science Foundation (GAČR) grant 18-18080S.}}
-\author{Marek Dědič\inst{1,2}\orcidID{0000-0003-1021-8428} \and
-Lukáš Bajer\inst{2} \and
-Marin Holeňa\inst{3}}
-\institute{Czech Technical University in Prague, Břehová 7, Prague, Czech Republic \and
-Cisco Systems, Inc., Karlovo náměstı́ 10, Prague, Czech Republic \and
-Institute of Computer Science, Czech Academy of Sciences, Pod vodárenskou věží 2, Prague, Czech Republic}
-
-\authorrunning{M. Dědič et al.}
-
 \begin{document}
+
+\copyrightyear{2022}
+\copyrightclause{Use permitted under Creative Commons License Attribution 4.0 International (CC BY 4.0).}
+
+\conference{Data and Model Quality for Mining and Learning with Graphs: Methods and Open Challenges
+@ECML-PKDD 2022, September 23, 2022, Grenoble, France}
+
+\title{Balancing performance and complexity in hierarchical coarsening of graphs}
+\author[1,2]{Marek Dědič}[orcid=0000-0003-1021-8428,email=marek@dedic.eu,url=https://dedic.eu]
+\cormark[1]
+\author[2]{Lukáš Bajer}
+\author[2]{Jakub Repický}
+\author[2]{Pavel Procházka}
+\author[3]{Martin Holeňa}
+
+\address[1]{Czech Technical University in Prague, Břehová 7, Prague, Czech Republic}
+\address[2]{Cisco Systems, Inc., Karlovo náměstı́ 10, Prague, Czech Republic}
+\address[3]{Institute of Computer Science, Czech Academy of Sciences, Pod vodárenskou věží 2, Prague, Czech Republic}
+
+\cortext[1]{Corresponding author.}
+
+\input{abstract.tex}
 
 \maketitle
 
-\input{abstract.tex}
+\todo{Abstract}
+\todo{Keywords}
 \input{introduction.tex}
-\input{HARP.tex}
-\input{PIHom.tex}
-\input{HARP-as-PIHom.tex}
-\input{performance-vs-complexity.tex}
-\input{experiments.tex}
-\input{future-work.tex}
-\input{conclusion.tex}
+%\input{HARP.tex}
+%\input{PIHom.tex}
+%\input{HARP-as-PIHom.tex}
+%\input{performance-vs-complexity.tex}
+%\input{experiments.tex}
+%\input{future-work.tex}
+%\input{conclusion.tex}
+
+\begin{acknowledgments}
+  The research reported in this paper has been supported by the Czech Science Foundation (GAČR) grant 18-18080S.
+\end{acknowledgments}
+
+\bibliography{zotero}
 
 \end{document}

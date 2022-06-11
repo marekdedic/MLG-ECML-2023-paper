@@ -1,21 +1,25 @@
-\documentclass[runningheads]{llncs}
+\documentclass[twocolumn]{ceurart}
+
+\sloppy
 
 \usepackage{polyglossia} % Must come before biblatex
 \usepackage{todonotes}
 
-\usepackage[centertags, intlimits]{amsmath}
-\usepackage{amssymb}
+%\usepackage[centertags, intlimits]{amsmath}
+%\usepackage{amssymb}
 %\usepackage[backend=biber,style=splncs04.bst,sortlocale=en_US,bibencoding=UTF8]{biblatex}
-\usepackage{bm}
-\usepackage{booktabs}
-\usepackage{csquotes}
-\usepackage[inline, shortlabels]{enumitem}
-\usepackage{fontspec}
+%\usepackage{bm}
+%\usepackage{booktabs}
+%\usepackage{csquotes}
+%\usepackage[inline, shortlabels]{enumitem}
+%\usepackage{fontspec}
+\usepackage{minted}
 \usepackage{hyperref}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 %\usepackage[strings]{underscore}
-\usepackage{url}
+%\usepackage{url}
 
+\setminted{breaklines=true}
 
 \setmainfont{TeX Gyre Termes}
 \setdefaultlanguage{english}
@@ -27,8 +31,6 @@
 	bookmarksopen=true,
 	bookmarksopenlevel=3
 }
-
-\bibliography{zotero}
 
 \newcommand{\name}[1]{\textbf{#1}}
 \newcommand{\mathfield}{\ensuremath{\mathbb}}
