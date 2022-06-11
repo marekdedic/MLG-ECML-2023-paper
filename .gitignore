@@ -318,4 +318,6 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,latex
 
+*.abs
+*.xmpdata
 Graph-Quality-ECML-2022-paper.pdf
