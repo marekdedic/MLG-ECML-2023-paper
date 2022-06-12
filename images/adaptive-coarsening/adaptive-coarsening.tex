@@ -1,0 +1,245 @@
+\RequirePackage{luatex85}
+\documentclass[tikz]{standalone}
+% Default preamble
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{smithchart}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{dateplot}
+\usepgfplotslibrary{ternary}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+layers/standard/.define layer set={%
+    background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+}{grid style= {/pgfplots/on layer=axis grid},%
+    tick style= {/pgfplots/on layer=axis ticks},%
+    axis line style= {/pgfplots/on layer=axis lines},%
+    label style= {/pgfplots/on layer=axis descriptions},%
+    legend style= {/pgfplots/on layer=axis descriptions},%
+    title style= {/pgfplots/on layer=axis descriptions},%
+    colorbar style= {/pgfplots/on layer=axis descriptions},%
+    ticklabel style= {/pgfplots/on layer=axis tick labels},%
+    axis background@ style={/pgfplots/on layer=axis background},%
+    3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}[/tikz/background rectangle/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}}, show background rectangle]
+\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-1.0mm}, width={226.6mm}, height={150.4mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={1061.03}, xmax={2755.97}, xtick={{1200.0,1400.0,1600.0,1800.0,2000.0,2200.0,2400.0,2600.0}}, xticklabels={{$1200$,$1400$,$1600$,$1800$,$2000$,$2200$,$2400$,$2600$}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={Prediction accuracy (\%)}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={20}, ymax={90}, ytick={{20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0}}, yticklabels={{$20$,$30$,$40$,$50$,$60$,$70$,$80$,$90$}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (1116.0,28.04000049829483)
+            (1208.0,37.010000348091125)
+            (1308.0,46.83999985456467)
+            (1408.0,58.78999888896942)
+            (1508.0,63.42999994754791)
+            (1608.0,65.47999978065491)
+            (1708.0,64.9399995803833)
+            (1808.0,65.69999933242798)
+            (1908.0,65.25000035762787)
+            (2008.0,65.77000021934509)
+            (2108.0,65.11000037193298)
+            (2208.0,65.9200006723404)
+            (2308.0,65.3300005197525)
+            (2408.0,65.96000075340271)
+            (2508.0,64.86999988555908)
+            (2608.0,64.94999945163727)
+            (2708.0,64.70999956130981)
+            (2708.0,62.317209789677165)
+            (2608.0,63.540310628621796)
+            (2508.0,62.88614760453502)
+            (2408.0,64.11296089366058)
+            (2308.0,63.538632306471214)
+            (2208.0,63.98391111795787)
+            (2108.0,63.622682943434604)
+            (2008.0,63.76220961760065)
+            (1908.0,63.27670630391472)
+            (1808.0,64.32159452256147)
+            (1708.0,62.93323327054138)
+            (1608.0,63.4613101037944)
+            (1508.0,61.69984263624726)
+            (1408.0,54.18096264640798)
+            (1308.0,41.34936094324271)
+            (1208.0,32.11704580558272)
+            (1116.0,23.976832221676993)
+            (1116.0,28.04000049829483)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (1116.0,28.04000049829483)
+            (1208.0,37.010000348091125)
+            (1308.0,46.83999985456467)
+            (1408.0,58.78999888896942)
+            (1508.0,63.42999994754791)
+            (1608.0,65.47999978065491)
+            (1708.0,64.9399995803833)
+            (1808.0,65.69999933242798)
+            (1908.0,65.25000035762787)
+            (2008.0,65.77000021934509)
+            (2108.0,65.11000037193298)
+            (2208.0,65.9200006723404)
+            (2308.0,65.3300005197525)
+            (2408.0,65.96000075340271)
+            (2508.0,64.86999988555908)
+            (2608.0,64.94999945163727)
+            (2708.0,64.70999956130981)
+            (2708.0,67.10278933294246)
+            (2608.0,66.35968827465274)
+            (2508.0,66.85385216658315)
+            (2408.0,67.80704061314484)
+            (2308.0,67.12136873303379)
+            (2208.0,67.85609022672291)
+            (2108.0,66.59731780043136)
+            (2008.0,67.77779082108954)
+            (1908.0,67.22329441134102)
+            (1808.0,67.07840414229449)
+            (1708.0,66.94676589022522)
+            (1608.0,67.49868945751541)
+            (1508.0,65.16015725884856)
+            (1408.0,63.399035131530866)
+            (1308.0,52.330638765886626)
+            (1208.0,41.90295489059953)
+            (1116.0,32.10316877491267)
+            (1116.0,28.04000049829483)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={b019a789-f2a9-4258-af9a-a988f46ce1d7}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            1116.0  28.04000049829483  \\
+            1208.0  37.010000348091125  \\
+            1308.0  46.83999985456467  \\
+            1408.0  58.78999888896942  \\
+            1508.0  63.42999994754791  \\
+            1608.0  65.47999978065491  \\
+            1708.0  64.9399995803833  \\
+            1808.0  65.69999933242798  \\
+            1908.0  65.25000035762787  \\
+            2008.0  65.77000021934509  \\
+            2108.0  65.11000037193298  \\
+            2208.0  65.9200006723404  \\
+            2308.0  65.3300005197525  \\
+            2408.0  65.96000075340271  \\
+            2508.0  64.86999988555908  \\
+            2608.0  64.94999945163727  \\
+            2708.0  64.70999956130981  \\
+        }
+        ;
+    \addlegendentry {Cora (public split)}
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (1109.0,57.819998264312744)
+            (1208.0,63.14999878406524)
+            (1308.0,68.78999948501587)
+            (1408.0,73.97999942302704)
+            (1508.0,76.6700005531311)
+            (1608.0,77.289999127388)
+            (1708.0,78.09000074863434)
+            (1808.0,78.92000079154968)
+            (1908.0,78.64999949932098)
+            (2008.0,79.50000047683716)
+            (2108.0,79.37999963760376)
+            (2208.0,79.8499995470047)
+            (2308.0,80.31000077724457)
+            (2408.0,80.03000020980835)
+            (2508.0,79.98000025749207)
+            (2608.0,79.89000022411346)
+            (2708.0,79.44999992847443)
+            (2708.0,78.49402572265227)
+            (2608.0,79.38568588082383)
+            (2508.0,79.2424367146985)
+            (2408.0,79.0673080439906)
+            (2308.0,79.49698131299887)
+            (2208.0,79.28186474883961)
+            (2108.0,78.71200165688299)
+            (2008.0,78.77889041350626)
+            (1908.0,77.62774631646643)
+            (1808.0,77.88419670220424)
+            (1708.0,77.34546438420671)
+            (1608.0,75.95712413475965)
+            (1508.0,75.74979493913756)
+            (1408.0,71.60288763991096)
+            (1308.0,66.00693491700981)
+            (1208.0,59.86865473645334)
+            (1109.0,55.115352821579826)
+            (1109.0,57.819998264312744)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (1109.0,57.819998264312744)
+            (1208.0,63.14999878406524)
+            (1308.0,68.78999948501587)
+            (1408.0,73.97999942302704)
+            (1508.0,76.6700005531311)
+            (1608.0,77.289999127388)
+            (1708.0,78.09000074863434)
+            (1808.0,78.92000079154968)
+            (1908.0,78.64999949932098)
+            (2008.0,79.50000047683716)
+            (2108.0,79.37999963760376)
+            (2208.0,79.8499995470047)
+            (2308.0,80.31000077724457)
+            (2408.0,80.03000020980835)
+            (2508.0,79.98000025749207)
+            (2608.0,79.89000022411346)
+            (2708.0,79.44999992847443)
+            (2708.0,80.40597413429659)
+            (2608.0,80.3943145674031)
+            (2508.0,80.71756380028563)
+            (2408.0,80.9926923756261)
+            (2308.0,81.12302024149027)
+            (2208.0,80.41813434516979)
+            (2108.0,80.04799761832453)
+            (2008.0,80.22111054016806)
+            (1908.0,79.67225268217554)
+            (1808.0,79.95580488089513)
+            (1708.0,78.83453711306197)
+            (1608.0,78.62287412001635)
+            (1508.0,77.59020616712465)
+            (1408.0,76.35711120614312)
+            (1308.0,71.57306405302192)
+            (1208.0,66.43134283167714)
+            (1109.0,60.52464370704566)
+            (1109.0,57.819998264312744)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={1f55b02a-f6f7-45b0-98f5-0af4178a98fa}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            1109.0  57.819998264312744  \\
+            1208.0  63.14999878406524  \\
+            1308.0  68.78999948501587  \\
+            1408.0  73.97999942302704  \\
+            1508.0  76.6700005531311  \\
+            1608.0  77.289999127388  \\
+            1708.0  78.09000074863434  \\
+            1808.0  78.92000079154968  \\
+            1908.0  78.64999949932098  \\
+            2008.0  79.50000047683716  \\
+            2108.0  79.37999963760376  \\
+            2208.0  79.8499995470047  \\
+            2308.0  80.31000077724457  \\
+            2408.0  80.03000020980835  \\
+            2508.0  79.98000025749207  \\
+            2608.0  79.89000022411346  \\
+            2708.0  79.44999992847443  \\
+        }
+        ;
+    \addlegendentry {Cora (full split)}
+\end{axis}
+\end{tikzpicture}
+\end{document}
