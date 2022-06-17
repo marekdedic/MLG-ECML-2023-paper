@@ -26,3 +26,9 @@ The first step is independent of the rest of the computation and can be done ahe
   \caption{An overview of the HARP processing pipeline with one level of coarsening}
   \label{fig:harp-overview}
 \end{figure}
+
+\subsection{Properties of graph coarsenings}
+
+The HARP framework presents a particular way of producing coarsened graphs. In general, however, we would like to describe any coarsening of a graph in order to be able to explore the set of all coarsened graphs to study the properties of both the applied algorithms, as well as the underlying data.
+
+To properly describe the set of all coarsening, dome assumptions need to be made about what constitutes a coarsening. In our work, we define a coarsening as a set \( \mathcal{C} \subseteq E \left( G \right) \), that is a subset of edges of the original graphs. The graph \( H = \varphi_\mathcal{C} \left( G \right) \) obtained by applying this coarsening to \( G \) is obtained from \( G \) by contracting all edges in \( \mathcal{C} \)\footnote{Whether to allow parallel edges to arise from this operation is left to the user, in our work, we didn't.}. This description of a graph coarsening is inspired and builds upon the work \cite{schulz_mining_2019} with the relation between these two approaches further described in Appendix \ref{apdx:coarsening-as-pihom}.
