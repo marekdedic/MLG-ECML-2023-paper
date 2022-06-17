@@ -3,7 +3,6 @@
 \subsection{Method overview}
 
 \subsection{Graph coarsening}\label{sec:graph-coarsening}
-\sloppy Consider an undirected graph \( G \) with nodes \( V \left( G \right) \) and edges \( E \left( G \right) \). The aim of the graph coarsening part of the algorithm is to generate a sequence of graphs \( G_0, G_1, G_2, \dots, G_L \) where \( G_0 = G \) and \( L \in \mathfield{N} \) is a hyperparameter of the method. In this sequence, each graph \( G_i \) is generated from the graph \( G_{i - 1} \) by coarsening it -- lowering the number of nodes and edges while preserving the general structure of the graph. Following \cite{chen_harp_2018}, let \( \psi_i \) denote the mapping between the graphs such that \( V \left( G_i \right) = \psi_i \left( V \left( G_{i - 1} \right) \right) \).
 
 In Section \ref{sec:harp-as-pihom}, a general framework for graph coarsening is presented. The authors of \cite{chen_harp_2018} instead introduce two particular coarsening relations \( \psi_i \) -- \textbf{edge collapsing} and \textbf{star collapsing}. Edge collapsing is a very simple method -- out of all the edges \( E \left( G_{i - 1} \right) \), a subset \( E' \) is selected such that no two edges from \( E' \) are incident on the same node. Then, for each edge \( \left( u, v \right) \in E' \), \( u \) and \( v \) are merged into a single node \( w \), with all edges incident on \( u \) or \( v \) being replaced with edges incident on \( w \).
 
