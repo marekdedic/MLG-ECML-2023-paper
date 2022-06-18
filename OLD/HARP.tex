@@ -4,10 +4,6 @@
 
 \subsection{Graph coarsening}\label{sec:graph-coarsening}
 
-In Section \ref{sec:harp-as-pihom}, a general framework for graph coarsening is presented. The authors of \cite{chen_harp_2018} instead introduce two particular coarsening relations \( \psi_i \) -- \textbf{edge collapsing} and \textbf{star collapsing}. Edge collapsing is a very simple method -- out of all the edges \( E \left( G_{i - 1} \right) \), a subset \( E' \) is selected such that no two edges from \( E' \) are incident on the same node. Then, for each edge \( \left( u, v \right) \in E' \), \( u \) and \( v \) are merged into a single node \( w \), with all edges incident on \( u \) or \( v \) being replaced with edges incident on \( w \).
-
-The edge collapsing algorithm is a good general way of lowering the number of nodes in a graph, however, some structures are not easily collapsed by it. An example of such a structure is a \enquote{star} -- a single node connected to many other nodes. To coarsen graphs with such structures effectively, the star collapsing algorithm is proposed. For each such \textit{hub} node \( u \), its unconnected neighbouring nodes are taken and merged pairwise. Again, all edges incident on such nodes are replaced with edges incident on the corresponding newly created nodes. These two approaches are combined in HARP, with each coarsening step being a star collapsing step followed by an edge collapsing step.
-
 \subsection{Embedding prolongation}
 In each coarsening step, an embedding of the graph \( G_i \) is trained by one of the embedding algorithms. To continue training with a finer graph, this embedding \( \Phi_i: V \left( G_i \right) \to \mathfield{R}^d \) needs to be \textit{prolonged} to create the finer embedding \( \Phi_{i - 1}: V \left( G_{i - 1} \right) \to \mathfield{R}^d \). To achieve this, the representation of a node in the graph \( G_i \) is copied for each of the nodes in \( G_{i - 1} \) it was created from (by the graph collapsing algorithm). That is,
 \[ \Phi_{i - 1} \left( u \right) = \Phi_i \left( \psi_i \left( u \right) \right)\text{.} \]

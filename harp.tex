@@ -2,7 +2,7 @@
 
 In this Section, firstly, a brief overview of the HARP framework for graph coarsening \cite{chen_harp_2018} is presented, followed by our analysis of the properties of graph coarsenings in general.
 
-\subsection{HARP}
+\subsection{HARP}\label{sec:harp}
 \todo[inline]{Explanation of the general structure of HARP, without going into detail about the coarsening procedure}
 HARP is a method for improving the performance of graph representation learning (i.e. graph embedding) algorithms such as DeepWalk \cite{perozzi_deepwalk_2014}, LINE \cite{tang_line_2015}, PTE \cite{tang_pte_2015} or node2vec \cite{grover_node2vec_2016}. The method is a combination of dataset augmentation and pre-training based on the general principle that graph-based models train more efficiently on smaller graphs and can thus be pre-trained on a coarsened representation of the graph at hand. Moreover, the coarsened graphs approximate the global properties of the original data, enabling the representations to better encapsulate such a global structure. In an overview, the method consists of the following steps:
 
@@ -27,7 +27,7 @@ The first step is independent of the rest of the computation and can be done ahe
   \label{fig:harp-overview}
 \end{figure}
 
-\subsection{Properties of graph coarsenings}
+\subsection{Properties of graph coarsenings}\label{sec:coarsening-properties}
 
 The HARP framework presents a particular way of producing coarsened graphs. In general, however, we would like to describe any coarsening of a graph in order to be able to explore the set of all coarsened graphs to study the properties of both the applied algorithms, as well as the underlying data.
 
