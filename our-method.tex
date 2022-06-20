@@ -24,12 +24,12 @@ In order to offer a more fine-grained observation of the graph complexity and it
     \Ensure $ merges\_to\_prolong $ \Comment A list of node merges to be prolonged (\enquote{undone})
     \Ensure $ new\_replacement\_maps $ \Comment Updated coarsening records without the prolonged merges
     \Statex
-    \State $ node\_order = \Call{get\_node\_order}{G, \bm{e}_{i+1}, \bm{y}_\mathrm{train}, replacement\_maps} $
+    \State $ node\_order \gets \Call{get\_node\_order}{G, \bm{e}_{i+1}, \bm{y}_\mathrm{train}, replacement\_maps} $
     \State $ merges\_to\_prolong \gets \Call{select\_nodes}{node\_order, n_p, replacement\_maps} $
     \State $ new\_replacement\_maps \gets \Call{undo\_merges}{replacement\_maps, merges\_to\_prolong} $
     \Statex
     \Function{get\_node\_order}{$ G, \bm{e}_{i+1}, \bm{y}_\mathrm{train}, replacement\_maps $}
-        \State $ \bm{e}_0^\mathrm{temp} \gets \Call{fully\_prolong\_embedding}{\bm{e}_{i+1}, replacement\_maps} $
+        \State $ \bm{e}_0^\mathrm{temp} \gets $ use $ replacement\_maps $ to fully prolong the current embedding $ \bm{e}_{i+1} $ to $ G $
         \State $ model \gets \Call{train\_downstream\_model}{\bm{e}_0^\mathrm{temp}, \bm{y}_\mathrm{train}} $
         \State $ entropy\_per\_node \gets H \left( \Call{predict}{model, node} \right) $ for each $ node \in V \left( G \right) $
         \State \Return $ V \left( G \right) $, sorted in descending order by $ entropy\_per\_node $
@@ -37,7 +37,7 @@ In order to offer a more fine-grained observation of the graph complexity and it
     \Statex
     \Function{select\_nodes}{$ ordered\_nodes, n_p, replacement\_maps $}
         \State $ selected\_merges \gets \left\{ \right\} $
-        \For{$ node \in ordered\_nodes $, until $ \left\lvert selected\_merges \right\rvert = n_p $}
+        \For{$ node \in ordered\_nodes $, \textbf{until} $ \left\lvert selected\_merges \right\rvert = n_p $}
             \State $ merge \gets \Call{resolve\_merge}{node, selected\_merges, replacement\_maps} $
             \State If $ merge \neq \mathrm{null} $, add $ merge $ to $ selected\_merges $
         \EndFor
@@ -47,7 +47,7 @@ In order to offer a more fine-grained observation of the graph complexity and it
     \Function{resolve\_merge}{$ node, already\_selected\_merges, replacement\_maps $}
         \State $ merge \gets \mathrm{null} $
         \For{$ replacement\_map \in replacement\_maps $ from finest graph to coarsest}
-            \State $ merge\_candidate \gets $ find in $ replacement\_map $ a merge that affects $ node $, continue with next $ replacement\_map $ if not found
+            \State $ merge\_candidate \gets $ find in $ replacement\_map $ a merge that affects $ node $, if not found, continue with next $ replacement\_map $
             \If{$ merge\_candidate \in already\_selected\_merges $}
                 \State \Return $ merge $
             \EndIf
