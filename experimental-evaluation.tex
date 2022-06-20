@@ -41,16 +41,16 @@ For the Cora dataset, the node2vec model generated an embedding into \( \mathfie
 
 In order to study the effect of the adaptive prolongation, the adaptive prolongation method was used to assess the performance of downstream transductive classification at different coarsening levels. A node2vec model as described in the previous Section was trained with adaptive prolongation based on coarsenings pre-computed by the HARP coarsening algorithm as described in Section \ref{sec:harp-coarsening}. For each prolongation step, the intermediary embedding was afterwards fully prolonged to obtain an embedding of the original graph \( G \). A classifier was then trained with this embedding as input. This setup allows us to compare classification accuracy at each step of the adaptive prolongation. Figure \ref{fig:adaptive-coarsening} shows the results of this experiment, compared with a baseline node2vec model (that is, without any coarsening or prolongation) that was trained for the same number of epochs as the total epochs of the adaptive model over all prolongation steps.
 
-The behaviour of the model somewhat differs between the used datasets. For each dataset, the model starts from a very low performance, which quickly rises as the model trains for several prolongation steps. The model trained on CiteSeer attains performance comparable to the reference model when approximately half of all nodes are available to it. On the other hand, with Cora, the model slowly approaches the reference model for the whole duration of training, only reaching comparable performance at a point where nearly the whole graph is available to it. Models trained on the two larger datasets, DBLP and PubMed, exhibit a substantially different behaviour. Both models reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. After that point, this global structure may be obscured due to noise in the added data. The Enzymes dataset is substantially different yet again, with only small performance gains with increasing number of nodes available, however, the results contain a lot of noise, as the algorithm performace varies greatly over the different testing datasets for both the baseline as well as the adaptive prolongation approach.
-
-\todo[inline]{Possibly include statistical significance testing.}
-
 \begin{figure}
   \centering
   \includegraphics[width = \linewidth]{images/adaptive-coarsening/adaptive-coarsening.pdf}
   \caption{Downstream classifier accuracies at different steps of adaptive prolongation. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the shaded area denoting one standard deviation.}
   \label{fig:adaptive-coarsening}
 \end{figure}
+
+The behaviour of the model somewhat differs between the used datasets. For each dataset, the model starts from a very low performance, which quickly rises as the model trains for several prolongation steps. The model trained on CiteSeer attains performance comparable to the reference model when approximately half of all nodes are available to it. On the other hand, with Cora, the model slowly approaches the reference model for the whole duration of training, only reaching comparable performance at a point where nearly the whole graph is available to it. Models trained on the two larger datasets, DBLP and PubMed, exhibit a substantially different behaviour. Both models reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. After that point, this global structure may be obscured due to noise in the added data. The Enzymes dataset is substantially different yet again, with only small performance gains with increasing number of nodes available, however, the results contain a lot of noise, as the algorithm performace varies greatly over the different testing datasets for both the baseline as well as the adaptive prolongation approach.
+
+\todo[inline]{Possibly include statistical significance testing.}
 
 \subsection{Relation to graph properties}
 
@@ -59,9 +59,17 @@ The behaviour of the model somewhat differs between the used datasets. For each 
 \subsection{Comparison of coarsening approaches}
 \todo[inline]{Compare the coarsenings measured by the graphs from previous section}
 
+To compare the proposed coarsening algorithms, the adaptive prolongation approach was used in conjuction with each of the algorithms. The algorithms were trained on the Enzymes, Cora and CiteSeer datasets. This limitation is due to the GDC algorithm, which constructs a dense matrix \( S \) as part of the process, which is computationally demanding. There exists an approximate version of the algorithm, however, it is currently not available for the chosen combination of diffusion, normalization and sparsification methods. An extension of this approximate solution to cover all combinations of these parameters is possible, however, outside the scope of this work.
+
+For GDC coarsening, only the top-\( k \) sparsification method produces reliable results as thresholding results in instability in the coarsening process, either collapsing the whole graph almost immediately, or not collapsing it at all. As for the other parameters, following \cite{gasteiger_diffusion_2019}, symmetric normalization was chosen for the input matrix and column normalization for the output matrix and the heat kernel was used with \( t = 5 \).
+
+For the evolutionary coarsening \todo{...}
+
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{images/coarsening-algorithms/coarsening-algorithms.pdf}
-  \caption{Coarsening algorithms results}
+  \caption{Downstream classifier accuracies at different steps of adaptive prolongation for different coarsening algorithms. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the shaded area denoting one standard deviation.}
   \label{fig:coarsening-algorithms}
 \end{figure}
+
+The behaviour of the models again differs substantially between the datasets. As in the previous experiment, the Enzymes dataset contains a lot of noise and generally, the methods behave in a similar manner. However, for both the Cora and the CiteSeer dataset, a clear trend emerges where the GDC coarsening quickly outperforms the original HARP coarsening. As the algorithms see larger portions of the data, the margin shrinks until it vanishes completely. This suggests that is better able to preserve the global structure of the graph.\todo{EVA}
