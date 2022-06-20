@@ -33,7 +33,7 @@ In order to offer a more fine-grained observation of the graph complexity and it
         \State $ model \gets \Call{train\_downstream\_model}{\bm{e}_0^\mathrm{temp}, \bm{y}_\mathrm{train}} $
         \State $ \hat{\mathmat{Y}} \gets \Call{predict}{model, \bm{e}_0^\mathrm{temp}} $ \Comment Probability of each class for each node
         \State $ entropy\_per\_node \gets \Call{H}{\hat{\mathmat{Y}}, dim = per\_node} $ \Comment Calculate entropy of class probabilities for each node
-        \State \Return $ \Call{sort}{V \left( G \right), by = entropy\_per\_node, descending = true} $
+        \State \Return $ \Call{sort}{V \left( G \right), \mathrm{by} = entropy\_per\_node, \mathrm{descending} = \mathrm{true}} $
     \EndFunction
     \Statex
     \Function{select\_nodes}{$ ordered\_nodes, num\_nodes\_to\_prolong, replacement\_maps $}
