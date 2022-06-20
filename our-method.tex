@@ -12,7 +12,66 @@ While this style of prolongation is fine when HARP is used only as a means of pr
 
 In order to offer a more fine-grained observation of the graph complexity and its effect on the downstream task, we present the adaptive prolongation approach. This algorithm works with the pre-coarsened graphs produced for example by HARP, however, the embedding is learned in a different manner.
 
-The adaptive prolongation approach (Algorithm \todo{ref}) uses the pre-computed coarsened graphs as a way to progressively increase the number of nodes with which the embedding is trained. However, its iterations of embedding training and prolongation are decoupled from the pre-computed coarsened graphs. Instead, in each step of the training, the current embedding is used to train a node classifier that guides which nodes should be prolonged. The node classifier is equivalent to the one which is to be eventually used for the downstream task and is trained on the same training subset of graph nodes. A measure guiding the prolongation is to be produced using this classifier -- ideally, only the nodes where the classifier performs the worst should be prolonged. To this end, the confidence of the classifier for each node is used. In our experiments, several methods of assessing the confidence were tried, ultimately settling on the entropy of the output of the softmax layer for each node -- representing the amount of information the classifier is able to infer about each node. Starting with nodes with the highest entropy, for each node the pre-computed coarsenings are searched for edge contractions involving the node, with preference for contractions from later steps of the repeated coarsening (corresponding to coarser graphs). A given number of such edge contractions is selected and undone in each prolongation step, gradually advancing from the coarsest graph to the original, finest one.\todo{Lukáš: Padají tu z nebe parametry, je potřeba ta rozhodnutí odůvodnit.}
+\begin{algorithm}
+  \caption{Adaptive prolongation}
+  \label{alg:adaptive-prolongation}
+  \begin{algorithmic}
+    \Require $ G $ \Comment The original graph
+    \Require $ \mathvec{e}_{i+1} $ \Comment The previous embedding
+    \Require $ \mathvec{y}_\mathrm{train} $ \Comment Training labels
+    \Require $ replacement\_maps $ \Comment A list of records of all the original graph coarsenings
+    \Require $ num\_nodes\_to\_prolong $ \Comment The number of nodes to prolong
+    \Ensure $ merges\_to\_prolong $ \Comment A list of node merges to be prolonged (\enquote{undone})
+    \Ensure $ new\_replacement\_maps $ \Comment Updated coarsening records without the prolonged merges
+    \Statex
+      \State $ node\_order = \Call{get\_node\_order}{G, \bm{e}_{i+1}, \bm{y}_\mathrm{train}, replacement\_maps} $
+    \State $ merges\_to\_prolong \gets \Call{select\_nodes}{node\_order, num\_nodes\_to\_prolong, replacement\_maps} $
+    \State $ new\_replacement\_maps \gets \Call{undo\_merges}{replacement\_maps, merges\_to\_prolong} $
+    \Statex
+    \Function{get\_node\_order}{$ G, \bm{e}_{i+1}, \bm{y}_\mathrm{train}, replacement\_maps $}
+        \State $ \bm{e}_0^\mathrm{temp} \gets \Call{fully\_prolong\_embedding}{\bm{e}_{i+1}, replacement\_maps} $ \Comment Fully prolong the current embedding
+        \State $ model \gets \Call{train\_downstream\_model}{\bm{e}_0^\mathrm{temp}, \bm{y}_\mathrm{train}} $
+        \State $ \hat{\mathmat{Y}} \gets \Call{predict}{model, \bm{e}_0^\mathrm{temp}} $ \Comment Probability of each class for each node
+        \State $ entropy\_per\_node \gets \Call{H}{\hat{\mathmat{Y}}, dim = per\_node} $ \Comment Calculate entropy of class probabilities for each node
+        \State \Return $ \Call{sort}{V \left( G \right), by = entropy\_per\_node, descending = true} $
+    \EndFunction
+    \Statex
+    \Function{select\_nodes}{$ ordered\_nodes, num\_nodes\_to\_prolong, replacement\_maps $}
+        \State $ count \gets 0 $
+        \State $ selected\_merges \gets \left\{ \right\} $
+        \For{$ node \in ordered\_nodes $}
+            \State $ merge \gets \Call{resolve\_merge}{node, selected\_merges, replacement\_maps} $
+            \If{$ merge = \mathrm{null} $}
+                \State continue
+            \EndIf
+            \State $ \Call{push}{selected\_merges, merge} $
+            \State $ count \gets count + 1 $
+            \If{$ count >= num\_nodes\_to\_prolong $}
+                \State break
+            \EndIf
+        \EndFor
+        \State \Return $ selected\_merges $
+    \EndFunction
+    \Statex
+    \Function{resolve\_merge}{$ node, already\_selected\_merges, replacement\_maps $}
+        \State $ merge \gets \mathrm{null} $
+        \For{$ replacement\_map \in replacement\_maps $} \Comment Iterate over replacements from finest to coarsest graph
+            \State $ merge\_candidate \gets \Call{find\_merge}{node} $ \Comment Find a merge affecting the node
+            \If{$ merge\_candidate = \mathrm{null} $}
+                \State continue
+            \EndIf
+            \If{$ merge\_candidate \in already\_selected\_merges $}
+                \State break
+            \EndIf
+            \State $ merge \gets merge\_candidate $
+            \State $ node \gets \Call{apply}{merge, node} $ \Comment Apply the merge to the node so that in the next for-loop iteration, a subsequent merge may be selected
+        \EndFor
+        \State \Return $ merge $
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
+
+The adaptive prolongation approach (Algorithm \ref{alg:adaptive-prolongation}) uses the pre-computed coarsened graphs as a way to progressively increase the number of nodes with which the embedding is trained. However, its iterations of embedding training and prolongation are decoupled from the pre-computed coarsened graphs. Instead, in each step of the training, the current embedding is used to train a node classifier that guides which nodes should be prolonged. The node classifier is equivalent to the one which is to be eventually used for the downstream task and is trained on the same training subset of graph nodes. A measure guiding the prolongation is to be produced using this classifier -- ideally, only the nodes where the classifier performs the worst should be prolonged. To this end, the confidence of the classifier for each node is used. In our experiments, several methods of assessing the confidence were tried, ultimately settling on the entropy of the output of the softmax layer for each node -- representing the amount of information the classifier is able to infer about each node. Starting with nodes with the highest entropy, for each node the pre-computed coarsenings are searched for edge contractions involving the node, with preference for contractions from later steps of the repeated coarsening (corresponding to coarser graphs). A given number of such edge contractions is selected and undone in each prolongation step, gradually advancing from the coarsest graph to the original, finest one.\todo{Lukáš: Padají tu z nebe parametry, je potřeba ta rozhodnutí odůvodnit.}
 
 \subsection{More general approaches to coarsening}\label{sec:coarsening-algorithms}
 
