@@ -1,10 +1,11 @@
 \section{Related work}
 \todo[inline]{What are the methods that we are comparing ourselves to and in what we are different}
 
-HARP
-https://arxiv.org/pdf/1808.10650.pdf
 https://arxiv.org/pdf/1910.02370.pdf
 https://arxiv.org/pdf/2102.01350.pdf
 https://proceedings.mlr.press/v108/jin20a/jin20a.pdf
 https://arxiv.org/pdf/1902.06684.pdf
-https://arxiv.org/pdf/2106.05150.pdf
+
+The publications most relevant to our research are \cite{chen_harp_2018}, in which the HARP approach is proposed, and \cite{gasteiger_diffusion_2019}, in which graph coarsening is performed by means of graph diffusion. Because we directly extend, modify or combine those methods, they will be explained in detail in Sections \ref{sec:harp} and \ref{sec:gdc-coarsening}. Other important works concerning graph coarsening are \cite{akyildiz_understanding_2020,chen22graph}, which survey numerous coarsening methods, \cite{huang_scaling_2021}, which presents results concerning scalability or graph coarsening, and \cite{loukas_graph_2019} which shows relationships of graph coarsening to properties of the Laplacian. In view of the fact that the HARP approach, which we extend and modify, is a multilevel approach, we paid attention also to the multilevel graph coarsening methods proposed in \cite{xie20graph} and \cite{zhang21harp}, the latter being also inspired by HARP.
+
+In a broader context, our research is related to the more general topic of graph reduction, which apart from graph coarsening includes also graph sparsification. A general framework covering both coarsening and sparsification has been proposed in \cite{bravohermsdorf19unifying}. Elaboration of graph coarsening methods in machine learning can built on several decades of succesful application of their main kinds, such as pairwise aggregation, independent sets, or algebraic distance, in numerical linear algebra \cite{chen22graph}.
