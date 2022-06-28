@@ -52,10 +52,6 @@ The behaviour of the model somewhat differs between the used datasets. For each 
 
 \todo[inline]{Possibly include statistical significance testing.}
 
-\subsection{Relation to graph properties}
-
-\todo[inline]{Compare the adaptive coarsening with local graph measures of graph homophilly}
-
 \subsection{Comparison of coarsening approaches}
 
 To compare the proposed coarsening algorithms, the adaptive prolongation approach was used in conjuction with each of the algorithms. The algorithms were trained on the Enzymes, Cora and CiteSeer datasets. This limitation is due to the GDC algorithm, which constructs a dense matrix \( S \) as part of the process, which is computationally demanding. There exists an approximate version of the algorithm, however, it is currently not available for the chosen combination of diffusion, normalization and sparsification methods. An extension of this approximate solution to cover all combinations of these parameters is possible, however, outside the scope of this work.
