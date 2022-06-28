@@ -58,7 +58,34 @@ To compare the proposed coarsening algorithms, the adaptive prolongation approac
 
 For GDC coarsening, only the top-\( k \) sparsification method produces reliable results as thresholding results in instability in the coarsening process, either collapsing the whole graph almost immediately, or not collapsing it at all. As for the other parameters, following \cite{gasteiger_diffusion_2019}, symmetric normalization was chosen for the input matrix and column normalization for the output matrix. Both of the diffusion methods propsed in \cite{gasteiger_diffusion_2019} were implemented with the recommended parameter values, that is the heat kernel was used with \( t = 5 \) and the Personalized PageRank algorithm with \( \alpha = 0.15 \).
 
-For the evolutionary coarsening \todo{...}
+For the evolutionary coarsening, the experimental evaluation was conducted with \( p_\mathrm{cx} = 0.9 \), \( p_\mathrm{mut} = p_\mathrm{gene} = 0.1 \), \( \lambda = 10 \), \( n_\mathrm{tourn} = 3 \), and \( L \) set to \( 5\% \) of the input graph node count. The set \( \mathspace{AC} \) consisted of 16 atomic coarsenings (see Table \ref{tab:atomic-coarsenings}). Only four of them had hyper-parameters. These were initialized by random sampling where \( d_\mathrm{lower} \) and \( d_\mathrm{upper} \) were sampled from a Poisson distribution with \( \mu = 30 \) and \( k \) and \( l \) were sampled uniformly from the set of all features. The evolutionary coarsening algorithm was implemented in the DEAP framework \cite{fortin_deap_2012}.
+
+\begin{table}
+    \caption{The atomic coarsening functions}
+    \label{tab:atomic-coarsenings}
+    \begin{tabularx}{\linewidth}{Xr}
+        \toprule
+        \textbf{Set \( \mathcal{C} \) of edges to contract}                                                                       & \textbf{Parameters}    \\
+        \midrule
+        A random edge                                                                                                             &                        \\
+        A random edge incident to the highest degree node                                                                         &                        \\
+        Edges of a random triangle                                                                                                &                        \\
+        The edge whose incident nodes share the most common neighbours                                                            &                        \\
+        The edge whose incident nodes share the least common neighbours                                                           &                        \\
+        A random edge whose incident nodes are adjacent to the highest degree node                                                &                        \\
+        A random node of degree at least \( d_\mathrm{lower} \) and its random neighbour                                          & \( d_\mathrm{lower} \) \\
+        A random node of degree at most \( d_\mathrm{upper} \) and its random neighbour                                           & \( d_\mathrm{upper} \) \\
+        The edge whose incident nodes have the most neighbours in total                                                           &                        \\
+        The edge whose incident nodes have the least neighbours in total                                                          &                        \\
+        The edge whose incident nodes have the most similar \( k \)-th feature                                                    & \( k \)                \\
+        The edge whose incident nodes have the least similar \( l \)-th feature                                                   & \( l \)                \\
+        The edge whose incident nodes have the most similar features under the \( L^2 \) distance                                 &                        \\
+        The edge whose incident nodes have the least similar features under the \( L^2 \) distance                             &                        \\
+        The edge whose incident nodes have the most similar features of their 1-hop neighbours (under the Hausdorff distance)     &                        \\
+        The edge whose incident nodes have the least similar features of their 1-hop neighbours (under the Hausdorff distance) &                        \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
 
 \begin{figure}
   \centering
