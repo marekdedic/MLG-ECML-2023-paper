@@ -58,7 +58,7 @@ To compare the proposed coarsening algorithms, they were trained on the Enzymes,
 
 For GDC coarsening, only the top-\( k \) sparsification method produces reliable results as thresholding leads to instability in the coarsening process, either collapsing the whole graph almost immediately, or not collapsing it at all. As for the other parameters, we followed \cite{gasteiger_diffusion_2019} and have chosen symmetric normalization for the input matrix and column normalization for the output matrix. Both of the diffusion methods propsed in \cite{gasteiger_diffusion_2019} were implemented with the recommended parameter values, that is the heat kernel was used with the diffusion time \( t = 5 \) and the Personalized PageRank algorithm with the teleport probability \( \alpha = 0.15 \).
 
-For the evolutionary coarsening, the experimental evaluation was conducted with crossover probability \( p_\mathrm{cx} = 0.9 \), individual and gene mutation probabilities \( p_\mathrm{mut} = p_\mathrm{gene} = 0.1 \), parent population size \( \lambda = 3 \), tournament size \( n_\mathrm{tourn} = 3 \), and the individual length \( L \) set to \( 5\% \) of the input graph node count. The set \( \mathspace{AC} \) consisted of 16 atomic coarsenings (see Table \ref{tab:atomic-coarsenings}). Only four of them had hyper-parameters. These were initialized by random sampling where \( d_\mathrm{lower} \) and \( d_\mathrm{upper} \) were sampled from a Poisson distribution with \( \mu = 30 \) and \( k \) and \( l \) were sampled uniformly from the set of all features. The evolutionary coarsening algorithm was implemented in the DEAP framework \cite{fortin_deap_2012}.
+For the evolutionary coarsening, the experimental evaluation was conducted with crossover probability \( p_\mathrm{cx} = 0.9 \), individual and gene mutation probabilities \( p_\mathrm{mut} = p_\mathrm{gene} = 0.1 \), parent population size \( \lambda = 3 \), tournament size \( n_\mathrm{tourn} = 3 \), and the individual length \( L \) set to \( 5\% \) of the input graph node count. The set \( \mathspace{AC} \) consisted of 16 atomic coarsenings (Table \ref{tab:atomic-coarsenings}). Only four of them had hyper-parameters. These were initialized by random sampling where \( d_\mathrm{lower} \) and \( d_\mathrm{upper} \) were sampled from a Poisson distribution with \( \mu = 30 \) and \( k \) and \( l \) were sampled uniformly from the set of all features. The evolutionary coarsening algorithm was implemented in the DEAP framework \cite{fortin_deap_2012}.
 
 \begin{table}
     \caption{The atomic coarsening functions}
@@ -67,22 +67,22 @@ For the evolutionary coarsening, the experimental evaluation was conducted with 
         \toprule
         \textbf{Set \( \mathcal{C} \) of edges to contract}                                                                       & \textbf{Parameters}    \\
         \midrule
-        A random edge                                                                                                             &                        \\
-        A random edge incident to the highest degree node                                                                         &                        \\
-        Edges of a random triangle                                                                                                &                        \\
-        The edge whose incident nodes share the most common neighbours                                                            &                        \\
-        The edge whose incident nodes share the least common neighbours                                                           &                        \\
-        A random edge whose incident nodes are adjacent to the highest degree node                                                &                        \\
-        A random node of degree at least \( d_\mathrm{lower} \) and its random neighbour                                          & \( d_\mathrm{lower} \) \\
-        A random node of degree at most \( d_\mathrm{upper} \) and its random neighbour                                           & \( d_\mathrm{upper} \) \\
-        The edge whose incident nodes have the most neighbours in total                                                           &                        \\
-        The edge whose incident nodes have the least neighbours in total                                                          &                        \\
-        The edge whose incident nodes have the most similar \( k \)-th feature                                                    & \( k \)                \\
-        The edge whose incident nodes have the least similar \( l \)-th feature                                                   & \( l \)                \\
-        The edge whose incident nodes have the most similar features under the \( L^2 \) distance                                 &                        \\
-        The edge whose incident nodes have the least similar features under the \( L^2 \) distance                             &                        \\
-        The edge whose incident nodes have the most similar features of their 1-hop neighbours (under the Hausdorff distance)     &                        \\
-        The edge whose incident nodes have the least similar features of their 1-hop neighbours (under the Hausdorff distance) &                        \\
+        A random edge                                                                                                              &                        \\
+        A random edge incident to the highest degree node                                                                          &                        \\
+        Edges of a random triangle                                                                                                 &                        \\
+        The edge whose incident nodes share the highest number of common neighbours                                                &                        \\
+        The edge whose incident nodes share the lowest number of common neighbours                                                 &                        \\
+        A random edge whose incident nodes are adjacent to the highest degree node                                                 &                        \\
+        A random node of degree at least \( d_\mathrm{lower} \) and its random neighbour                                           & \( d_\mathrm{lower} \) \\
+        A random node of degree at most \( d_\mathrm{upper} \) and its random neighbour                                            & \( d_\mathrm{upper} \) \\
+        The edge whose incident nodes have the most neighbours in total                                                            &                        \\
+        The edge whose incident nodes have the least neighbours in total                                                           &                        \\
+        The edge whose incident nodes have the most similar \( k \)-th feature                                                     & \( k \)                \\
+        The edge whose incident nodes have the least similar \( l \)-th feature                                                    & \( l \)                \\
+        The edge whose incident nodes have the most similar features under the \( L^2 \) distance                                  &                        \\
+        The edge whose incident nodes have the least similar features under the \( L^2 \) distance                             &                            \\
+        The edge whose incident nodes have the most similar features of their 1-hop neighbourhoods (under the Hausdorff distance)  &                        \\
+        The edge whose incident nodes have the least similar features of their 1-hop neighbourhoods (under the Hausdorff distance) &                        \\
         \bottomrule
     \end{tabularx}
 \end{table}
