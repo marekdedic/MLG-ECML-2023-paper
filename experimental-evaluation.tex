@@ -4,7 +4,7 @@
 
 \subsubsection{Datasets}
 
-The proposed methods were experimentally verified on several datasets. The datasets Cora and CiteSeer \cite{yang_revisiting_2016} were used with the \enquote{full} train-test split as in \cite{chen_fastgcn_2018}, as well as the Enzymes dataset \cite{morris_tudataset_2020}, where only the 100 largest datsets were selected and used for training, validation and testing with a random 60:20:20 split. Two larger datasets were also used, the DBLP dataset \cite{bojchevski_deep_2018} containing 17 716 nodes and 105 734 edges, and the PubMed dataset \cite{yang_revisiting_2016} containing 19 717 nodes and 88 648 edges.
+The proposed methods were experimentally verified on several datasets. The datasets Cora and CiteSeer \cite{yang_revisiting_2016} were used with the \enquote{full} train-test split as in \cite{chen_fastgcn_2018}, as well as the Enzymes dataset \cite{morris_tudataset_2020}, where only the 100 largest datsets were selected and used for training, validation and testing with a random 60:20:20 split. Two larger datasets were also used, the PubMed dataset \cite{yang_revisiting_2016} containing 19 717 nodes and 88 648 edges, and the DBLP dataset \cite{bojchevski_deep_2018} containing 17 716 nodes and 105 734 edges.
 
 \subsubsection{Methodology of experiments}
 
@@ -44,7 +44,7 @@ In order to study the effect of the adaptive prolongation, the adaptive prolonga
 \begin{figure}
   \centering
   \includegraphics[width = \linewidth]{images/adaptive-coarsening/adaptive-coarsening.pdf}
-  \caption{Downstream classifier accuracies at different steps of adaptive prolongation. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the shaded area denoting one standard deviation.}
+  \caption{Downstream classifier accuracies at different steps of adaptive prolongation using the basic HARP coarsening algorithm. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the solid line representing the mean and the shaded area denoting one standard deviation.}
   \label{fig:adaptive-coarsening}
 \end{figure}
 
@@ -54,17 +54,17 @@ The behaviour of the model somewhat differs between the used datasets. For each 
 
 \subsection{Comparison of coarsening approaches}
 
-To compare the proposed coarsening algorithms, the adaptive prolongation approach was used in conjuction with each of the algorithms. The algorithms were trained on the Enzymes, Cora and CiteSeer datasets. This limitation is due to the GDC algorithm, which constructs a dense matrix \( S \) as part of the process, which is computationally demanding. There exists an approximate version of the algorithm, however, it is currently not available for the chosen combination of diffusion, normalization and sparsification methods. An extension of this approximate solution to cover all combinations of these parameters is possible, however, outside the scope of this work.
+To compare the proposed coarsening algorithms, they were trained on the Enzymes, Cora and CiteSeer datasets. This limitation is due to the GDC algorithm, which constructs a dense matrix \( S \) as part of the process, which is computationally demanding. There exists an approximate version of the algorithm, however, it is currently not implemented for the chosen combination of diffusion, normalization and sparsification methods. An extension of this approximate solution to cover all combinations of these parameters is possible, however, outside the scope of this work.
 
-For GDC coarsening, only the top-\( k \) sparsification method produces reliable results as thresholding results in instability in the coarsening process, either collapsing the whole graph almost immediately, or not collapsing it at all. As for the other parameters, following \cite{gasteiger_diffusion_2019}, symmetric normalization was chosen for the input matrix and column normalization for the output matrix. Both of the diffusion methods propsed in \cite{gasteiger_diffusion_2019} were implemented with the recommended parameter values, that is the heat kernel was used with \( t = 5 \) and the Personalized PageRank algorithm with \( \alpha = 0.15 \).
+For GDC coarsening, only the top-\( k \) sparsification method produces reliable results as thresholding leads to instability in the coarsening process, either collapsing the whole graph almost immediately, or not collapsing it at all. As for the other parameters, we followed \cite{gasteiger_diffusion_2019} and have chosen symmetric normalization for the input matrix and column normalization for the output matrix. Both of the diffusion methods propsed in \cite{gasteiger_diffusion_2019} were implemented with the recommended parameter values, that is the heat kernel was used with the diffusion time \( t = 5 \) and the Personalized PageRank algorithm with the teleport probability \( \alpha = 0.15 \).
 
 For the evolutionary coarsening \todo{...}
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{images/coarsening-algorithms/coarsening-algorithms.pdf}
-  \caption{Downstream classifier accuracies at different steps of adaptive prolongation for different coarsening algorithms. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the shaded area denoting one standard deviation.}
+  \caption{Downstream classifier accuracies at different steps of adaptive prolongation for different coarsening algorithms. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the solid line representing the mean and the shaded area denoting one standard deviation.}
   \label{fig:coarsening-algorithms}
 \end{figure}
 
-The behaviour of the models again differs substantially between the datasets. As in the previous experiment, the Enzymes dataset contains a lot of noise and generally, the methods behave in a similar manner, retaining decent performance even with at the coarsest levels and only improving slightly as more data is available. At the same time, for both the Cora and the CiteSeer dataset, a clear trend emerges where the GDC coarsening quickly outperforms the original HARP coarsening, with PPR producing better results on Cora under heavy coarsening and both having similar behaviour on CiteSeer. As the algorithms see larger portions of the data, the margin shrinks until it vanishes completely. This suggests that is better able to preserve the global structure of the graph.\todo{EVA}
+The behaviour of the models (Figure \ref{fig:coarsening-algorithms}) again differs substantially between the datasets. As in the previous experiment, the Enzymes dataset contains a lot of noise and generally, the methods behave in a similar manner, retaining decent performance even with at the coarsest levels and only improving slightly as more data is available. At the same time, for both the Cora and the CiteSeer dataset, a clear trend emerges where the GDC coarsening quickly outperforms the original HARP coarsening, with PPR producing better results on Cora under heavy coarsening and both having similar behaviour on CiteSeer. The larger porions of the data the algorithms see, the more the margin shrinks until it vanishes completely. This suggests that the algorithm is able to better preserve the global structure of the graph over successive coarsenings.\todo{EVA}
