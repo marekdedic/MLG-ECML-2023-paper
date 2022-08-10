@@ -525,8 +525,23 @@ arXiv:2006.07739 [cs, stat]},
 }
 
 @inproceedings{prochazka_downstream_2022,
+	address = {Zuberec, Slovakia},
 	title = {Downstream {Task} {Aware} {Scalable} {Graph} {Size} {Reduction} for {Efficient} {GNN} {Application} on {Big} {Data}},
 	booktitle = {Submitted to {Information} {Technologies} - {Applications} and {Theory} ({ITAT} 2022)},
 	author = {Procházka, Pavel and Mareš, Michal and Dědič, Marek},
 	year = {2022},
+}
+
+@misc{kammer_space-efficient_2022,
+	title = {Space-{Efficient} {Graph} {Coarsening} with {Applications} to {Succinct} {Planar} {Encodings}},
+	url = {http://arxiv.org/abs/2205.06128},
+	doi = {10.48550/arXiv.2205.06128},
+	abstract = {We present a novel space-efficient graph coarsening technique for \$n\$-vertex planar graphs \$G\$, called {\textbackslash}textit\{cloud partition\}, which partitions the vertices \$V(G)\$ into disjoint sets \$C\$ of size \$O({\textbackslash}log n)\$ such that each \$C\$ induces a connected subgraph of \$G\$. Using this partition \${\textbackslash}mathcal\{P\}\$ we construct a so-called {\textbackslash}textit\{structure-maintaining minor\} \$F\$ of \$G\$ via specific contractions within the disjoint sets such that \$F\$ has \$O(n/{\textbackslash}log n)\$ vertices. The combination of \$(F, {\textbackslash}mathcal\{P\})\$ is referred to as a {\textbackslash}textit\{cloud decomposition\}. For planar graphs we show that a cloud decomposition can be constructed in \$O(n)\$ time and using \$O(n)\$ bits. Given a cloud decomposition \$(F, {\textbackslash}mathcal\{P\})\$ constructed for a planar graph \$G\$ we are able to find a balanced separator of \$G\$ in \$O(n/{\textbackslash}log n)\$ time. Contrary to related publications, we do not make use of an embedding of the planar input graph. We generalize our cloud decomposition from planar graphs to \$H\$-minor-free graphs for any fixed graph \$H\$. This allows us to construct the succinct encoding scheme for \$H\$-minor-free graphs due to Blelloch and Farzan (CPM 2010) in \$O(n)\$ time and \$O(n)\$ bits improving both runtime and space by a factor of \${\textbackslash}Theta({\textbackslash}log n)\$. As an additional application of our cloud decomposition we show that, for \$H\$-minor-free graphs, a tree decomposition of width \$O(n{\textasciicircum}\{1/2 + {\textbackslash}epsilon\})\$ for any \${\textbackslash}epsilon {\textgreater} 0\$ can be constructed in \$O(n)\$ bits and a time linear in the size of the tree decomposition. A similar result by Izumi and Otachi (ICALP 2020) constructs a tree decomposition of width \$O(k {\textbackslash}sqrt\{n\} {\textbackslash}log n)\$ for graphs of treewidth \$k {\textbackslash}leq {\textbackslash}sqrt\{n\}\$ in sublinear space and polynomial time.},
+	urldate = {2022-08-10},
+	publisher = {arXiv},
+	author = {Kammer, Frank and Meintrup, Johannes},
+	month = jun,
+	year = {2022},
+	note = {arXiv:2205.06128 [cs]},
+	keywords = {Computer Science - Data Structures and Algorithms},
 }
