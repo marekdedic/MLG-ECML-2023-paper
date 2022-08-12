@@ -98,7 +98,7 @@
 	month = feb,
 	year = {2021},
 	note = {arXiv: 2005.00687},
-	keywords = {Computer Science - Machine Learning, Computer Science - Social and Information Networks, Statistics - Machine Learning},
+	keywords = {Statistics - Machine Learning, Computer Science - Machine Learning, Computer Science - Social and Information Networks},
 }
 
 @misc{huang_combining_2020,
@@ -137,7 +137,7 @@
 	month = nov,
 	year = {2020},
 	note = {arXiv: 2004.11198},
-	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	keywords = {Statistics - Machine Learning, Computer Science - Machine Learning},
 }
 
 @inproceedings{paszke_pytorch_2019,
@@ -160,7 +160,7 @@
 	month = apr,
 	year = {2019},
 	note = {arXiv: 1903.02428},
-	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	keywords = {Statistics - Machine Learning, Computer Science - Machine Learning},
 }
 
 @incollection{tang_pte_2015,
@@ -212,7 +212,6 @@
 	author = {Yang, Zhilin and Cohen, William and Salakhudinov, Ruslan},
 	month = jun,
 	year = {2016},
-	note = {ISSN: 1938-7228},
 	pages = {40--48},
 }
 
@@ -519,7 +518,7 @@ arXiv:2006.07739 [cs, stat]},
 @inproceedings{prochazka_downstream_2022,
 	address = {Zuberec, Slovakia},
 	title = {Downstream {Task} {Aware} {Scalable} {Graph} {Size} {Reduction} for {Efficient} {GNN} {Application} on {Big} {Data}},
-	booktitle = {Submitted to {Information} {Technologies} - {Applications} and {Theory} ({ITAT} 2022)},
+	booktitle = {Information {Technologies} - {Applications} and {Theory} ({ITAT} 2022)},
 	author = {Procházka, Pavel and Mareš, Michal and Dědič, Marek},
 	year = {2022},
 }
@@ -534,4 +533,18 @@ arXiv:2006.07739 [cs, stat]},
 	year = {2022},
 	note = {arXiv:2205.06128},
 	keywords = {Computer Science - Data Structures and Algorithms},
+}
+
+@misc{liu_comprehensive_2022,
+	title = {Comprehensive {Graph} {Gradual} {Pruning} for {Sparse} {Training} in {Graph} {Neural} {Networks}},
+	abstract = {Graph Neural Networks (GNNs) tend to suffer from high computation costs due to the exponentially increasing scale of graph data and the number of model parameters, which restricts their utility in practical applications. To this end, some recent works focus on sparsifying GNNs with the lottery ticket hypothesis (LTH) to reduce inference costs while maintaining performance levels. However, the LTH-based methods suffer from two major drawbacks: 1) they require exhaustive and iterative training of dense models, resulting in an extremely large training computation cost, and 2) they only trim graph structures and model parameters but ignore the node feature dimension, where significant redundancy exists. To overcome the above limitations, we propose a comprehensive graph gradual pruning framework termed CGP. This is achieved by designing a during-training graph pruning paradigm to dynamically prune GNNs within one training process. Unlike LTH-based methods, the proposed CGP approach requires no re-training, which significantly reduces the computation costs. Furthermore, we design a co-sparsifying strategy to comprehensively trim all three core elements of GNNs: graph structures, node features, and model parameters. Meanwhile, aiming at refining the pruning operation, we introduce a regrowth process into our CGP framework, in order to re-establish the pruned but important connections. The proposed CGP is evaluated by using a node classification task across 6 GNN architectures, including shallow models (GCN and GAT), shallow-but-deep-propagation models (SGC and APPNP), and deep models (GCNII and ResGCN), on a total of 14 real-world graph datasets, including large-scale graph datasets from the challenging Open Graph Benchmark. Experiments reveal that our proposed strategy greatly improves both training and inference efficiency while matching or even exceeding the accuracy of existing methods.},
+	language = {en},
+	urldate = {2022-08-12},
+	publisher = {arXiv},
+	author = {Liu, Chuang and Ma, Xueqi and Zhan, Yibing and Ding, Liang and Tao, Dapeng and Du, Bo and Hu, Wenbin and Mandic, Danilo},
+	month = jul,
+	year = {2022},
+	note = {arXiv:2207.08629},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning},
+	file = {Liu et al. - 2022 - Comprehensive Graph Gradual Pruning for Sparse Tra.pdf:/home/cisco/Zotero/storage/N7N2RGPM/Liu et al. - 2022 - Comprehensive Graph Gradual Pruning for Sparse Tra.pdf:application/pdf},
 }
