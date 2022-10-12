@@ -1,26 +1,32 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \input{preamble.tex}
 
 \begin{document}
 
-\copyrightyear{2022}
-\copyrightclause{Use permitted under Creative Commons License Attribution 4.0 International (CC BY 4.0).}
+\title[Adaptive graph coarsening in the context of local graph quality]{Adaptive graph coarsening in the context of local graph quality}% TODO: New name
 
-\conference{Data and Model Quality for Mining and Learning with Graphs: Methods and Open Challenges
-@ECML-PKDD 2022, September 23, 2022, Grenoble, France}
+\author*[1,2]{\fnm{Marek} \sur{Dědič}}\email{marek@dedic.eu}
 
-\title{Adaptive graph coarsening in the context of local graph quality}
-\author[1,2]{Marek Dědič}[email=marek@dedic.eu,url=https://dedic.eu,orcid=0000-0003-1021-8428]
-\cormark[1]
-\author[2]{Lukáš Bajer}[email=lubajer@cisco.com,orcid=0000-0002-9402-6417]
-\author[2]{Jakub Repický}[email=jrepicky@cisco.com,orcid=0000-0002-3695-1727]
-\author[2]{Pavel Procházka}[email=paprocha@cisco.com]
-\author[3]{Martin Holeňa}[email=martin@cs.cas.cz,url=http://cs.cas.cz/~martin,orcid=0000-0002-2536-9328]
+\author[2]{\fnm{Lukáš} \sur{Bajer}}\email{lubajer@cisco.com}
 
-\address[1]{Czech Technical University in Prague, Břehová 7, Prague, Czech Republic}
-\address[2]{Cisco Systems, Inc., Karlovo náměstı́ 10, Prague, Czech Republic}
-\address[3]{Institute of Computer Science, Czech Academy of Sciences, Pod vodárenskou věží 2, Prague, Czech Republic}
+\author[2]{\fnm{Jakub} \sur{Repický}}\email{jrepicky@cisco.com}
+\author[2]{\fnm{Pavel} \sur{Procházka}}\email{paprocha@cisco.com}
+\author[3]{\fnm{Martin} \sur{Holeňa}}\email{martin@cs.cas.cz}
 
-\cortext[1]{Corresponding author.}
+\affil[1]{\orgdiv{Faculty of Nuclear Sciences and Physical Engineering}, \orgname{Czech Technical University in Prague}, \orgaddress{\street{Břehová 7}, \city{Prague}, \postcode{110 00}, \country{Czech Republic}}}
+
+\affil[2]{\orgdiv{Cognitive Intelligence}, \orgname{Cisco Systems, Inc.}, \orgaddress{\street{Karlovo náměstí 10}, \city{Prague}, \postcode{120 00}, \country{Czech Republic}}}
+
+\affil[3]{\orgdiv{Institute of Computer Science}, \orgname{Czech Academy of Sciences}, \orgaddress{\street{Pod vodárenskou věží 2}, \city{Prague}, \postcode{182 00}, \country{Czech Republic}}}
 
 \input{abstract.tex}
 
@@ -33,10 +39,14 @@
 \input{experimental-evaluation.tex}
 \input{conclusion.tex}
 
-\begin{acknowledgments}
-  The research reported in this paper has been supported by the German Research Foundation (DFG) funded project 467401796.
-\end{acknowledgments}
+\bmhead{Acknowledgments}
 
-\bibliography{zotero}
+The research reported in this paper has been supported by the German Research Foundation (DFG) funded project 467401796.
+
+\section*{Declarations}
+
+Not applicable.
+
+\bibliography{zotero}% common bib file
 
 \end{document}

@@ -1,21 +1,34 @@
-\documentclass{ceurart}
+\documentclass[sn-mathphys,iicol,pdflatex]{sn-jnl}% Math and Physical Sciences Reference Style
 
-\sloppy
-
+%%%% Standard Packages
 \usepackage{polyglossia} % Must come before biblatex
 %\usepackage{todonotes}
 
-\usepackage{algorithm}
-%\usepackage{algorithmicx}
-\usepackage{algpseudocode}
 \usepackage{bm}
 \usepackage{csquotes}
 \usepackage{fontspec}
-%\usepackage{minted}
 \usepackage{hyperref}
 \usepackage{tabularx}
+%%%%
 
-%\setminted{breaklines=true}
+\jyear{2022}
+
+%% as per the requirement new theorem styles can be included as shown below
+%%\theoremstyle{thmstyleone}%
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+%%\newtheorem{proposition}[theorem]{Proposition}%
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+%%\theoremstyle{thmstyletwo}%
+%%\newtheorem{example}{Example}%
+%%\newtheorem{remark}{Remark}%
+
+%%\theoremstyle{thmstylethree}%
+%%\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
 
 \setmainfont{TeX Gyre Termes}
 \setdefaultlanguage{english}
