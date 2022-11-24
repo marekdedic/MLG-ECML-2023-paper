@@ -82,9 +82,16 @@ using the notation of a general graph coarsening presented in Section \ref{sec:c
 
 In principle, the authors of GDC define the generalized graph diffusion matrix
 \begin{equation}\label{eq:gdc-matrix}
-  \mathmat{S} = \sum_{k = 1}^\infty \theta_k \mathmat{T}^k
+    \hat{\mathmat{S}} = \sum_{k = 1}^\infty \theta_k \mathmat{T}^k
 \end{equation}
-such that the power series converges. The parameters \( \theta_k \) together with the generalized transition matrix \( \mathmat{T} \) define the exact way in which the diffusion is achieved. Among the choices for \( \mathmat{T} \) is the random walk transition matrix \( \mathmat{T}_ \mathrm{rw} = \mathmat{A} \mathmat{D}^{-1} \) and the symmetric transition matrix \( \mathmat{T}_\mathrm{sym} = \mathmat{D}^{-\frac{1}{2}} \mathmat{A} \mathmat{D}^{-\frac{1}{2}} \) where \( \mathmat{D} \) is the diagonal matrix of node degrees. Two special cases of this general schema are the Personalized PageRank algorithm (PPR) \cite{page_pagerank_1999} and the heat kernel \cite{kondor_diffusion_2002}.
+such that the power series converges. The parameters \( \theta_k \) together with the generalized transition matrix \( \mathmat{T} \) define the exact way in which the diffusion is achieved. Among the choices for \( \mathmat{T} \) is the random walk transition matrix \( \mathmat{T}_ \mathrm{rw} = \mathmat{A} \mathmat{D}^{-1} \) and the symmetric transition matrix \( \mathmat{T}_\mathrm{sym} = \mathmat{D}^{-\frac{1}{2}} \mathmat{A} \mathmat{D}^{-\frac{1}{2}} \) where \( \mathmat{D} \) is the diagonal matrix of node degrees. Two special cases of this general schema are the Personalized PageRank algorithm (PPR) \cite{page_pagerank_1999} and the heat kernel \cite{kondor_diffusion_2002}. PPR correspond to choosing
+\[ \mathmat{T} = \mathmat{T}_\mathrm{rw} \]
+\[ \theta_k = \alpha \left( 1 - \alpha \right)^k \]
+where the parameter \( \alpha \in \left( 0, 1 \right) \) is called the teleport probability. The heat kernel corresponds to choosing
+\[ \mathmat{T} = \mathmat{T}_\mathrm{rw} \]
+\[ \theta_k = e^{-t} \frac{t^k}{k!} \]
+with the parameter \( t \) being called the diffusion time. For both of these special cases, Equation \ref{eq:gdc-matrix} has a closed-form solution.
+
 The result of most diffusion processes (including PPR and the heat kernel) is a dense matrix \( \mathmat{S} \), which then needs to be sparsified. In GDC, two methods of sparsification are considered -- thresholding the matrix values and selecting top-\( k \) entries for each column of the matrix. After sparsification, the transition matrix is normalized in a similar way as the input adjacency matrix, i.e. by rows, columns or symmetrically, thus finally producing \( \hat{\mathmat{S}} \).
 
 \subsubsection{Evolved coarsening}
