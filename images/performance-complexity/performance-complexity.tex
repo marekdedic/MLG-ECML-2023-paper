@@ -1,0 +1,48 @@
+\RequirePackage{luatex85}
+\documentclass[tikz]{standalone}
+% Default preamble
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{polar}
+\usepgfplotslibrary{smithchart}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{dateplot}
+\usepgfplotslibrary{ternary}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+    layers/standard/.define layer set={%
+        background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+    }{
+        grid style={/pgfplots/on layer=axis grid},%
+        tick style={/pgfplots/on layer=axis ticks},%
+        axis line style={/pgfplots/on layer=axis lines},%
+        label style={/pgfplots/on layer=axis descriptions},%
+        legend style={/pgfplots/on layer=axis descriptions},%
+        title style={/pgfplots/on layer=axis descriptions},%
+        colorbar style={/pgfplots/on layer=axis descriptions},%
+        ticklabel style={/pgfplots/on layer=axis tick labels},%
+        axis background@ style={/pgfplots/on layer=axis background},%
+        3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzset{point/.style={circle, fill=black, draw=black, inner sep=1pt, minimum size=1ex}}
+\tikzset{b/.style={rectangle, fill=black, draw=black, inner sep=1pt, minimum size=1ex}}
+\draw[->] (0,0) -- (7,0) node [pos=1, yshift=-2ex,, fill=white, inner sep=2px] {$C$};
+\draw[->] (0,0) -- (0,5) node [pos=1, xshift=-2ex, fill=white, inner sep=2px] {$P$};
+
+\node[point] at (1,1) (p1) {}; \node[above of=p1, node distance=3ex] {G4};
+\node[point] at (3,2) (p2) {}; \node[above of=p2, node distance=3ex] {G3};
+\node[point] at (4,3) (p3) {}; \node[above of=p3, node distance=3ex] {G2};
+\node[point] at (5,3.5) (p4) {}; \node[above of=p4, node distance=3ex] {G1};
+\node[point] at (6,4) (p5) {}; \node[above of=p5, node distance=3ex] {G0};
+
+\draw[-] (p1) -- (p2) -- (p3) -- (p4) -- (p5);
+\end{tikzpicture}
+\end{document}
