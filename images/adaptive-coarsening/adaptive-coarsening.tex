@@ -14,24 +14,25 @@
 \usepgfplotslibrary{patchplots}
 \usepgfplotslibrary{fillbetween}
 \pgfplotsset{%
-layers/standard/.define layer set={%
-    background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
-}{grid style= {/pgfplots/on layer=axis grid},%
-    tick style= {/pgfplots/on layer=axis ticks},%
-    axis line style= {/pgfplots/on layer=axis lines},%
-    label style= {/pgfplots/on layer=axis descriptions},%
-    legend style= {/pgfplots/on layer=axis descriptions},%
-    title style= {/pgfplots/on layer=axis descriptions},%
-    colorbar style= {/pgfplots/on layer=axis descriptions},%
-    ticklabel style= {/pgfplots/on layer=axis tick labels},%
-    axis background@ style={/pgfplots/on layer=axis background},%
-    3d box foreground style={/pgfplots/on layer=axis foreground},%
+    layers/standard/.define layer set={%
+        background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+    }{
+        grid style={/pgfplots/on layer=axis grid},%
+        tick style={/pgfplots/on layer=axis ticks},%
+        axis line style={/pgfplots/on layer=axis lines},%
+        label style={/pgfplots/on layer=axis descriptions},%
+        legend style={/pgfplots/on layer=axis descriptions},%
+        title style={/pgfplots/on layer=axis descriptions},%
+        colorbar style={/pgfplots/on layer=axis descriptions},%
+        ticklabel style={/pgfplots/on layer=axis tick labels},%
+        axis background@ style={/pgfplots/on layer=axis background},%
+        3d box foreground style={/pgfplots/on layer=axis foreground},%
     },
 }
 
 \begin{document}
 \begin{tikzpicture}[/tikz/background rectangle/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}}, show background rectangle]
-\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={Classification accuracy}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
+\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}, align={center}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={Classification accuracy}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
     \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.2}, mark={none}, forget plot]
         coordinates {
             (3.330322871980131,49.819412529468536)
@@ -134,7 +135,7 @@ layers/standard/.define layer set={%
             (3.330322871980131,49.819412529468536)
         }
         ;
-    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={75c29ef2-20d3-479c-8a55-1f4c69ab67fb}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={dd7a0967-b6f0-44e8-bdb8-7450a9207b39}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -166,7 +167,7 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {DBLP}
-    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={3ac8e12c-9f05-4b13-8c3f-c396fec64ff8}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={a7da7e0e-1a93-426a-8aef-74388d656f52}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -296,7 +297,7 @@ layers/standard/.define layer set={%
             (2.9542097488921715,34.16000008583069)
         }
         ;
-    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={9d039c54-b0de-4b48-863a-121fdc361235}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={351601db-9d97-4cbc-bed7-fb36812b34bc}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -333,7 +334,7 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {Cora}
-    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={33c4bb1d-2d8d-47e9-b7c7-6e5862b452a7}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={2be624e8-fd2f-4a34-879b-8012fceb70df}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -435,7 +436,7 @@ layers/standard/.define layer set={%
             (13.255184851217313,36.859999895095825)
         }
         ;
-    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={d5a3a74f-1f37-4498-adff-d97e4d4db11e}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={79422b41-69e0-4b37-9b72-614d25999901}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -465,7 +466,7 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {CiteSeer}
-    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={0b6a1a04-c212-4b8b-961c-1d142740ac27}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={c5a3a029-1e0d-4af1-8a61-05996526b725}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -473,8 +474,400 @@ layers/standard/.define layer set={%
             100.0  67.66999959945679  \\
         }
         ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6658;blue,0.681}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.014035087719298246,53.1837323307991)
+            (0.3649122807017544,53.688639402389526)
+            (1.768421052631579,53.12762975692748)
+            (3.1719298245614036,53.39410960674286)
+            (4.575438596491228,52.66479551792145)
+            (5.978947368421053,53.80084097385407)
+            (7.382456140350877,53.338008522987366)
+            (8.785964912280702,53.99719476699829)
+            (10.189473684210526,52.664796113967896)
+            (11.592982456140351,53.36605906486511)
+            (12.996491228070175,53.099579215049744)
+            (14.4,53.73071551322936)
+            (15.803508771929824,53.43618512153625)
+            (17.20701754385965,53.75876545906066)
+            (18.610526315789475,53.0575031042099)
+            (20.014035087719297,53.057504296302795)
+            (21.417543859649122,53.309957385063164)
+            (22.821052631578947,54.05329585075378)
+            (24.224561403508773,54.17952239513397)
+            (25.628070175438598,54.20757412910462)
+            (27.03157894736842,54.109397530555725)
+            (28.435087719298245,54.081345796585076)
+            (29.83859649122807,55.17531394958496)
+            (31.242105263157896,55.02103805541992)
+            (32.64561403508772,54.72650766372681)
+            (34.04912280701755,55.091164708137505)
+            (35.45263157894737,55.45582115650177)
+            (36.85614035087719,55.6942492723465)
+            (38.25964912280702,55.84852695465088)
+            (39.66315789473684,55.49789547920228)
+            (41.06666666666667,55.82047700881958)
+            (42.47017543859649,55.84852755069733)
+            (43.873684210526314,55.89060366153718)
+            (45.27719298245614,55.694249868392944)
+            (46.680701754385964,56.17110788822174)
+            (48.084210526315786,55.97475469112396)
+            (49.487719298245615,55.80645143985748)
+            (50.89122807017544,56.479663848876946)
+            (52.294736842105266,55.39971888065338)
+            (53.69824561403509,56.325386166572564)
+            (55.10175438596491,57.18092620372772)
+            (56.50526315789474,56.5918642282486)
+            (57.90877192982456,57.20897555351257)
+            (59.31228070175439,57.61570870876312)
+            (60.71578947368421,57.76998698711395)
+            (62.11929824561403,57.096774578094475)
+            (63.52280701754386,57.57363200187683)
+            (64.92631578947369,57.138850688934326)
+            (66.32982456140351,57.48948097229004)
+            (67.73333333333333,57.068724036216736)
+            (69.13684210526316,57.307152152061455)
+            (70.54035087719298,58.07854175567627)
+            (71.94385964912281,58.2468444108963)
+            (73.34736842105264,56.83029413223266)
+            (74.75087719298246,57.9102385044098)
+            (76.15438596491228,57.50350534915925)
+            (77.5578947368421,59.21458601951599)
+            (78.96140350877192,59.537166357040405)
+            (80.36491228070176,59.49509084224701)
+            (81.76842105263158,58.45722258090973)
+            (83.1719298245614,58.37307095527648)
+            (84.57543859649122,57.64375805854798)
+            (85.97894736842105,58.61150026321411)
+            (87.38245614035088,58.877981305122375)
+            (88.7859649122807,59.102383852005005)
+            (90.18947368421053,58.68162691593171)
+            (91.59298245614035,59.31276321411133)
+            (92.99649122807017,58.62552702426911)
+            (94.4,59.62131917476654)
+            (95.80350877192983,58.75175356864929)
+            (97.20701754385965,58.89200508594513)
+            (98.61052631578947,58.61150026321411)
+            (100.0,59.48106646537781)
+            (100.0,58.279196668361934)
+            (98.61052631578947,56.80756003085707)
+            (97.20701754385965,57.20320663997134)
+            (95.80350877192983,58.03828578932224)
+            (94.4,58.038059837510765)
+            (92.99649122807017,56.77192914292685)
+            (91.59298245614035,57.460993649678215)
+            (90.18947368421053,56.69683577882915)
+            (88.7859649122807,57.42690283189582)
+            (87.38245614035088,57.369154471858884)
+            (85.97894736842105,56.955373398934555)
+            (84.57543859649122,55.681337630096024)
+            (83.1719298245614,57.18519582997635)
+            (81.76842105263158,57.74268509465577)
+            (80.36491228070176,57.91826357372157)
+            (78.96140350877192,57.76402150156612)
+            (77.5578947368421,58.054638295523205)
+            (76.15438596491228,56.115076637310835)
+            (74.75087719298246,56.473154630907175)
+            (73.34736842105264,55.3610980657422)
+            (71.94385964912281,56.825665886323186)
+            (70.54035087719298,56.46655267215949)
+            (69.13684210526316,55.8903635635245)
+            (67.73333333333333,55.64232558411089)
+            (66.32982456140351,55.43196654400501)
+            (64.92631578947369,55.37813793529762)
+            (63.52280701754386,56.077241893064716)
+            (62.11929824561403,55.124964598791934)
+            (60.71578947368421,55.92058053229116)
+            (59.31228070175439,56.61563426993057)
+            (57.90877192982456,54.9030178493452)
+            (56.50526315789474,54.412804113525176)
+            (55.10175438596491,56.01862487775103)
+            (53.69824561403509,54.595985258888646)
+            (52.294736842105266,54.23188423995027)
+            (50.89122807017544,55.01009688127956)
+            (49.487719298245615,54.565218850338326)
+            (48.084210526315786,54.04779287146718)
+            (46.680701754385964,54.94084219283836)
+            (45.27719298245614,53.869829458644155)
+            (43.873684210526314,53.324626535047194)
+            (42.47017543859649,54.4525631892097)
+            (41.06666666666667,54.02802280024784)
+            (39.66315789473684,53.86623162083208)
+            (38.25964912280702,53.563181883188136)
+            (36.85614035087719,53.2592093733757)
+            (35.45263157894737,53.37533154144708)
+            (34.04912280701755,53.36226999229661)
+            (32.64561403508772,52.54388967367186)
+            (31.242105263157896,53.601397850180206)
+            (29.83859649122807,53.16752992040982)
+            (28.435087719298245,51.4102415413847)
+            (27.03157894736842,51.65794320556131)
+            (25.628070175438598,52.417255603989446)
+            (24.224561403508773,52.18610537505951)
+            (22.821052631578947,52.38435032253825)
+            (21.417543859649122,51.99020959894349)
+            (20.014035087719297,51.0411940640317)
+            (18.610526315789475,51.696018698011564)
+            (17.20701754385965,52.5467558694729)
+            (15.803508771929824,51.09117709797556)
+            (14.4,51.74125003686576)
+            (12.996491228070175,50.43174903044586)
+            (11.592982456140351,51.04140980376082)
+            (10.189473684210526,50.93154553811429)
+            (8.785964912280702,52.569954630999675)
+            (7.382456140350877,51.68505207179752)
+            (5.978947368421053,52.41209866414188)
+            (4.575438596491228,51.3470359697573)
+            (3.1719298245614036,52.15358202867432)
+            (1.768421052631579,51.50435918945637)
+            (0.3649122807017544,52.526808703191456)
+            (0.014035087719298246,51.75373707498686)
+            (0.014035087719298246,53.1837323307991)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6658;blue,0.681}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.014035087719298246,53.1837323307991)
+            (0.3649122807017544,53.688639402389526)
+            (1.768421052631579,53.12762975692748)
+            (3.1719298245614036,53.39410960674286)
+            (4.575438596491228,52.66479551792145)
+            (5.978947368421053,53.80084097385407)
+            (7.382456140350877,53.338008522987366)
+            (8.785964912280702,53.99719476699829)
+            (10.189473684210526,52.664796113967896)
+            (11.592982456140351,53.36605906486511)
+            (12.996491228070175,53.099579215049744)
+            (14.4,53.73071551322936)
+            (15.803508771929824,53.43618512153625)
+            (17.20701754385965,53.75876545906066)
+            (18.610526315789475,53.0575031042099)
+            (20.014035087719297,53.057504296302795)
+            (21.417543859649122,53.309957385063164)
+            (22.821052631578947,54.05329585075378)
+            (24.224561403508773,54.17952239513397)
+            (25.628070175438598,54.20757412910462)
+            (27.03157894736842,54.109397530555725)
+            (28.435087719298245,54.081345796585076)
+            (29.83859649122807,55.17531394958496)
+            (31.242105263157896,55.02103805541992)
+            (32.64561403508772,54.72650766372681)
+            (34.04912280701755,55.091164708137505)
+            (35.45263157894737,55.45582115650177)
+            (36.85614035087719,55.6942492723465)
+            (38.25964912280702,55.84852695465088)
+            (39.66315789473684,55.49789547920228)
+            (41.06666666666667,55.82047700881958)
+            (42.47017543859649,55.84852755069733)
+            (43.873684210526314,55.89060366153718)
+            (45.27719298245614,55.694249868392944)
+            (46.680701754385964,56.17110788822174)
+            (48.084210526315786,55.97475469112396)
+            (49.487719298245615,55.80645143985748)
+            (50.89122807017544,56.479663848876946)
+            (52.294736842105266,55.39971888065338)
+            (53.69824561403509,56.325386166572564)
+            (55.10175438596491,57.18092620372772)
+            (56.50526315789474,56.5918642282486)
+            (57.90877192982456,57.20897555351257)
+            (59.31228070175439,57.61570870876312)
+            (60.71578947368421,57.76998698711395)
+            (62.11929824561403,57.096774578094475)
+            (63.52280701754386,57.57363200187683)
+            (64.92631578947369,57.138850688934326)
+            (66.32982456140351,57.48948097229004)
+            (67.73333333333333,57.068724036216736)
+            (69.13684210526316,57.307152152061455)
+            (70.54035087719298,58.07854175567627)
+            (71.94385964912281,58.2468444108963)
+            (73.34736842105264,56.83029413223266)
+            (74.75087719298246,57.9102385044098)
+            (76.15438596491228,57.50350534915925)
+            (77.5578947368421,59.21458601951599)
+            (78.96140350877192,59.537166357040405)
+            (80.36491228070176,59.49509084224701)
+            (81.76842105263158,58.45722258090973)
+            (83.1719298245614,58.37307095527648)
+            (84.57543859649122,57.64375805854798)
+            (85.97894736842105,58.61150026321411)
+            (87.38245614035088,58.877981305122375)
+            (88.7859649122807,59.102383852005005)
+            (90.18947368421053,58.68162691593171)
+            (91.59298245614035,59.31276321411133)
+            (92.99649122807017,58.62552702426911)
+            (94.4,59.62131917476654)
+            (95.80350877192983,58.75175356864929)
+            (97.20701754385965,58.89200508594513)
+            (98.61052631578947,58.61150026321411)
+            (100.0,59.48106646537781)
+            (100.0,60.68293626239368)
+            (98.61052631578947,60.415440495571154)
+            (97.20701754385965,60.58080353191892)
+            (95.80350877192983,59.465221347976346)
+            (94.4,61.204578512022316)
+            (92.99649122807017,60.47912490561137)
+            (91.59298245614035,61.16453277854444)
+            (90.18947368421053,60.66641805303427)
+            (88.7859649122807,60.777864872114186)
+            (87.38245614035088,60.38680813838587)
+            (85.97894736842105,60.26762712749367)
+            (84.57543859649122,59.60617848699994)
+            (83.1719298245614,59.56094608057661)
+            (81.76842105263158,59.17176006716369)
+            (80.36491228070176,61.07191811077245)
+            (78.96140350877192,61.31031121251469)
+            (77.5578947368421,60.37453374350878)
+            (76.15438596491228,58.89193406100766)
+            (74.75087719298246,59.34732237791242)
+            (73.34736842105264,58.29949019872312)
+            (71.94385964912281,59.668022935469416)
+            (70.54035087719298,59.69053083919305)
+            (69.13684210526316,58.72394074059841)
+            (67.73333333333333,58.49512248832258)
+            (66.32982456140351,59.54699540057507)
+            (64.92631578947369,58.89956344257103)
+            (63.52280701754386,59.070022110688946)
+            (62.11929824561403,59.06858455739702)
+            (60.71578947368421,59.619393441936744)
+            (59.31228070175439,58.61578314759568)
+            (57.90877192982456,59.51493325767995)
+            (56.50526315789474,58.77092434297203)
+            (55.10175438596491,58.343227529704414)
+            (53.69824561403509,58.05478707425648)
+            (52.294736842105266,56.567553521356494)
+            (50.89122807017544,57.94923081647433)
+            (49.487719298245615,57.04768402937664)
+            (48.084210526315786,57.901716510780744)
+            (46.680701754385964,57.40137358360512)
+            (45.27719298245614,57.518670278141734)
+            (43.873684210526314,58.45658078802716)
+            (42.47017543859649,57.244491912184955)
+            (41.06666666666667,57.61293121739132)
+            (39.66315789473684,57.12955933757247)
+            (38.25964912280702,58.13387202611362)
+            (36.85614035087719,58.129289171317296)
+            (35.45263157894737,57.53631077155646)
+            (34.04912280701755,56.8200594239784)
+            (32.64561403508772,56.90912565378175)
+            (31.242105263157896,56.44067826065964)
+            (29.83859649122807,57.1830979787601)
+            (28.435087719298245,56.75245005178545)
+            (27.03157894736842,56.56085185555014)
+            (25.628070175438598,55.9978926542198)
+            (24.224561403508773,56.17293941520843)
+            (22.821052631578947,55.7222413789693)
+            (21.417543859649122,54.62970517118284)
+            (20.014035087719297,55.07381452857389)
+            (18.610526315789475,54.418987510408236)
+            (17.20701754385965,54.97077504864843)
+            (15.803508771929824,55.781193145096935)
+            (14.4,55.72018098959297)
+            (12.996491228070175,55.76740939965363)
+            (11.592982456140351,55.6907083259694)
+            (10.189473684210526,54.3980466898215)
+            (8.785964912280702,55.42443490299691)
+            (7.382456140350877,54.99096497417721)
+            (5.978947368421053,55.189583283566265)
+            (4.575438596491228,53.982555066085595)
+            (3.1719298245614036,54.634637184811396)
+            (1.768421052631579,54.75090032439859)
+            (0.3649122807017544,54.8504701015876)
+            (0.014035087719298246,54.61372758661135)
+            (0.014035087719298246,53.1837323307991)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.6658;blue,0.681}, name path={ebbb06e1-eca2-404e-a823-b31b2a4ba0d9}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.0;green,0.6658;blue,0.681}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.014035087719298246  53.1837323307991  \\
+            0.3649122807017544  53.688639402389526  \\
+            1.768421052631579  53.12762975692748  \\
+            3.1719298245614036  53.39410960674286  \\
+            4.575438596491228  52.66479551792145  \\
+            5.978947368421053  53.80084097385407  \\
+            7.382456140350877  53.338008522987366  \\
+            8.785964912280702  53.99719476699829  \\
+            10.189473684210526  52.664796113967896  \\
+            11.592982456140351  53.36605906486511  \\
+            12.996491228070175  53.099579215049744  \\
+            14.4  53.73071551322936  \\
+            15.803508771929824  53.43618512153625  \\
+            17.20701754385965  53.75876545906066  \\
+            18.610526315789475  53.0575031042099  \\
+            20.014035087719297  53.057504296302795  \\
+            21.417543859649122  53.309957385063164  \\
+            22.821052631578947  54.05329585075378  \\
+            24.224561403508773  54.17952239513397  \\
+            25.628070175438598  54.20757412910462  \\
+            27.03157894736842  54.109397530555725  \\
+            28.435087719298245  54.081345796585076  \\
+            29.83859649122807  55.17531394958496  \\
+            31.242105263157896  55.02103805541992  \\
+            32.64561403508772  54.72650766372681  \\
+            34.04912280701755  55.091164708137505  \\
+            35.45263157894737  55.45582115650177  \\
+            36.85614035087719  55.6942492723465  \\
+            38.25964912280702  55.84852695465088  \\
+            39.66315789473684  55.49789547920228  \\
+            41.06666666666667  55.82047700881958  \\
+            42.47017543859649  55.84852755069733  \\
+            43.873684210526314  55.89060366153718  \\
+            45.27719298245614  55.694249868392944  \\
+            46.680701754385964  56.17110788822174  \\
+            48.084210526315786  55.97475469112396  \\
+            49.487719298245615  55.80645143985748  \\
+            50.89122807017544  56.479663848876946  \\
+            52.294736842105266  55.39971888065338  \\
+            53.69824561403509  56.325386166572564  \\
+            55.10175438596491  57.18092620372772  \\
+            56.50526315789474  56.5918642282486  \\
+            57.90877192982456  57.20897555351257  \\
+            59.31228070175439  57.61570870876312  \\
+            60.71578947368421  57.76998698711395  \\
+            62.11929824561403  57.096774578094475  \\
+            63.52280701754386  57.57363200187683  \\
+            64.92631578947369  57.138850688934326  \\
+            66.32982456140351  57.48948097229004  \\
+            67.73333333333333  57.068724036216736  \\
+            69.13684210526316  57.307152152061455  \\
+            70.54035087719298  58.07854175567627  \\
+            71.94385964912281  58.2468444108963  \\
+            73.34736842105264  56.83029413223266  \\
+            74.75087719298246  57.9102385044098  \\
+            76.15438596491228  57.50350534915925  \\
+            77.5578947368421  59.21458601951599  \\
+            78.96140350877192  59.537166357040405  \\
+            80.36491228070176  59.49509084224701  \\
+            81.76842105263158  58.45722258090973  \\
+            83.1719298245614  58.37307095527648  \\
+            84.57543859649122  57.64375805854798  \\
+            85.97894736842105  58.61150026321411  \\
+            87.38245614035088  58.877981305122375  \\
+            88.7859649122807  59.102383852005005  \\
+            90.18947368421053  58.68162691593171  \\
+            91.59298245614035  59.31276321411133  \\
+            92.99649122807017  58.62552702426911  \\
+            94.4  59.62131917476654  \\
+            95.80350877192983  58.75175356864929  \\
+            97.20701754385965  58.89200508594513  \\
+            98.61052631578947  58.61150026321411  \\
+            100.0  59.48106646537781  \\
+        }
+        ;
+    \addlegendentry {Twitch-EN}
+    \addplot[color={rgb,1:red,0.0;green,0.6658;blue,0.681}, name path={c5512566-b1c2-4dd4-9bc1-6d27fe65fae9}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.0  57.98036515712738  \\
+            100.0  57.98036515712738  \\
+        }
+        ;
 \end{axis}
-\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={77.2mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
+\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}, align={center}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={77.2mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
     \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, fill opacity={0.2}, mark={none}, forget plot]
         coordinates {
             (0.01014455997971088,41.05000019073486)
@@ -569,7 +962,7 @@ layers/standard/.define layer set={%
             (0.01014455997971088,41.05000019073486)
         }
         ;
-    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={99d3488d-036d-4f10-b168-88d6c57d91f2}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={ef7364e1-a269-46dc-a3c8-eabc73a329f9}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -599,7 +992,7 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {PubMed}
-    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={7da3f2da-f942-4556-acf6-22b37c4890a7}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={f73e716c-facd-4bb1-8479-c4dd2071bd71}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -609,124 +1002,1524 @@ layers/standard/.define layer set={%
         ;
     \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, fill opacity={0.2}, mark={none}, forget plot]
         coordinates {
-            (4.156171284634761,49.75592754781246)
-            (8.240374235336452,48.46209652721882)
-            (13.637999280316661,52.740543484687805)
-            (19.03562432529687,51.30439043045044)
-            (24.43324937027708,46.78911082446575)
-            (29.830874415257288,52.50978782773018)
-            (35.228499460237494,52.874505668878555)
-            (40.6261245052177,50.17901510000229)
-            (46.02374955019791,50.51744766533375)
-            (51.42137459517812,46.68012022972107)
-            (56.81899964015833,48.64555098116398)
-            (62.21662468513854,54.64853465557098)
-            (67.61424973011874,51.12244874238968)
-            (73.01187477509896,49.819060638546944)
-            (78.40949982007916,49.21539135277271)
-            (83.80712486505938,53.13032776117325)
-            (89.20474991003958,53.96137923002243)
-            (94.6023749550198,53.58343750238419)
-            (100.0,54.545288532972336)
-            (100.0,40.858127590567236)
-            (94.6023749550198,39.394503367994076)
-            (89.20474991003958,40.32857501917257)
-            (83.80712486505938,40.68611482880727)
-            (78.40949982007916,35.145403513756435)
-            (73.01187477509896,36.31735710440606)
-            (67.61424973011874,40.58992943499899)
-            (62.21662468513854,41.59089341852379)
-            (56.81899964015833,34.08300414594698)
-            (51.42137459517812,34.76116583963587)
-            (46.02374955019791,40.07252013296451)
-            (40.6261245052177,38.89859222276203)
-            (35.228499460237494,40.69475985800698)
-            (29.830874415257288,37.99112756890117)
-            (24.43324937027708,32.31578219347222)
-            (19.03562432529687,36.56258274217787)
-            (13.637999280316661,37.64064941625187)
-            (8.240374235336452,34.50298218721936)
-            (4.156171284634761,34.1972874466945)
-            (4.156171284634761,49.75592754781246)
+            (0.010528532322594231,59.79999899864197)
+            (1.0317961676142346,59.66315746307374)
+            (2.0846493998736575,59.91578936576843)
+            (3.1375026321330806,59.73684251308441)
+            (4.190355864392504,59.48421061038971)
+            (5.243209096651927,59.11578834056854)
+            (6.29606232891135,59.15789425373077)
+            (7.348915561170773,59.33684229850768)
+            (8.401768793430195,59.210527539253235)
+            (9.454622025689618,59.39999938011169)
+            (10.507475257949041,59.16842103004456)
+            (11.560328490208464,59.22105193138123)
+            (12.613181722467887,59.37894821166992)
+            (13.66603495472731,59.578947424888604)
+            (14.718888186986733,59.63157773017883)
+            (15.771741419246156,58.78947377204895)
+            (16.82459465150558,58.96842062473298)
+            (17.877447883765004,59.610525965690606)
+            (18.930301116024427,59.56842243671417)
+            (19.98315434828385,59.54736828804016)
+            (21.036007580543274,59.5894730091095)
+            (22.088860812802697,59.34736788272858)
+            (23.14171404506212,59.578947424888604)
+            (24.194567277321543,59.789472818374634)
+            (25.247420509580966,59.32631552219391)
+            (26.30027374184039,59.7473680973053)
+            (27.353126974099812,59.88421082496643)
+            (28.405980206359235,60.15789389610291)
+            (29.458833438618658,60.494737029075615)
+            (30.51168667087808,60.09473621845245)
+            (31.564539903137504,60.55789411067962)
+            (32.617393135396924,60.95789551734925)
+            (33.67024636765635,60.51578938961028)
+            (34.72309959991577,61.04210555553436)
+            (35.77595283217519,60.799999833107)
+            (36.828806064434616,61.115790009498596)
+            (37.88165929669404,60.72631478309631)
+            (38.93451252895346,61.45263135433196)
+            (39.987365761212885,60.978947281837456)
+            (41.04021899347231,61.10526382923126)
+            (42.09307222573173,61.378948092460625)
+            (43.145925457991154,61.65263116359711)
+            (44.19877869025058,62.15789556503296)
+            (45.25163192251,61.66315793991088)
+            (46.304485154769424,61.30526304244995)
+            (47.35733838702885,62.21052646636963)
+            (48.41019161928827,61.78947389125824)
+            (49.46304485154769,61.536842584609985)
+            (50.515898083807116,62.13684380054474)
+            (51.56875131606654,62.147368788719184)
+            (52.62160454832596,61.136842370033264)
+            (53.674457780585385,61.747367978096015)
+            (54.72731101284481,62.11578965187072)
+            (55.78016424510423,61.98947370052338)
+            (56.833017477363654,61.9789469242096)
+            (57.88587070962308,62.88420975208282)
+            (58.9387239418825,62.631579041481025)
+            (59.99157717414192,62.21052587032319)
+            (61.04443040640135,62.69473731517792)
+            (62.09728363866077,61.778947710990906)
+            (63.15013687092019,62.34736859798431)
+            (64.20299010317962,63.03157866001129)
+            (65.25584333543904,63.36842179298401)
+            (66.30869656769846,64.28421080112457)
+            (67.36154979995788,63.01052629947662)
+            (68.41440303221731,63.30526411533356)
+            (69.46725626447673,63.410525321960456)
+            (70.52010949673615,63.326315879821784)
+            (71.57296272899558,63.79999995231629)
+            (72.625815961255,64.40000116825104)
+            (73.67866919351442,63.91578912734985)
+            (74.73152242577385,64.45263147354126)
+            (75.78437565803327,63.87368381023407)
+            (76.83722889029269,64.88421082496643)
+            (77.89008212255212,64.14736807346344)
+            (78.94293535481154,64.34736728668213)
+            (79.99578858707096,64.51578974723816)
+            (81.04864181933038,64.61052596569061)
+            (82.10149505158981,65.45263230800629)
+            (83.15434828384923,64.31578993797302)
+            (84.20720151610865,64.44210410118103)
+            (85.26005474836808,65.6000006198883)
+            (86.3129079806275,64.63157713413239)
+            (87.36576121288692,64.6526312828064)
+            (88.41861444514635,64.58947360515594)
+            (89.47146767740577,65.50526320934296)
+            (90.52432090966519,65.2210533618927)
+            (91.57717414192462,65.52631616592407)
+            (92.63002737418404,65.90526282787323)
+            (93.68288060644346,65.48421144485474)
+            (94.73573383870288,65.60000002384186)
+            (95.78858707096231,65.40000021457672)
+            (96.84144030322173,65.90526342391968)
+            (97.89429353548115,65.1263153553009)
+            (98.94714676774058,66.06315672397614)
+            (100.0,65.17894744873047)
+            (100.0,63.59976614231147)
+            (98.94714676774058,65.22809797153583)
+            (97.89429353548115,63.83801802053405)
+            (96.84144030322173,64.3610446393198)
+            (95.78858707096231,64.09555845690379)
+            (94.73573383870288,64.04043170293626)
+            (93.68288060644346,64.16811873294981)
+            (92.63002737418404,64.4649984195083)
+            (91.57717414192462,64.56764406712934)
+            (90.52432090966519,64.30178228534237)
+            (89.47146767740577,64.00832846572295)
+            (88.41861444514635,63.19989423094416)
+            (87.36576121288692,62.96054431179107)
+            (86.3129079806275,63.17385228203498)
+            (85.26005474836808,64.66928233756974)
+            (84.20720151610865,62.69912363381082)
+            (83.15434828384923,63.24575814520405)
+            (82.10149505158981,63.96249892868594)
+            (81.04864181933038,63.29317104590227)
+            (79.99578858707096,63.4862773757308)
+            (78.94293535481154,63.228899759798125)
+            (77.89008212255212,62.86083912597854)
+            (76.83722889029269,63.49374470680508)
+            (75.78437565803327,62.80849605249139)
+            (74.73152242577385,62.90077876473773)
+            (73.67866919351442,62.77147781133547)
+            (72.625815961255,63.89444605600682)
+            (71.57296272899558,62.529601702173245)
+            (70.52010949673615,61.86842312282564)
+            (69.46725626447673,62.25188672709516)
+            (68.41440303221731,62.00635491284395)
+            (67.36154979995788,62.02907356756883)
+            (66.30869656769846,63.19248049462963)
+            (65.25584333543904,62.363661063140206)
+            (64.20299010317962,61.115648457274844)
+            (63.15013687092019,61.22670171825321)
+            (62.09728363866077,60.09002832900008)
+            (61.04443040640135,61.519219941259124)
+            (59.99157717414192,60.923232149136)
+            (58.9387239418825,60.792902098117615)
+            (57.88587070962308,61.427160732066156)
+            (56.833017477363654,60.50542982583979)
+            (55.78016424510423,60.68371046476572)
+            (54.72731101284481,60.529102840833765)
+            (53.674457780585385,60.99777082736222)
+            (52.62160454832596,59.53598115067217)
+            (51.56875131606654,61.036466246608114)
+            (50.515898083807116,61.201836500147465)
+            (49.46304485154769,60.61757120471882)
+            (48.41019161928827,60.772535377160544)
+            (47.35733838702885,60.5813061246257)
+            (46.304485154769424,60.51256015234187)
+            (45.25163192251,60.708926403619884)
+            (44.19877869025058,60.75680212261088)
+            (43.145925457991154,59.819956587808676)
+            (42.09307222573173,59.7899363497581)
+            (41.04021899347231,59.970188891905046)
+            (39.987365761212885,60.231240897838234)
+            (38.93451252895346,60.17320412475948)
+            (37.88165929669404,59.383366839141274)
+            (36.828806064434616,59.710352162050896)
+            (35.77595283217519,59.68688442496474)
+            (34.72309959991577,59.714834459856256)
+            (33.67024636765635,59.55173801019262)
+            (32.617393135396924,59.68266129584003)
+            (31.564539903137504,59.366925741599026)
+            (30.51168667087808,59.381755069847166)
+            (29.458833438618658,58.681649022915856)
+            (28.405980206359235,59.27824843220905)
+            (27.353126974099812,58.71578448774043)
+            (26.30027374184039,58.957778004736895)
+            (25.247420509580966,58.38194139814446)
+            (24.194567277321543,58.38333468971761)
+            (23.14171404506212,58.090301535251896)
+            (22.088860812802697,58.37904875234505)
+            (21.036007580543274,58.48273541520295)
+            (19.98315434828385,58.289043794693114)
+            (18.930301116024427,57.813018952029815)
+            (17.877447883765004,58.63303262921292)
+            (16.82459465150558,57.45695796943825)
+            (15.771741419246156,57.56970247127875)
+            (14.718888186986733,59.286895161039304)
+            (13.66603495472731,58.99391897169165)
+            (12.613181722467887,58.49902346662938)
+            (11.560328490208464,58.18706441540547)
+            (10.507475257949041,58.23288804326201)
+            (9.454622025689618,58.88899520199649)
+            (8.401768793430195,58.372452571637545)
+            (7.348915561170773,58.69357816614164)
+            (6.29606232891135,58.26058197247986)
+            (5.243209096651927,58.239017622521644)
+            (4.190355864392504,58.913132159365446)
+            (3.1375026321330806,59.35812189491093)
+            (2.0846493998736575,59.44035320627239)
+            (1.0317961676142346,59.33102641052222)
+            (0.010528532322594231,59.76671229393567)
+            (0.010528532322594231,59.79999899864197)
         }
         ;
     \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, fill opacity={0.2}, mark={none}, forget plot]
         coordinates {
-            (4.156171284634761,49.75592754781246)
-            (8.240374235336452,48.46209652721882)
-            (13.637999280316661,52.740543484687805)
-            (19.03562432529687,51.30439043045044)
-            (24.43324937027708,46.78911082446575)
-            (29.830874415257288,52.50978782773018)
-            (35.228499460237494,52.874505668878555)
-            (40.6261245052177,50.17901510000229)
-            (46.02374955019791,50.51744766533375)
-            (51.42137459517812,46.68012022972107)
-            (56.81899964015833,48.64555098116398)
-            (62.21662468513854,54.64853465557098)
-            (67.61424973011874,51.12244874238968)
-            (73.01187477509896,49.819060638546944)
-            (78.40949982007916,49.21539135277271)
-            (83.80712486505938,53.13032776117325)
-            (89.20474991003958,53.96137923002243)
-            (94.6023749550198,53.58343750238419)
-            (100.0,54.545288532972336)
-            (100.0,68.23244947537744)
-            (94.6023749550198,67.77237163677431)
-            (89.20474991003958,67.59418344087229)
-            (83.80712486505938,65.57454069353923)
-            (78.40949982007916,63.28537919178899)
-            (73.01187477509896,63.32076417268783)
-            (67.61424973011874,61.654968049780365)
-            (62.21662468513854,67.70617589261816)
-            (56.81899964015833,63.20809781638098)
-            (51.42137459517812,58.59907461980627)
-            (46.02374955019791,60.96237519770298)
-            (40.6261245052177,61.459437977242544)
-            (35.228499460237494,65.05425147975012)
-            (29.830874415257288,67.0284480865592)
-            (24.43324937027708,61.26243945545929)
-            (19.03562432529687,66.04619811872301)
-            (13.637999280316661,67.84043755312373)
-            (8.240374235336452,62.42121086721828)
-            (4.156171284634761,65.31456764893042)
-            (4.156171284634761,49.75592754781246)
+            (0.010528532322594231,59.79999899864197)
+            (1.0317961676142346,59.66315746307374)
+            (2.0846493998736575,59.91578936576843)
+            (3.1375026321330806,59.73684251308441)
+            (4.190355864392504,59.48421061038971)
+            (5.243209096651927,59.11578834056854)
+            (6.29606232891135,59.15789425373077)
+            (7.348915561170773,59.33684229850768)
+            (8.401768793430195,59.210527539253235)
+            (9.454622025689618,59.39999938011169)
+            (10.507475257949041,59.16842103004456)
+            (11.560328490208464,59.22105193138123)
+            (12.613181722467887,59.37894821166992)
+            (13.66603495472731,59.578947424888604)
+            (14.718888186986733,59.63157773017883)
+            (15.771741419246156,58.78947377204895)
+            (16.82459465150558,58.96842062473298)
+            (17.877447883765004,59.610525965690606)
+            (18.930301116024427,59.56842243671417)
+            (19.98315434828385,59.54736828804016)
+            (21.036007580543274,59.5894730091095)
+            (22.088860812802697,59.34736788272858)
+            (23.14171404506212,59.578947424888604)
+            (24.194567277321543,59.789472818374634)
+            (25.247420509580966,59.32631552219391)
+            (26.30027374184039,59.7473680973053)
+            (27.353126974099812,59.88421082496643)
+            (28.405980206359235,60.15789389610291)
+            (29.458833438618658,60.494737029075615)
+            (30.51168667087808,60.09473621845245)
+            (31.564539903137504,60.55789411067962)
+            (32.617393135396924,60.95789551734925)
+            (33.67024636765635,60.51578938961028)
+            (34.72309959991577,61.04210555553436)
+            (35.77595283217519,60.799999833107)
+            (36.828806064434616,61.115790009498596)
+            (37.88165929669404,60.72631478309631)
+            (38.93451252895346,61.45263135433196)
+            (39.987365761212885,60.978947281837456)
+            (41.04021899347231,61.10526382923126)
+            (42.09307222573173,61.378948092460625)
+            (43.145925457991154,61.65263116359711)
+            (44.19877869025058,62.15789556503296)
+            (45.25163192251,61.66315793991088)
+            (46.304485154769424,61.30526304244995)
+            (47.35733838702885,62.21052646636963)
+            (48.41019161928827,61.78947389125824)
+            (49.46304485154769,61.536842584609985)
+            (50.515898083807116,62.13684380054474)
+            (51.56875131606654,62.147368788719184)
+            (52.62160454832596,61.136842370033264)
+            (53.674457780585385,61.747367978096015)
+            (54.72731101284481,62.11578965187072)
+            (55.78016424510423,61.98947370052338)
+            (56.833017477363654,61.9789469242096)
+            (57.88587070962308,62.88420975208282)
+            (58.9387239418825,62.631579041481025)
+            (59.99157717414192,62.21052587032319)
+            (61.04443040640135,62.69473731517792)
+            (62.09728363866077,61.778947710990906)
+            (63.15013687092019,62.34736859798431)
+            (64.20299010317962,63.03157866001129)
+            (65.25584333543904,63.36842179298401)
+            (66.30869656769846,64.28421080112457)
+            (67.36154979995788,63.01052629947662)
+            (68.41440303221731,63.30526411533356)
+            (69.46725626447673,63.410525321960456)
+            (70.52010949673615,63.326315879821784)
+            (71.57296272899558,63.79999995231629)
+            (72.625815961255,64.40000116825104)
+            (73.67866919351442,63.91578912734985)
+            (74.73152242577385,64.45263147354126)
+            (75.78437565803327,63.87368381023407)
+            (76.83722889029269,64.88421082496643)
+            (77.89008212255212,64.14736807346344)
+            (78.94293535481154,64.34736728668213)
+            (79.99578858707096,64.51578974723816)
+            (81.04864181933038,64.61052596569061)
+            (82.10149505158981,65.45263230800629)
+            (83.15434828384923,64.31578993797302)
+            (84.20720151610865,64.44210410118103)
+            (85.26005474836808,65.6000006198883)
+            (86.3129079806275,64.63157713413239)
+            (87.36576121288692,64.6526312828064)
+            (88.41861444514635,64.58947360515594)
+            (89.47146767740577,65.50526320934296)
+            (90.52432090966519,65.2210533618927)
+            (91.57717414192462,65.52631616592407)
+            (92.63002737418404,65.90526282787323)
+            (93.68288060644346,65.48421144485474)
+            (94.73573383870288,65.60000002384186)
+            (95.78858707096231,65.40000021457672)
+            (96.84144030322173,65.90526342391968)
+            (97.89429353548115,65.1263153553009)
+            (98.94714676774058,66.06315672397614)
+            (100.0,65.17894744873047)
+            (100.0,66.75812875514947)
+            (98.94714676774058,66.89821547641644)
+            (97.89429353548115,66.41461269006776)
+            (96.84144030322173,67.44948220851956)
+            (95.78858707096231,66.70444197224965)
+            (94.73573383870288,67.15956834474746)
+            (93.68288060644346,66.80030415675967)
+            (92.63002737418404,67.34552723623815)
+            (91.57717414192462,66.48498826471881)
+            (90.52432090966519,66.14032443844303)
+            (89.47146767740577,67.00219795296296)
+            (88.41861444514635,65.97905297936772)
+            (87.36576121288692,66.34471825382172)
+            (86.3129079806275,66.0893019862298)
+            (85.26005474836808,66.53071890220687)
+            (84.20720151610865,66.18508456855123)
+            (83.15434828384923,65.385821730742)
+            (82.10149505158981,66.94276568732663)
+            (81.04864181933038,65.92788088547896)
+            (79.99578858707096,65.54530211874552)
+            (78.94293535481154,65.46583481356613)
+            (77.89008212255212,65.43389702094834)
+            (76.83722889029269,66.27467694312779)
+            (75.78437565803327,64.93887156797675)
+            (74.73152242577385,66.00448418234478)
+            (73.67866919351442,65.06010044336423)
+            (72.625815961255,64.90555628049526)
+            (71.57296272899558,65.07039820245933)
+            (70.52010949673615,64.78420863681792)
+            (69.46725626447673,64.56916391682574)
+            (68.41440303221731,64.60417331782315)
+            (67.36154979995788,63.99197903138442)
+            (66.30869656769846,65.37594110761952)
+            (65.25584333543904,64.3731825228278)
+            (64.20299010317962,64.94750886274774)
+            (63.15013687092019,63.468035477715404)
+            (62.09728363866077,63.467867092981734)
+            (61.04443040640135,63.87025468909671)
+            (59.99157717414192,63.49781959151038)
+            (58.9387239418825,64.47025598484444)
+            (57.88587070962308,64.34125877209948)
+            (56.833017477363654,63.45246402257941)
+            (55.78016424510423,63.295236936281036)
+            (54.72731101284481,63.702476462907676)
+            (53.674457780585385,62.496965128829814)
+            (52.62160454832596,62.73770358939436)
+            (51.56875131606654,63.258271330830254)
+            (50.515898083807116,63.07185110094201)
+            (49.46304485154769,62.45611396450115)
+            (48.41019161928827,62.806412405355935)
+            (47.35733838702885,63.83974680811356)
+            (46.304485154769424,62.09796593255803)
+            (45.25163192251,62.61738947620188)
+            (44.19877869025058,63.55898900745504)
+            (43.145925457991154,63.48530573938554)
+            (42.09307222573173,62.96795983516315)
+            (41.04021899347231,62.24033876655748)
+            (39.987365761212885,61.72665366583668)
+            (38.93451252895346,62.73205858390445)
+            (37.88165929669404,62.06926272705135)
+            (36.828806064434616,62.5212278569463)
+            (35.77595283217519,61.913115241249265)
+            (34.72309959991577,62.36937665121247)
+            (33.67024636765635,61.479840769027945)
+            (32.617393135396924,62.23312973885847)
+            (31.564539903137504,61.74886247976021)
+            (30.51168667087808,60.80771736705773)
+            (29.458833438618658,62.307825035235375)
+            (28.405980206359235,61.03753935999678)
+            (27.353126974099812,61.05263716219243)
+            (26.30027374184039,60.5369581898737)
+            (25.247420509580966,60.270689646243355)
+            (24.194567277321543,61.19561094703166)
+            (23.14171404506212,61.06759331452531)
+            (22.088860812802697,60.315687013112104)
+            (21.036007580543274,60.69621060301604)
+            (19.98315434828385,60.80569278138721)
+            (18.930301116024427,61.32382592139853)
+            (17.877447883765004,60.58801930216829)
+            (16.82459465150558,60.47988328002771)
+            (15.771741419246156,60.00924507281915)
+            (14.718888186986733,59.97626029931836)
+            (13.66603495472731,60.16397587808556)
+            (12.613181722467887,60.25887295671046)
+            (11.560328490208464,60.25503944735699)
+            (10.507475257949041,60.10395401682712)
+            (9.454622025689618,59.91100355822689)
+            (8.401768793430195,60.048602506868924)
+            (7.348915561170773,59.980106430873725)
+            (6.29606232891135,60.05520653498167)
+            (5.243209096651927,59.99255905861544)
+            (4.190355864392504,60.05528906141397)
+            (3.1375026321330806,60.11556313125789)
+            (2.0846493998736575,60.391225525264474)
+            (1.0317961676142346,59.995288515625255)
+            (0.010528532322594231,59.83328570334827)
+            (0.010528532322594231,59.79999899864197)
         }
         ;
-    \addplot[color={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, name path={f593f9fd-fd15-45d9-83dd-68d98134e395}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, name path={a2a7ba40-be03-4e29-b11d-ee1b597422de}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
         {
             \\
-            4.156171284634761  49.75592754781246  \\
-            8.240374235336452  48.46209652721882  \\
-            13.637999280316661  52.740543484687805  \\
-            19.03562432529687  51.30439043045044  \\
-            24.43324937027708  46.78911082446575  \\
-            29.830874415257288  52.50978782773018  \\
-            35.228499460237494  52.874505668878555  \\
-            40.6261245052177  50.17901510000229  \\
-            46.02374955019791  50.51744766533375  \\
-            51.42137459517812  46.68012022972107  \\
-            56.81899964015833  48.64555098116398  \\
-            62.21662468513854  54.64853465557098  \\
-            67.61424973011874  51.12244874238968  \\
-            73.01187477509896  49.819060638546944  \\
-            78.40949982007916  49.21539135277271  \\
-            83.80712486505938  53.13032776117325  \\
-            89.20474991003958  53.96137923002243  \\
-            94.6023749550198  53.58343750238419  \\
-            100.0  54.545288532972336  \\
+            0.010528532322594231  59.79999899864197  \\
+            1.0317961676142346  59.66315746307374  \\
+            2.0846493998736575  59.91578936576843  \\
+            3.1375026321330806  59.73684251308441  \\
+            4.190355864392504  59.48421061038971  \\
+            5.243209096651927  59.11578834056854  \\
+            6.29606232891135  59.15789425373077  \\
+            7.348915561170773  59.33684229850768  \\
+            8.401768793430195  59.210527539253235  \\
+            9.454622025689618  59.39999938011169  \\
+            10.507475257949041  59.16842103004456  \\
+            11.560328490208464  59.22105193138123  \\
+            12.613181722467887  59.37894821166992  \\
+            13.66603495472731  59.578947424888604  \\
+            14.718888186986733  59.63157773017883  \\
+            15.771741419246156  58.78947377204895  \\
+            16.82459465150558  58.96842062473298  \\
+            17.877447883765004  59.610525965690606  \\
+            18.930301116024427  59.56842243671417  \\
+            19.98315434828385  59.54736828804016  \\
+            21.036007580543274  59.5894730091095  \\
+            22.088860812802697  59.34736788272858  \\
+            23.14171404506212  59.578947424888604  \\
+            24.194567277321543  59.789472818374634  \\
+            25.247420509580966  59.32631552219391  \\
+            26.30027374184039  59.7473680973053  \\
+            27.353126974099812  59.88421082496643  \\
+            28.405980206359235  60.15789389610291  \\
+            29.458833438618658  60.494737029075615  \\
+            30.51168667087808  60.09473621845245  \\
+            31.564539903137504  60.55789411067962  \\
+            32.617393135396924  60.95789551734925  \\
+            33.67024636765635  60.51578938961028  \\
+            34.72309959991577  61.04210555553436  \\
+            35.77595283217519  60.799999833107  \\
+            36.828806064434616  61.115790009498596  \\
+            37.88165929669404  60.72631478309631  \\
+            38.93451252895346  61.45263135433196  \\
+            39.987365761212885  60.978947281837456  \\
+            41.04021899347231  61.10526382923126  \\
+            42.09307222573173  61.378948092460625  \\
+            43.145925457991154  61.65263116359711  \\
+            44.19877869025058  62.15789556503296  \\
+            45.25163192251  61.66315793991088  \\
+            46.304485154769424  61.30526304244995  \\
+            47.35733838702885  62.21052646636963  \\
+            48.41019161928827  61.78947389125824  \\
+            49.46304485154769  61.536842584609985  \\
+            50.515898083807116  62.13684380054474  \\
+            51.56875131606654  62.147368788719184  \\
+            52.62160454832596  61.136842370033264  \\
+            53.674457780585385  61.747367978096015  \\
+            54.72731101284481  62.11578965187072  \\
+            55.78016424510423  61.98947370052338  \\
+            56.833017477363654  61.9789469242096  \\
+            57.88587070962308  62.88420975208282  \\
+            58.9387239418825  62.631579041481025  \\
+            59.99157717414192  62.21052587032319  \\
+            61.04443040640135  62.69473731517792  \\
+            62.09728363866077  61.778947710990906  \\
+            63.15013687092019  62.34736859798431  \\
+            64.20299010317962  63.03157866001129  \\
+            65.25584333543904  63.36842179298401  \\
+            66.30869656769846  64.28421080112457  \\
+            67.36154979995788  63.01052629947662  \\
+            68.41440303221731  63.30526411533356  \\
+            69.46725626447673  63.410525321960456  \\
+            70.52010949673615  63.326315879821784  \\
+            71.57296272899558  63.79999995231629  \\
+            72.625815961255  64.40000116825104  \\
+            73.67866919351442  63.91578912734985  \\
+            74.73152242577385  64.45263147354126  \\
+            75.78437565803327  63.87368381023407  \\
+            76.83722889029269  64.88421082496643  \\
+            77.89008212255212  64.14736807346344  \\
+            78.94293535481154  64.34736728668213  \\
+            79.99578858707096  64.51578974723816  \\
+            81.04864181933038  64.61052596569061  \\
+            82.10149505158981  65.45263230800629  \\
+            83.15434828384923  64.31578993797302  \\
+            84.20720151610865  64.44210410118103  \\
+            85.26005474836808  65.6000006198883  \\
+            86.3129079806275  64.63157713413239  \\
+            87.36576121288692  64.6526312828064  \\
+            88.41861444514635  64.58947360515594  \\
+            89.47146767740577  65.50526320934296  \\
+            90.52432090966519  65.2210533618927  \\
+            91.57717414192462  65.52631616592407  \\
+            92.63002737418404  65.90526282787323  \\
+            93.68288060644346  65.48421144485474  \\
+            94.73573383870288  65.60000002384186  \\
+            95.78858707096231  65.40000021457672  \\
+            96.84144030322173  65.90526342391968  \\
+            97.89429353548115  65.1263153553009  \\
+            98.94714676774058  66.06315672397614  \\
+            100.0  65.17894744873047  \\
         }
         ;
-    \addlegendentry {Enzymes}
-    \addplot[color={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, name path={63a2b98d-dcf9-4e5d-8d51-fb9ef22fa79e}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addlegendentry {Twitch-DE}
+    \addplot[color={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, name path={7d7e409a-15ad-4111-902e-ce50d9a69cb3}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
-            0.0  57.72402837872506  \\
-            100.0  57.72402837872506  \\
+            0.0  69.43157851696014  \\
+            100.0  69.43157851696014  \\
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.9308;green,0.3675;blue,0.5758}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.04306632213608958,70.32257914543152)
+            (1.0335917312661498,70.32257914543152)
+            (3.1869078380706286,70.17204165458679)
+            (5.340223944875108,70.19354701042175)
+            (7.493540051679586,69.93548274040222)
+            (9.646856158484065,69.9999988079071)
+            (11.800172265288545,69.72042918205261)
+            (13.953488372093023,69.7849452495575)
+            (16.1068044788975,69.87096667289734)
+            (18.26012058570198,69.82795596122742)
+            (20.41343669250646,69.8924720287323)
+            (22.56675279931094,69.46236491203308)
+            (24.72006890611542,70.10752558708191)
+            (26.873385012919897,70.36558985710144)
+            (29.026701119724375,70.19354701042175)
+            (31.180017226528854,70.02150416374207)
+            (33.333333333333336,70.04300951957703)
+            (35.48664944013781,69.39784824848175)
+            (37.63996554694229,70.04300951957703)
+            (39.79328165374677,70.10752558708191)
+            (41.94659776055125,69.95698809623718)
+            (44.09991386735573,70.40860056877136)
+            (46.253229974160206,70.10752558708191)
+            (48.40654608096469,70.53763270378113)
+            (50.55986218776916,69.74193453788757)
+            (52.713178294573645,69.46236491203308)
+            (54.86649440137812,70.32257914543152)
+            (57.0198105081826,70.36558985710144)
+            (59.17312661498708,70.64515948295593)
+            (61.32644272179156,70.21505236625671)
+            (63.47975882859604,69.74193453788757)
+            (65.63307493540051,70.34408450126648)
+            (67.786391042205,70.5806440114975)
+            (69.93970714900948,71.09677374362946)
+            (72.09302325581395,71.24731123447418)
+            (74.24633936261843,71.24731004238129)
+            (76.39965546942291,71.5698915719986)
+            (78.55297157622739,71.52688086032867)
+            (80.70628768303187,72.10752725601196)
+            (82.85960378983634,72.06451714038849)
+            (85.01291989664082,72.32258141040802)
+            (87.1662360034453,72.7741938829422)
+            (89.31955211024979,72.47311890125275)
+            (91.47286821705427,73.07527005672455)
+            (93.62618432385874,72.81720459461212)
+            (95.77950043066322,71.8924742937088)
+            (97.9328165374677,72.81720459461212)
+            (100.0,72.70967841148376)
+            (100.0,71.66372097551879)
+            (97.9328165374677,71.70113180435274)
+            (95.77950043066322,70.97979511993364)
+            (93.62618432385874,71.80241705544339)
+            (91.47286821705427,72.21028877271281)
+            (89.31955211024979,71.57205656704028)
+            (87.1662360034453,71.90093389502557)
+            (85.01291989664082,71.31363345546902)
+            (82.85960378983634,71.14958870624913)
+            (80.70628768303187,71.18365618483101)
+            (78.55297157622739,70.67748531682729)
+            (76.39965546942291,70.44647604509488)
+            (74.24633936261843,70.00963418520641)
+            (72.09302325581395,70.09566224371146)
+            (69.93970714900948,70.02773437086451)
+            (67.786391042205,69.25186630197236)
+            (65.63307493540051,69.4811862855787)
+            (63.47975882859604,68.1420683901256)
+            (61.32644272179156,69.2573192856526)
+            (59.17312661498708,69.99405250086882)
+            (57.0198105081826,69.97558390620932)
+            (54.86649440137812,69.40456937755515)
+            (52.713178294573645,68.00380071526075)
+            (50.55986218776916,68.56818945690098)
+            (48.40654608096469,69.95526491475252)
+            (46.253229974160206,69.22957311153792)
+            (44.09991386735573,69.92030321750433)
+            (41.94659776055125,69.1145806102771)
+            (39.79328165374677,69.3625582082619)
+            (37.63996554694229,69.33300701306649)
+            (35.48664944013781,67.62722428116275)
+            (33.333333333333336,69.5562932755952)
+            (31.180017226528854,69.38678237132062)
+            (29.026701119724375,69.83945160516815)
+            (26.873385012919897,69.9500669058144)
+            (24.72006890611542,69.82078750928243)
+            (22.56675279931094,68.09847391235215)
+            (20.41343669250646,68.84872967082167)
+            (18.26012058570198,68.91527942471966)
+            (16.1068044788975,69.08276286502343)
+            (13.953488372093023,68.73018360530972)
+            (11.800172265288545,68.49632286809698)
+            (9.646856158484065,69.32563071547156)
+            (7.493540051679586,68.85402013502676)
+            (5.340223944875108,69.90324683234456)
+            (3.1869078380706286,69.8844089160242)
+            (1.0335917312661498,70.32257914543152)
+            (0.04306632213608958,70.32257914543152)
+            (0.04306632213608958,70.32257914543152)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.9308;green,0.3675;blue,0.5758}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.04306632213608958,70.32257914543152)
+            (1.0335917312661498,70.32257914543152)
+            (3.1869078380706286,70.17204165458679)
+            (5.340223944875108,70.19354701042175)
+            (7.493540051679586,69.93548274040222)
+            (9.646856158484065,69.9999988079071)
+            (11.800172265288545,69.72042918205261)
+            (13.953488372093023,69.7849452495575)
+            (16.1068044788975,69.87096667289734)
+            (18.26012058570198,69.82795596122742)
+            (20.41343669250646,69.8924720287323)
+            (22.56675279931094,69.46236491203308)
+            (24.72006890611542,70.10752558708191)
+            (26.873385012919897,70.36558985710144)
+            (29.026701119724375,70.19354701042175)
+            (31.180017226528854,70.02150416374207)
+            (33.333333333333336,70.04300951957703)
+            (35.48664944013781,69.39784824848175)
+            (37.63996554694229,70.04300951957703)
+            (39.79328165374677,70.10752558708191)
+            (41.94659776055125,69.95698809623718)
+            (44.09991386735573,70.40860056877136)
+            (46.253229974160206,70.10752558708191)
+            (48.40654608096469,70.53763270378113)
+            (50.55986218776916,69.74193453788757)
+            (52.713178294573645,69.46236491203308)
+            (54.86649440137812,70.32257914543152)
+            (57.0198105081826,70.36558985710144)
+            (59.17312661498708,70.64515948295593)
+            (61.32644272179156,70.21505236625671)
+            (63.47975882859604,69.74193453788757)
+            (65.63307493540051,70.34408450126648)
+            (67.786391042205,70.5806440114975)
+            (69.93970714900948,71.09677374362946)
+            (72.09302325581395,71.24731123447418)
+            (74.24633936261843,71.24731004238129)
+            (76.39965546942291,71.5698915719986)
+            (78.55297157622739,71.52688086032867)
+            (80.70628768303187,72.10752725601196)
+            (82.85960378983634,72.06451714038849)
+            (85.01291989664082,72.32258141040802)
+            (87.1662360034453,72.7741938829422)
+            (89.31955211024979,72.47311890125275)
+            (91.47286821705427,73.07527005672455)
+            (93.62618432385874,72.81720459461212)
+            (95.77950043066322,71.8924742937088)
+            (97.9328165374677,72.81720459461212)
+            (100.0,72.70967841148376)
+            (100.0,73.75563584744874)
+            (97.9328165374677,73.9332773848715)
+            (95.77950043066322,72.80515346748396)
+            (93.62618432385874,73.83199213378086)
+            (91.47286821705427,73.94025134073628)
+            (89.31955211024979,73.37418123546522)
+            (87.1662360034453,73.64745387085883)
+            (85.01291989664082,73.33152936534702)
+            (82.85960378983634,72.97944557452784)
+            (80.70628768303187,73.03139832719292)
+            (78.55297157622739,72.37627640383006)
+            (76.39965546942291,72.69330709890231)
+            (74.24633936261843,72.48498589955616)
+            (72.09302325581395,72.3989602252369)
+            (69.93970714900948,72.1658131163944)
+            (67.786391042205,71.90942172102264)
+            (65.63307493540051,71.20698271695426)
+            (63.47975882859604,71.34180068564955)
+            (61.32644272179156,71.17278544686083)
+            (59.17312661498708,71.29626646504305)
+            (57.0198105081826,70.75559580799356)
+            (54.86649440137812,71.24058891330789)
+            (52.713178294573645,70.92092910880541)
+            (50.55986218776916,70.91567961887417)
+            (48.40654608096469,71.12000049280974)
+            (46.253229974160206,70.9854780626259)
+            (44.09991386735573,70.8968979200384)
+            (41.94659776055125,70.79939558219726)
+            (39.79328165374677,70.85249296590192)
+            (37.63996554694229,70.75301202608756)
+            (35.48664944013781,71.16847221580075)
+            (33.333333333333336,70.52972576355886)
+            (31.180017226528854,70.65622595616351)
+            (29.026701119724375,70.54764241567536)
+            (26.873385012919897,70.78111280838849)
+            (24.72006890611542,70.3942636648814)
+            (22.56675279931094,70.82625591171401)
+            (20.41343669250646,70.93621438664293)
+            (18.26012058570198,70.74063249773518)
+            (16.1068044788975,70.65917048077125)
+            (13.953488372093023,70.83970689380527)
+            (11.800172265288545,70.94453549600824)
+            (9.646856158484065,70.67436690034265)
+            (7.493540051679586,71.01694534577769)
+            (5.340223944875108,70.48384718849894)
+            (3.1869078380706286,70.45967439314938)
+            (1.0335917312661498,70.32257914543152)
+            (0.04306632213608958,70.32257914543152)
+            (0.04306632213608958,70.32257914543152)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.9308;green,0.3675;blue,0.5758}, name path={fd8c6276-7bc0-4aa5-9aed-bd3083ef7e59}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.9308;green,0.3675;blue,0.5758}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.04306632213608958  70.32257914543152  \\
+            1.0335917312661498  70.32257914543152  \\
+            3.1869078380706286  70.17204165458679  \\
+            5.340223944875108  70.19354701042175  \\
+            7.493540051679586  69.93548274040222  \\
+            9.646856158484065  69.9999988079071  \\
+            11.800172265288545  69.72042918205261  \\
+            13.953488372093023  69.7849452495575  \\
+            16.1068044788975  69.87096667289734  \\
+            18.26012058570198  69.82795596122742  \\
+            20.41343669250646  69.8924720287323  \\
+            22.56675279931094  69.46236491203308  \\
+            24.72006890611542  70.10752558708191  \\
+            26.873385012919897  70.36558985710144  \\
+            29.026701119724375  70.19354701042175  \\
+            31.180017226528854  70.02150416374207  \\
+            33.333333333333336  70.04300951957703  \\
+            35.48664944013781  69.39784824848175  \\
+            37.63996554694229  70.04300951957703  \\
+            39.79328165374677  70.10752558708191  \\
+            41.94659776055125  69.95698809623718  \\
+            44.09991386735573  70.40860056877136  \\
+            46.253229974160206  70.10752558708191  \\
+            48.40654608096469  70.53763270378113  \\
+            50.55986218776916  69.74193453788757  \\
+            52.713178294573645  69.46236491203308  \\
+            54.86649440137812  70.32257914543152  \\
+            57.0198105081826  70.36558985710144  \\
+            59.17312661498708  70.64515948295593  \\
+            61.32644272179156  70.21505236625671  \\
+            63.47975882859604  69.74193453788757  \\
+            65.63307493540051  70.34408450126648  \\
+            67.786391042205  70.5806440114975  \\
+            69.93970714900948  71.09677374362946  \\
+            72.09302325581395  71.24731123447418  \\
+            74.24633936261843  71.24731004238129  \\
+            76.39965546942291  71.5698915719986  \\
+            78.55297157622739  71.52688086032867  \\
+            80.70628768303187  72.10752725601196  \\
+            82.85960378983634  72.06451714038849  \\
+            85.01291989664082  72.32258141040802  \\
+            87.1662360034453  72.7741938829422  \\
+            89.31955211024979  72.47311890125275  \\
+            91.47286821705427  73.07527005672455  \\
+            93.62618432385874  72.81720459461212  \\
+            95.77950043066322  71.8924742937088  \\
+            97.9328165374677  72.81720459461212  \\
+            100.0  72.70967841148376  \\
+        }
+        ;
+    \addlegendentry {Twitch-ES}
+    \addplot[color={rgb,1:red,0.9308;green,0.3675;blue,0.5758}, name path={26aa63c7-aafa-4959-be15-30ff0411a317}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.0  72.98924803733826  \\
+            100.0  72.98924803733826  \\
+        }
+        ;
+\end{axis}
+\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}, align={center}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-77.2mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.777;green,0.5097;blue,0.1464}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.030534351145038167,63.44512104988098)
+            (0.7786259541984732,63.21646273136139)
+            (2.3053435114503817,63.38414549827576)
+            (3.83206106870229,62.85060942173004)
+            (5.358778625954199,62.713414430618286)
+            (6.885496183206107,62.835365533828735)
+            (8.412213740458014,63.109755516052246)
+            (9.938931297709924,63.109755516052246)
+            (11.465648854961833,63.09451162815094)
+            (12.992366412213741,63.09451162815094)
+            (14.51908396946565,63.41463327407837)
+            (16.045801526717558,63.277438282966614)
+            (17.572519083969464,63.09451162815094)
+            (19.099236641221374,62.56097495555878)
+            (20.625954198473284,63.18597495555878)
+            (22.15267175572519,63.21646273136139)
+            (23.6793893129771,63.29268217086792)
+            (25.206106870229007,62.911584973335266)
+            (26.732824427480917,63.06402385234833)
+            (28.259541984732824,62.69817054271698)
+            (29.786259541984734,63.246950507164)
+            (31.31297709923664,63.06402385234833)
+            (32.83969465648855,62.92682886123657)
+            (34.36641221374046,62.82012164592743)
+            (35.89312977099237,62.85060942173004)
+            (37.41984732824427,62.94207274913788)
+            (38.94656488549618,62.89634108543396)
+            (40.47328244274809,63.155487179756165)
+            (42.0,62.86585330963135)
+            (43.52671755725191,62.63719439506531)
+            (45.05343511450382,63.231706619262695)
+            (46.58015267175573,62.713414430618286)
+            (48.10687022900763,62.82012104988098)
+            (49.63358778625954,63.17073106765747)
+            (51.16030534351145,63.26219439506531)
+            (52.68702290076336,63.06402385234833)
+            (54.213740458015266,62.713414430618286)
+            (55.74045801526717,62.759146094322205)
+            (57.267175572519086,63.079267740249634)
+            (58.79389312977099,62.56097495555878)
+            (60.3206106870229,62.2560977935791)
+            (61.847328244274806,62.89634108543396)
+            (63.37404580152672,63.12499940395355)
+            (64.90076335877863,62.835365533828735)
+            (66.42748091603053,61.75304830074311)
+            (67.95419847328245,62.49999940395355)
+            (69.48091603053435,62.957316637039185)
+            (71.00763358778626,62.835365533828735)
+            (72.53435114503817,62.57621884346008)
+            (74.06106870229007,62.911584973335266)
+            (75.58778625954199,62.42377996444702)
+            (77.1145038167939,62.7439022064209)
+            (78.6412213740458,62.9878044128418)
+            (80.16793893129771,62.17987775802612)
+            (81.69465648854961,62.057926654815674)
+            (83.22137404580153,62.72865831851959)
+            (84.74809160305344,63.26219439506531)
+            (86.27480916030534,63.01829218864441)
+            (87.80152671755725,62.881097197532654)
+            (89.32824427480917,62.57621884346008)
+            (90.85496183206106,62.240853905677795)
+            (92.38167938931298,62.759146094322205)
+            (93.90839694656489,62.82012164592743)
+            (95.43511450381679,61.28048777580262)
+            (96.9618320610687,62.05792605876923)
+            (98.4885496183206,61.79878115653992)
+            (100.0,62.42378056049347)
+            (100.0,61.43521054501903)
+            (98.4885496183206,60.82348996356072)
+            (96.9618320610687,60.39819797973921)
+            (95.43511450381679,59.16945366207928)
+            (93.90839694656489,62.41712650060151)
+            (92.38167938931298,61.95556198962672)
+            (90.85496183206106,61.23724971318293)
+            (89.32824427480917,60.39037366036427)
+            (87.80152671755725,62.05158438509639)
+            (86.27480916030534,62.36282470412974)
+            (84.74809160305344,62.739042955923594)
+            (83.22137404580153,61.98099953105737)
+            (81.69465648854961,60.63072287074824)
+            (80.16793893129771,59.89673930711029)
+            (78.6412213740458,62.38315154311664)
+            (77.1145038167939,62.07286325209692)
+            (75.58778625954199,61.14585505987201)
+            (74.06106870229007,61.737266803268305)
+            (72.53435114503817,61.142157062917725)
+            (71.00763358778626,62.15061494588593)
+            (69.48091603053435,62.08309742329671)
+            (67.95419847328245,60.753036704145615)
+            (66.42748091603053,58.89173028080849)
+            (64.90076335877863,61.65939950546941)
+            (63.37404580152672,62.68523973140205)
+            (61.847328244274806,62.14197824550576)
+            (60.3206106870229,60.888483243710965)
+            (58.79389312977099,60.667619240211614)
+            (57.267175572519086,62.55710431226196)
+            (55.74045801526717,61.93965418952721)
+            (54.213740458015266,61.78979191572235)
+            (52.68702290076336,62.530850849050886)
+            (51.16030534351145,62.82508478819407)
+            (49.63358778625954,62.90964935366363)
+            (48.10687022900763,61.13875527854325)
+            (46.58015267175573,61.82979474000026)
+            (45.05343511450382,62.839425305046085)
+            (43.52671755725191,60.70035878408973)
+            (42.0,61.91468682187367)
+            (40.47328244274809,62.54130162246566)
+            (38.94656488549618,62.382150086346904)
+            (37.41984732824427,61.94259332803529)
+            (35.89312977099237,61.902569767163286)
+            (34.36641221374046,62.204256835858956)
+            (32.83969465648855,62.44050875128796)
+            (31.31297709923664,62.466890497208944)
+            (29.786259541984734,62.762492170946054)
+            (28.259541984732824,61.74199538729083)
+            (26.732824427480917,62.08648498469002)
+            (25.206106870229007,61.96354531876851)
+            (23.6793893129771,62.80108155748192)
+            (22.15267175572519,62.78500115675118)
+            (20.625954198473284,62.87068883230665)
+            (19.099236641221374,61.130608937667084)
+            (17.572519083969464,62.30257897706789)
+            (16.045801526717558,62.929452971167684)
+            (14.51908396946565,63.3427728973673)
+            (12.992366412213741,62.678900133316674)
+            (11.465648854961833,62.55460151462953)
+            (9.938931297709924,62.42049499623605)
+            (8.412213740458014,62.41675913949725)
+            (6.885496183206107,62.02617812514883)
+            (5.358778625954199,61.704294125730634)
+            (3.83206106870229,62.18014787088685)
+            (2.3053435114503817,63.31987162338987)
+            (0.7786259541984732,62.636883065693425)
+            (0.030534351145038167,63.3808471749951)
+            (0.030534351145038167,63.44512104988098)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.777;green,0.5097;blue,0.1464}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.030534351145038167,63.44512104988098)
+            (0.7786259541984732,63.21646273136139)
+            (2.3053435114503817,63.38414549827576)
+            (3.83206106870229,62.85060942173004)
+            (5.358778625954199,62.713414430618286)
+            (6.885496183206107,62.835365533828735)
+            (8.412213740458014,63.109755516052246)
+            (9.938931297709924,63.109755516052246)
+            (11.465648854961833,63.09451162815094)
+            (12.992366412213741,63.09451162815094)
+            (14.51908396946565,63.41463327407837)
+            (16.045801526717558,63.277438282966614)
+            (17.572519083969464,63.09451162815094)
+            (19.099236641221374,62.56097495555878)
+            (20.625954198473284,63.18597495555878)
+            (22.15267175572519,63.21646273136139)
+            (23.6793893129771,63.29268217086792)
+            (25.206106870229007,62.911584973335266)
+            (26.732824427480917,63.06402385234833)
+            (28.259541984732824,62.69817054271698)
+            (29.786259541984734,63.246950507164)
+            (31.31297709923664,63.06402385234833)
+            (32.83969465648855,62.92682886123657)
+            (34.36641221374046,62.82012164592743)
+            (35.89312977099237,62.85060942173004)
+            (37.41984732824427,62.94207274913788)
+            (38.94656488549618,62.89634108543396)
+            (40.47328244274809,63.155487179756165)
+            (42.0,62.86585330963135)
+            (43.52671755725191,62.63719439506531)
+            (45.05343511450382,63.231706619262695)
+            (46.58015267175573,62.713414430618286)
+            (48.10687022900763,62.82012104988098)
+            (49.63358778625954,63.17073106765747)
+            (51.16030534351145,63.26219439506531)
+            (52.68702290076336,63.06402385234833)
+            (54.213740458015266,62.713414430618286)
+            (55.74045801526717,62.759146094322205)
+            (57.267175572519086,63.079267740249634)
+            (58.79389312977099,62.56097495555878)
+            (60.3206106870229,62.2560977935791)
+            (61.847328244274806,62.89634108543396)
+            (63.37404580152672,63.12499940395355)
+            (64.90076335877863,62.835365533828735)
+            (66.42748091603053,61.75304830074311)
+            (67.95419847328245,62.49999940395355)
+            (69.48091603053435,62.957316637039185)
+            (71.00763358778626,62.835365533828735)
+            (72.53435114503817,62.57621884346008)
+            (74.06106870229007,62.911584973335266)
+            (75.58778625954199,62.42377996444702)
+            (77.1145038167939,62.7439022064209)
+            (78.6412213740458,62.9878044128418)
+            (80.16793893129771,62.17987775802612)
+            (81.69465648854961,62.057926654815674)
+            (83.22137404580153,62.72865831851959)
+            (84.74809160305344,63.26219439506531)
+            (86.27480916030534,63.01829218864441)
+            (87.80152671755725,62.881097197532654)
+            (89.32824427480917,62.57621884346008)
+            (90.85496183206106,62.240853905677795)
+            (92.38167938931298,62.759146094322205)
+            (93.90839694656489,62.82012164592743)
+            (95.43511450381679,61.28048777580262)
+            (96.9618320610687,62.05792605876923)
+            (98.4885496183206,61.79878115653992)
+            (100.0,62.42378056049347)
+            (100.0,63.412350575967906)
+            (98.4885496183206,62.774072349519116)
+            (96.9618320610687,63.71765413779926)
+            (95.43511450381679,63.39152188952596)
+            (93.90839694656489,63.22311679125335)
+            (92.38167938931298,63.562730199017686)
+            (90.85496183206106,63.24445809817266)
+            (89.32824427480917,64.76206402655589)
+            (87.80152671755725,63.71061000996892)
+            (86.27480916030534,63.673759673159076)
+            (84.74809160305344,63.78534583420702)
+            (83.22137404580153,63.47631710598181)
+            (81.69465648854961,63.48513043888311)
+            (80.16793893129771,64.46301620894195)
+            (78.6412213740458,63.592457282566954)
+            (77.1145038167939,63.414941160744874)
+            (75.58778625954199,63.70170486902203)
+            (74.06106870229007,64.08590314340222)
+            (72.53435114503817,64.01028062400245)
+            (71.00763358778626,63.520116121771544)
+            (69.48091603053435,63.83153585078166)
+            (67.95419847328245,64.24696210376149)
+            (66.42748091603053,64.61436632067773)
+            (64.90076335877863,64.01133156218806)
+            (63.37404580152672,63.564759076505055)
+            (61.847328244274806,63.65070392536216)
+            (60.3206106870229,63.62371234344724)
+            (58.79389312977099,64.45433067090595)
+            (57.267175572519086,63.601431168237305)
+            (55.74045801526717,63.5786379991172)
+            (54.213740458015266,63.637036945514225)
+            (52.68702290076336,63.59719685564577)
+            (51.16030534351145,63.69930400193655)
+            (49.63358778625954,63.43181278165131)
+            (48.10687022900763,64.50148682121872)
+            (46.58015267175573,63.59703412123631)
+            (45.05343511450382,63.623987933479306)
+            (43.52671755725191,64.57403000604089)
+            (42.0,63.81701979738902)
+            (40.47328244274809,63.76967273704667)
+            (38.94656488549618,63.410532084521016)
+            (37.41984732824427,63.94155217024047)
+            (35.89312977099237,63.7986490762968)
+            (34.36641221374046,63.4359864559959)
+            (32.83969465648855,63.41314897118519)
+            (31.31297709923664,63.66115720748771)
+            (29.786259541984734,63.73140884338195)
+            (28.259541984732824,63.65434569814313)
+            (26.732824427480917,64.04156272000664)
+            (25.206106870229007,63.85962462790202)
+            (23.6793893129771,63.78428278425392)
+            (22.15267175572519,63.6479243059716)
+            (20.625954198473284,63.501261078810906)
+            (19.099236641221374,63.99134097345047)
+            (17.572519083969464,63.88644427923399)
+            (16.045801526717558,63.62542359476554)
+            (14.51908396946565,63.48649365078944)
+            (12.992366412213741,63.510123122985206)
+            (11.465648854961833,63.63442174167235)
+            (9.938931297709924,63.79901603586844)
+            (8.412213740458014,63.80275189260724)
+            (6.885496183206107,63.64455294250864)
+            (5.358778625954199,63.72253473550594)
+            (3.83206106870229,63.521070972573234)
+            (2.3053435114503817,63.44841937316164)
+            (0.7786259541984732,63.79604239702935)
+            (0.030534351145038167,63.509394924766866)
+            (0.030534351145038167,63.44512104988098)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.777;green,0.5097;blue,0.1464}, name path={8ff0e18b-4fb2-49e9-bc87-09735376a701}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.777;green,0.5097;blue,0.1464}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.030534351145038167  63.44512104988098  \\
+            0.7786259541984732  63.21646273136139  \\
+            2.3053435114503817  63.38414549827576  \\
+            3.83206106870229  62.85060942173004  \\
+            5.358778625954199  62.713414430618286  \\
+            6.885496183206107  62.835365533828735  \\
+            8.412213740458014  63.109755516052246  \\
+            9.938931297709924  63.109755516052246  \\
+            11.465648854961833  63.09451162815094  \\
+            12.992366412213741  63.09451162815094  \\
+            14.51908396946565  63.41463327407837  \\
+            16.045801526717558  63.277438282966614  \\
+            17.572519083969464  63.09451162815094  \\
+            19.099236641221374  62.56097495555878  \\
+            20.625954198473284  63.18597495555878  \\
+            22.15267175572519  63.21646273136139  \\
+            23.6793893129771  63.29268217086792  \\
+            25.206106870229007  62.911584973335266  \\
+            26.732824427480917  63.06402385234833  \\
+            28.259541984732824  62.69817054271698  \\
+            29.786259541984734  63.246950507164  \\
+            31.31297709923664  63.06402385234833  \\
+            32.83969465648855  62.92682886123657  \\
+            34.36641221374046  62.82012164592743  \\
+            35.89312977099237  62.85060942173004  \\
+            37.41984732824427  62.94207274913788  \\
+            38.94656488549618  62.89634108543396  \\
+            40.47328244274809  63.155487179756165  \\
+            42.0  62.86585330963135  \\
+            43.52671755725191  62.63719439506531  \\
+            45.05343511450382  63.231706619262695  \\
+            46.58015267175573  62.713414430618286  \\
+            48.10687022900763  62.82012104988098  \\
+            49.63358778625954  63.17073106765747  \\
+            51.16030534351145  63.26219439506531  \\
+            52.68702290076336  63.06402385234833  \\
+            54.213740458015266  62.713414430618286  \\
+            55.74045801526717  62.759146094322205  \\
+            57.267175572519086  63.079267740249634  \\
+            58.79389312977099  62.56097495555878  \\
+            60.3206106870229  62.2560977935791  \\
+            61.847328244274806  62.89634108543396  \\
+            63.37404580152672  63.12499940395355  \\
+            64.90076335877863  62.835365533828735  \\
+            66.42748091603053  61.75304830074311  \\
+            67.95419847328245  62.49999940395355  \\
+            69.48091603053435  62.957316637039185  \\
+            71.00763358778626  62.835365533828735  \\
+            72.53435114503817  62.57621884346008  \\
+            74.06106870229007  62.911584973335266  \\
+            75.58778625954199  62.42377996444702  \\
+            77.1145038167939  62.7439022064209  \\
+            78.6412213740458  62.9878044128418  \\
+            80.16793893129771  62.17987775802612  \\
+            81.69465648854961  62.057926654815674  \\
+            83.22137404580153  62.72865831851959  \\
+            84.74809160305344  63.26219439506531  \\
+            86.27480916030534  63.01829218864441  \\
+            87.80152671755725  62.881097197532654  \\
+            89.32824427480917  62.57621884346008  \\
+            90.85496183206106  62.240853905677795  \\
+            92.38167938931298  62.759146094322205  \\
+            93.90839694656489  62.82012164592743  \\
+            95.43511450381679  61.28048777580262  \\
+            96.9618320610687  62.05792605876923  \\
+            98.4885496183206  61.79878115653992  \\
+            100.0  62.42378056049347  \\
+        }
+        ;
+    \addlegendentry {Twitch-FR}
+    \addplot[color={rgb,1:red,0.777;green,0.5097;blue,0.1464}, name path={cf98cdc3-be7a-4f3f-b44f-39815ba6ff34}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.0  62.07317113876343  \\
+            100.0  62.07317113876343  \\
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6643;blue,0.553}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.1049317943336831,68.17708492279053)
+            (0.6295907660020986,68.07291865348816)
+            (5.876180482686254,67.23958432674408)
+            (11.12277019937041,66.97916746139526)
+            (16.369359916054563,66.56250059604645)
+            (21.61594963273872,65.83333373069763)
+            (26.862539349422875,66.61458313465118)
+            (32.10912906610703,66.66666746139526)
+            (37.355718782791186,66.97916746139526)
+            (42.60230849947534,67.44791746139526)
+            (47.8488982161595,66.77083313465118)
+            (53.09548793284365,67.08333313465118)
+            (58.34207764952781,67.23958373069763)
+            (63.588667366211965,68.12499940395355)
+            (68.83525708289612,67.81250059604645)
+            (74.08184679958028,66.51041626930237)
+            (79.32843651626443,67.91666686534882)
+            (84.57502623294859,69.16666626930237)
+            (89.82161594963274,69.84374940395355)
+            (95.0682056663169,69.375)
+            (100.0,69.79166626930237)
+            (100.0,68.72145668668256)
+            (95.0682056663169,67.39857663691858)
+            (89.82161594963274,68.51134729004303)
+            (84.57502623294859,68.22211878105942)
+            (79.32843651626443,66.61284878841562)
+            (74.08184679958028,63.35613518794333)
+            (68.83525708289612,65.92979966209828)
+            (63.588667366211965,66.2583769029661)
+            (58.34207764952781,64.52269486505674)
+            (53.09548793284365,65.18468977580774)
+            (47.8488982161595,64.70493345884347)
+            (42.60230849947534,66.37068831261526)
+            (37.355718782791186,65.8486935444466)
+            (32.10912906610703,64.59785202937648)
+            (26.862539349422875,64.67432901127842)
+            (21.61594963273872,61.738171926029125)
+            (16.369359916054563,63.9897731505982)
+            (11.12277019937041,65.22234597623735)
+            (5.876180482686254,65.92999923463529)
+            (0.6295907660020986,67.57881276908685)
+            (0.1049317943336831,68.01238170474718)
+            (0.1049317943336831,68.17708492279053)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6643;blue,0.553}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.1049317943336831,68.17708492279053)
+            (0.6295907660020986,68.07291865348816)
+            (5.876180482686254,67.23958432674408)
+            (11.12277019937041,66.97916746139526)
+            (16.369359916054563,66.56250059604645)
+            (21.61594963273872,65.83333373069763)
+            (26.862539349422875,66.61458313465118)
+            (32.10912906610703,66.66666746139526)
+            (37.355718782791186,66.97916746139526)
+            (42.60230849947534,67.44791746139526)
+            (47.8488982161595,66.77083313465118)
+            (53.09548793284365,67.08333313465118)
+            (58.34207764952781,67.23958373069763)
+            (63.588667366211965,68.12499940395355)
+            (68.83525708289612,67.81250059604645)
+            (74.08184679958028,66.51041626930237)
+            (79.32843651626443,67.91666686534882)
+            (84.57502623294859,69.16666626930237)
+            (89.82161594963274,69.84374940395355)
+            (95.0682056663169,69.375)
+            (100.0,69.79166626930237)
+            (100.0,70.86187585192218)
+            (95.0682056663169,71.35142336308142)
+            (89.82161594963274,71.17615151786407)
+            (84.57502623294859,70.11121375754531)
+            (79.32843651626443,69.22048494228201)
+            (74.08184679958028,69.66469735066141)
+            (68.83525708289612,69.69520152999462)
+            (63.588667366211965,69.991621904941)
+            (58.34207764952781,69.95647259633853)
+            (53.09548793284365,68.98197649349463)
+            (47.8488982161595,68.8367328104589)
+            (42.60230849947534,68.52514661017527)
+            (37.355718782791186,68.10964137834392)
+            (32.10912906610703,68.73548289341404)
+            (26.862539349422875,68.55483725802395)
+            (21.61594963273872,69.92849553536614)
+            (16.369359916054563,69.1352280414947)
+            (11.12277019937041,68.73598894655318)
+            (5.876180482686254,68.54916941885287)
+            (0.6295907660020986,68.56702453788947)
+            (0.1049317943336831,68.34178814083387)
+            (0.1049317943336831,68.17708492279053)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,0.6643;blue,0.553}, name path={85a3cf16-b953-4cec-a374-e05a9060bada}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.0;green,0.6643;blue,0.553}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.1049317943336831  68.17708492279053  \\
+            0.6295907660020986  68.07291865348816  \\
+            5.876180482686254  67.23958432674408  \\
+            11.12277019937041  66.97916746139526  \\
+            16.369359916054563  66.56250059604645  \\
+            21.61594963273872  65.83333373069763  \\
+            26.862539349422875  66.61458313465118  \\
+            32.10912906610703  66.66666746139526  \\
+            37.355718782791186  66.97916746139526  \\
+            42.60230849947534  67.44791746139526  \\
+            47.8488982161595  66.77083313465118  \\
+            53.09548793284365  67.08333313465118  \\
+            58.34207764952781  67.23958373069763  \\
+            63.588667366211965  68.12499940395355  \\
+            68.83525708289612  67.81250059604645  \\
+            74.08184679958028  66.51041626930237  \\
+            79.32843651626443  67.91666686534882  \\
+            84.57502623294859  69.16666626930237  \\
+            89.82161594963274  69.84374940395355  \\
+            95.0682056663169  69.375  \\
+            100.0  69.79166626930237  \\
+        }
+        ;
+    \addlegendentry {Twitch-PT}
+    \addplot[color={rgb,1:red,0.0;green,0.6643;blue,0.553}, name path={b8f3bb8b-9cce-41ab-8157-114cf1f0ec9a}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.0  70.15625  \\
+            100.0  70.15625  \\
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.5585;green,0.5935;blue,0.1175}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.04561003420752566,72.36902058124542)
+            (1.9384264538198404,72.41457879543304)
+            (4.218928164196123,72.41457879543304)
+            (6.499429874572406,72.43735790252686)
+            (8.779931584948688,72.39179968833923)
+            (11.060433295324971,72.39179968833923)
+            (13.340935005701255,72.39179968833923)
+            (15.621436716077538,72.27790415287018)
+            (17.90193842645382,72.43735790252686)
+            (20.182440136830103,72.3234623670578)
+            (22.462941847206384,72.3234623670578)
+            (24.74344355758267,72.36902058124542)
+            (27.02394526795895,72.39179968833923)
+            (29.304446978335235,72.39179968833923)
+            (31.584948688711517,72.36902058124542)
+            (33.8654503990878,72.43735790252686)
+            (36.14595210946408,72.41457879543304)
+            (38.42645381984036,72.41457879543304)
+            (40.706955530216646,72.34624147415161)
+            (42.98745724059293,72.39179968833923)
+            (45.267958950969216,72.39179968833923)
+            (47.548460661345494,72.27790415287018)
+            (49.82896237172178,72.34624147415161)
+            (52.109464082098064,72.46013700962067)
+            (54.38996579247434,72.39179968833923)
+            (56.67046750285063,72.30068325996399)
+            (58.95096921322691,72.30068325996399)
+            (61.23147092360319,72.3234623670578)
+            (63.511972633979475,72.25512564182281)
+            (65.79247434435575,72.34624147415161)
+            (68.07297605473204,72.55125343799591)
+            (70.35347776510832,71.95899784564972)
+            (72.63397947548461,71.64009153842926)
+            (74.9144811858609,72.09567189216614)
+            (77.19498289623718,72.14123010635376)
+            (79.47548460661345,71.9134396314621)
+            (81.75598631698973,72.27790474891663)
+            (84.03648802736602,72.30068385601044)
+            (86.3169897377423,72.11845099925995)
+            (88.59749144811859,71.8223237991333)
+            (90.87799315849487,71.79954469203949)
+            (93.15849486887114,71.77676498889923)
+            (95.43899657924743,72.02733397483826)
+            (97.71949828962371,71.70842826366425)
+            (100.0,72.11845099925995)
+            (100.0,71.1997263044884)
+            (97.71949828962371,70.31329561308144)
+            (95.43899657924743,71.61422817036919)
+            (93.15849486887114,70.51783384746314)
+            (90.87799315849487,70.68463853852019)
+            (88.59749144811859,70.66056827657576)
+            (86.3169897377423,71.3807159727835)
+            (84.03648802736602,71.77243708064124)
+            (81.75598631698973,71.83450967387354)
+            (79.47548460661345,71.0147011418615)
+            (77.19498289623718,71.24892906363932)
+            (74.9144811858609,71.08691389264594)
+            (72.63397947548461,69.92787183643546)
+            (70.35347776510832,70.69549653556165)
+            (68.07297605473204,72.30521096063549)
+            (65.79247434435575,72.12617439225947)
+            (63.511972633979475,71.78953119422596)
+            (61.23147092360319,72.07741988969738)
+            (58.95096921322691,71.91054602189156)
+            (56.67046750285063,71.99318875038595)
+            (54.38996579247434,72.15653808189708)
+            (52.109464082098064,72.16704189749132)
+            (49.82896237172178,72.12617439225947)
+            (47.548460661345494,71.99278591517692)
+            (45.267958950969216,72.24773196537654)
+            (42.98745724059293,72.18247413986579)
+            (40.706955530216646,72.18696861366224)
+            (38.42645381984036,72.24649978530991)
+            (36.14595210946408,72.24649978530991)
+            (33.8654503990878,72.3299761618908)
+            (31.584948688711517,72.1529189968014)
+            (29.304446978335235,72.29575453969744)
+            (27.02394526795895,72.29575453969744)
+            (24.74344355758267,72.2152733264564)
+            (22.462941847206384,72.03432818175673)
+            (20.182440136830103,72.12987718110186)
+            (17.90193842645382,72.43735790252686)
+            (15.621436716077538,72.01377999410526)
+            (13.340935005701255,72.24773196537654)
+            (11.060433295324971,72.24773196537654)
+            (8.779931584948688,72.24773196537654)
+            (6.499429874572406,72.3299761618908)
+            (4.218928164196123,72.3425449339517)
+            (1.9384264538198404,72.3425449339517)
+            (0.04561003420752566,72.25898704029935)
+            (0.04561003420752566,72.36902058124542)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.5585;green,0.5935;blue,0.1175}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.04561003420752566,72.36902058124542)
+            (1.9384264538198404,72.41457879543304)
+            (4.218928164196123,72.41457879543304)
+            (6.499429874572406,72.43735790252686)
+            (8.779931584948688,72.39179968833923)
+            (11.060433295324971,72.39179968833923)
+            (13.340935005701255,72.39179968833923)
+            (15.621436716077538,72.27790415287018)
+            (17.90193842645382,72.43735790252686)
+            (20.182440136830103,72.3234623670578)
+            (22.462941847206384,72.3234623670578)
+            (24.74344355758267,72.36902058124542)
+            (27.02394526795895,72.39179968833923)
+            (29.304446978335235,72.39179968833923)
+            (31.584948688711517,72.36902058124542)
+            (33.8654503990878,72.43735790252686)
+            (36.14595210946408,72.41457879543304)
+            (38.42645381984036,72.41457879543304)
+            (40.706955530216646,72.34624147415161)
+            (42.98745724059293,72.39179968833923)
+            (45.267958950969216,72.39179968833923)
+            (47.548460661345494,72.27790415287018)
+            (49.82896237172178,72.34624147415161)
+            (52.109464082098064,72.46013700962067)
+            (54.38996579247434,72.39179968833923)
+            (56.67046750285063,72.30068325996399)
+            (58.95096921322691,72.30068325996399)
+            (61.23147092360319,72.3234623670578)
+            (63.511972633979475,72.25512564182281)
+            (65.79247434435575,72.34624147415161)
+            (68.07297605473204,72.55125343799591)
+            (70.35347776510832,71.95899784564972)
+            (72.63397947548461,71.64009153842926)
+            (74.9144811858609,72.09567189216614)
+            (77.19498289623718,72.14123010635376)
+            (79.47548460661345,71.9134396314621)
+            (81.75598631698973,72.27790474891663)
+            (84.03648802736602,72.30068385601044)
+            (86.3169897377423,72.11845099925995)
+            (88.59749144811859,71.8223237991333)
+            (90.87799315849487,71.79954469203949)
+            (93.15849486887114,71.77676498889923)
+            (95.43899657924743,72.02733397483826)
+            (97.71949828962371,71.70842826366425)
+            (100.0,72.11845099925995)
+            (100.0,73.0371756940315)
+            (97.71949828962371,73.10356091424705)
+            (95.43899657924743,72.44043977930733)
+            (93.15849486887114,73.03569613033532)
+            (90.87799315849487,72.91445084555879)
+            (88.59749144811859,72.98407932169084)
+            (86.3169897377423,72.85618602573639)
+            (84.03648802736602,72.82893063137963)
+            (81.75598631698973,72.72129982395971)
+            (79.47548460661345,72.8121781210627)
+            (77.19498289623718,73.0335311490682)
+            (74.9144811858609,73.10442989168634)
+            (72.63397947548461,73.35231124042306)
+            (70.35347776510832,73.2224991557378)
+            (68.07297605473204,72.79729591535633)
+            (65.79247434435575,72.56630855604375)
+            (63.511972633979475,72.72072008941967)
+            (61.23147092360319,72.56950484441822)
+            (58.95096921322691,72.69082049803642)
+            (56.67046750285063,72.60817776954202)
+            (54.38996579247434,72.62706129478138)
+            (52.109464082098064,72.75323212175002)
+            (49.82896237172178,72.56630855604375)
+            (47.548460661345494,72.56302239056343)
+            (45.267958950969216,72.53586741130192)
+            (42.98745724059293,72.60112523681268)
+            (40.706955530216646,72.50551433464098)
+            (38.42645381984036,72.58265780555618)
+            (36.14595210946408,72.58265780555618)
+            (33.8654503990878,72.54473964316291)
+            (31.584948688711517,72.58512216568944)
+            (29.304446978335235,72.48784483698103)
+            (27.02394526795895,72.48784483698103)
+            (24.74344355758267,72.52276783603445)
+            (22.462941847206384,72.61259655235887)
+            (20.182440136830103,72.51704755301374)
+            (17.90193842645382,72.43735790252686)
+            (15.621436716077538,72.5420283116351)
+            (13.340935005701255,72.53586741130192)
+            (11.060433295324971,72.53586741130192)
+            (8.779931584948688,72.53586741130192)
+            (6.499429874572406,72.54473964316291)
+            (4.218928164196123,72.48661265691439)
+            (1.9384264538198404,72.48661265691439)
+            (0.04561003420752566,72.4790541221915)
+            (0.04561003420752566,72.36902058124542)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.5585;green,0.5935;blue,0.1175}, name path={650c9bfd-6326-4b4b-9e97-527cb93ebe0a}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.5585;green,0.5935;blue,0.1175}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.04561003420752566  72.36902058124542  \\
+            1.9384264538198404  72.41457879543304  \\
+            4.218928164196123  72.41457879543304  \\
+            6.499429874572406  72.43735790252686  \\
+            8.779931584948688  72.39179968833923  \\
+            11.060433295324971  72.39179968833923  \\
+            13.340935005701255  72.39179968833923  \\
+            15.621436716077538  72.27790415287018  \\
+            17.90193842645382  72.43735790252686  \\
+            20.182440136830103  72.3234623670578  \\
+            22.462941847206384  72.3234623670578  \\
+            24.74344355758267  72.36902058124542  \\
+            27.02394526795895  72.39179968833923  \\
+            29.304446978335235  72.39179968833923  \\
+            31.584948688711517  72.36902058124542  \\
+            33.8654503990878  72.43735790252686  \\
+            36.14595210946408  72.41457879543304  \\
+            38.42645381984036  72.41457879543304  \\
+            40.706955530216646  72.34624147415161  \\
+            42.98745724059293  72.39179968833923  \\
+            45.267958950969216  72.39179968833923  \\
+            47.548460661345494  72.27790415287018  \\
+            49.82896237172178  72.34624147415161  \\
+            52.109464082098064  72.46013700962067  \\
+            54.38996579247434  72.39179968833923  \\
+            56.67046750285063  72.30068325996399  \\
+            58.95096921322691  72.30068325996399  \\
+            61.23147092360319  72.3234623670578  \\
+            63.511972633979475  72.25512564182281  \\
+            65.79247434435575  72.34624147415161  \\
+            68.07297605473204  72.55125343799591  \\
+            70.35347776510832  71.95899784564972  \\
+            72.63397947548461  71.64009153842926  \\
+            74.9144811858609  72.09567189216614  \\
+            77.19498289623718  72.14123010635376  \\
+            79.47548460661345  71.9134396314621  \\
+            81.75598631698973  72.27790474891663  \\
+            84.03648802736602  72.30068385601044  \\
+            86.3169897377423  72.11845099925995  \\
+            88.59749144811859  71.8223237991333  \\
+            90.87799315849487  71.79954469203949  \\
+            93.15849486887114  71.77676498889923  \\
+            95.43899657924743  72.02733397483826  \\
+            97.71949828962371  71.70842826366425  \\
+            100.0  72.11845099925995  \\
+        }
+        ;
+    \addlegendentry {Twitch-RU}
+    \addplot[color={rgb,1:red,0.5585;green,0.5935;blue,0.1175}, name path={ccb99302-ada7-43f6-84bb-a523f6ee9ba5}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.0  75.51252841949463  \\
+            100.0  75.51252841949463  \\
         }
         ;
 \end{axis}
