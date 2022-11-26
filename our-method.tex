@@ -13,6 +13,13 @@ While this style of prolongation is fine when HARP is used only as a means of pr
 
 In order to offer a more fine-grained observation of the graph complexity and its effect on the downstream task, we present the adaptive prolongation approach. This algorithm works with the pre-coarsened graphs produced for example by HARP, however, the embedding is learned in a different manner.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{images/adaptive-prolongation/adaptive-prolongation.pdf}
+    \caption{A schematic explanation of the adaptive prolongation algorithm for obtaining the embedding \( \Phi{G_{i-1}} \) from \( \Phi{G_i} \).}
+  \label{fig:adaptive-prolongation}
+\end{figure}
+
 \begin{algorithm*}
   \caption{Adaptive prolongation}
   \label{alg:adaptive-prolongation}
@@ -60,7 +67,7 @@ In order to offer a more fine-grained observation of the graph complexity and it
   \end{algorithmic}
 \end{algorithm*}
 
-The adaptive prolongation approach (Algorithm \ref{alg:adaptive-prolongation}) uses the pre-computed coarsened graphs as a way to progressively increase the number of nodes with which the embedding is trained. However, its iterations of embedding training and prolongation are decoupled from the pre-computed coarsened graphs. Instead, in each step of the training, the current embedding is used to train a node classifier that guides which nodes should be prolonged. The node classifier is equivalent to the one which is to be eventually used for the downstream task and is trained on the same training subset of graph nodes. A measure guiding the prolongation is to be produced using this classifier -- ideally, only the nodes where the classifier performs the worst should be prolonged. To this end, the confidence of the classifier for each node is used. To measure such confidence, entropy of the output of the softmax layer for each node is used -- this represents the amount of uncertainty in the classifier for each node. For each node, starting with nodes with the highest entropy, the pre-computed coarsenings are searched for edge contractions involving the node, with preference for contractions from later steps of the repeated coarsening (corresponding to coarser graphs). A given number of such edge contractions is selected and undone in each prolongation step, gradually advancing from the coarsest graph to the original, finest one.
+The adaptive prolongation approach (Figure \ref{fig:adaptive-prolongation}, Algorithm \ref{alg:adaptive-prolongation}) uses the pre-computed coarsened graphs as a way to progressively increase the number of nodes with which the embedding is trained. However, its iterations of embedding training and prolongation are decoupled from the pre-computed coarsened graphs. Instead, in each step of the training, the current embedding is used to train a node classifier that guides which nodes should be prolonged. The node classifier is equivalent to the one which is to be eventually used for the downstream task and is trained on the same training subset of graph nodes. A measure guiding the prolongation is to be produced using this classifier -- ideally, only the nodes where the classifier performs the worst should be prolonged. To this end, the confidence of the classifier for each node is used. To measure such confidence, entropy of the output of the softmax layer for each node is used -- this represents the amount of uncertainty in the classifier for each node. For each node, starting with nodes with the highest entropy, the pre-computed coarsenings are searched for edge contractions involving the node, with preference for contractions from later steps of the repeated coarsening (corresponding to coarser graphs). A given number of such edge contractions is selected and undone in each prolongation step, gradually advancing from the coarsest graph to the original, finest one.
 
 \subsection{More general approaches to coarsening}\label{sec:coarsening-algorithms}
 
