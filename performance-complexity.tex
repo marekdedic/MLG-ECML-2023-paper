@@ -1,4 +1,4 @@
-\section{The performance-complexity trade-off problem}
+\section{The performance-complexity trade-off problem}\label{sec:performance-complexity}
 
 The main aim of this work is to explore the performance-complexity characteristics in the context of graph learning, as described for example by \cite{prochazka_downstream_2022}. Consider an undirected graph \( G \) with nodes \( V \left( G \right) \) and edges \( E \left( G \right) \). The result of the graph coarsening part of the algorithm is a sequence of graphs \( G_0, G_1, G_2, \dots, G_L \) where \( G_0 = G \) and \( L \in \mathfield{N} \) is a hyper-parameter of the method.
 Given a model \( M \) that operates on graphs, a performance metric \( P \left( G, M \right) \) and a complexity metric \( C \left( G, M \right) \), the sequence \( G_0, G_1, \dots, G_L \) can be plotted in the performance-complexity space, where the original graph \( G_0 \) usually provides the best performance and incurs the most complexity and subsequent coarsened graphs improve complexity and hurt performance. -- see Figure \ref{fig:performance-complexity} for an illustration.
