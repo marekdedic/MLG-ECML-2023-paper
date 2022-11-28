@@ -10,7 +10,7 @@ Given a model \( M \) that operates on graphs, a performance metric \( P \left( 
   \label{fig:performance-complexity}
 \end{figure}
 
-This performance-complexity characteristics allows for a choice of an optimal \textbf{working point} for the model M - i.e., the choice of the optimal coarsening level \( G_i \). The choice of the working point is subjective and dependent on the particular use-case, downstream task and the environment in which the model is to be deployed. In general, however, two distinct uses of the characteristics emerge:
+This performance-complexity characteristics allows for a choice of an optimal \textbf{working point} for the model M - i.e., the choice of the optimal coarsening level \( G_i \), which directly influences both the performance and the complexity of the model. The choice of the working point is subjective and dependent on the particular use-case, downstream task and the environment in which the model is to be deployed. In general, however, two distinct uses of the characteristics emerge:
 \begin{itemize}
   \item Finding the most performant model for a given complexity budget. That is, for a given maximum allowable complexity \( C_\mathrm{max} \), a graph \( G_i \) is to be found that maximizes \( P \left( G_i, M \right) \) while maintaining \( C \left( G_i, M \right) \leq C_\mathrm{max} \).
   \item Finding the least complex model satisfying a performance target. That is, for a given minimum acceptable performance \( P_\mathrm{min} \), a graph \( G_i \) is to be found that minimizes \( C \left( G_i, M \right) \) while maintaining \( P \left( G_i, M \right) \geq P_\mathrm{min} \).
@@ -20,7 +20,7 @@ This performance-complexity characteristics allows for a choice of an optimal \t
 
 The choice of a suitable performace metric \( P \left( G, M \right) \) is dependent on the downstream task in question -- usually, the same metric used to evaluate the downstream model is utilized as the performance metric. In this work, the accuracy of the transductive classification is used as the chosen performance metric.
 
-In practice, two of the most important complexity metrics are computational complexity and memory complexity. These may not only affect the monetary cost and time needed to train a model, but may prevent the application of a considered model or architecture outright due to the infeasibility of the given configuration. In the context of graph algorithms, a good proxy for the real-world complexity metrics may be the number of edges in a graph, or the number of nodes in the graph, which is the metric used in the rest of this work.
+In practice, two of the most important complexity metrics are computational complexity and memory complexity. These may not only affect the monetary cost and time needed to train a model, but may prevent the application of a considered model or architecture outright due to the infeasibility of the given configuration. As shown in \cite{chiang_cluster-gcn_2019}, in the context of graph algorithms, a good proxy for the real-world complexity metrics may be the number of edges in a graph, or the number of nodes in the graph, which is the metric used in the rest of this work.
 
 \subsection{Computational complexity of finding the optimal working point}
 
