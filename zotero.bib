@@ -598,7 +598,7 @@ arXiv:2006.07739 [cs, stat]},
 	month = jan,
 	year = {2019},
 	note = {Publisher: Society for Industrial and Applied Mathematics},
-	keywords = {05C70, 05C85, 68R10, 68W05, acyclic partitioning, directed graph, multilevel partitioning},
+	keywords = {05C85, 05C70, 68R10, 68W05, acyclic partitioning, directed graph, multilevel partitioning},
 	pages = {A2117--A2145},
 }
 
@@ -632,7 +632,7 @@ Publisher: Multidisciplinary Digital Publishing Institute},
 	author = {Liu, Ning and Jian, Songlei and Li, Dongsheng and Zhang, Yiming and Lai, Zhiquan and Xu, Hongzuo},
 	year = {2021},
 	note = {Conference Name: IEEE Transactions on Knowledge and Data Engineering},
-	keywords = {Attention Mechanism, Convolution, Feature extraction, Graph Pooling, Graph Representation Learning, Hierarchical Manner, Neural networks, Representation learning, Task analysis, Technological innovation, Topology},
+	keywords = {Neural networks, Convolution, Task analysis, Attention Mechanism, Feature extraction, Graph Pooling, Graph Representation Learning, Hierarchical Manner, Representation learning, Technological innovation, Topology},
 	pages = {1--1},
 }
 
@@ -653,7 +653,7 @@ k
 	month = jan,
 	year = {2015},
 	note = {Publisher: Society for Industrial and Applied Mathematics},
-	keywords = {65F08, 65F10, 65F50, 65N22, 65Y20, algebraic preconditioners, ILU preconditioners, incomplete factorization preconditioners, multilevel graph coarsening, sparse matrix reordering},
+	keywords = {65F10, 65F08, 65F50, 65N22, 65Y20, algebraic preconditioners, ILU preconditioners, incomplete factorization preconditioners, multilevel graph coarsening, sparse matrix reordering},
 	pages = {A391--A419},
 }
 
@@ -690,7 +690,7 @@ k
 	author = {Yuan, Yingfang and Wang, Wenjun and Pang, Wei},
 	month = jul,
 	year = {2021},
-	keywords = {evolutionary computation, graph neural networks, hyperparameter optimisation, molecular property prediction},
+	keywords = {graph neural networks, evolutionary computation, hyperparameter optimisation, molecular property prediction},
 	pages = {1403--1404},
 }
 
@@ -703,7 +703,7 @@ k
 	month = may,
 	year = {2012},
 	note = {ISSN: 1530-2075},
-	keywords = {Algorithm design and analysis, Approximation algorithms, Clustering algorithms, coarsening, Heuristic algorithms, Measurement, Multi-level hypergraph partitioning, multicore programming, multithreaded clustering algorithms, Partitioning algorithms, Pins},
+	keywords = {coarsening, Algorithm design and analysis, Approximation algorithms, Clustering algorithms, Heuristic algorithms, Measurement, Multi-level hypergraph partitioning, multicore programming, multithreaded clustering algorithms, Partitioning algorithms, Pins},
 	pages = {848--859},
 }
 
@@ -733,7 +733,7 @@ k
 	month = feb,
 	year = {2020},
 	note = {arXiv:2002.05287 [cs, stat]},
-	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning, Statistics - Machine Learning},
+	keywords = {Statistics - Machine Learning, Computer Science - Machine Learning, Computer Science - Computer Vision and Pattern Recognition},
 }
 
 @inproceedings{lim_large_2021,
@@ -778,5 +778,36 @@ k
 	month = sep,
 	year = {2022},
 	note = {arXiv:2209.06177 [cs, math]},
-	keywords = {Computer Science - Discrete Mathematics, Computer Science - Machine Learning, Computer Science - Social and Information Networks, Mathematics - Probability},
+	keywords = {Computer Science - Machine Learning, Computer Science - Social and Information Networks, Computer Science - Discrete Mathematics, Mathematics - Probability},
+}
+
+@inproceedings{andersen_local_2006,
+	title = {Local {Graph} {Partitioning} using {PageRank} {Vectors}},
+	doi = {10.1109/FOCS.2006.44},
+	abstract = {A local graph partitioning algorithm finds a cut near a specified starting vertex, with a running time that depends largely on the size of the small side of the cut, rather than the size of the input graph. In this paper, we present a local partitioning algorithm using a variation of PageRank with a specified starting distribution. We derive a mixing result for PageRank vectors similar to that for random walks, and show that the ordering of the vertices produced by a PageRank vector reveals a cut with small conductance. In particular, we show that for any set C with conductance Phi and volume k, a PageRank vector with a certain starting distribution can be used to produce a set with conductance (O(radic(Phi log k)). We present an improved algorithm for computing approximate PageRank vectors, which allows us to find such a set in time proportional to its size. In particular, we can find a cut with conductance at most oslash, whose small side has volume at least 2b in time O(2 log m/(2b log2 m/oslash2) where m is the number of edges in the graph. By combining small sets found by this local partitioning algorithm, we obtain a cut with conductance oslash and approximately optimal balance in time O(m log4 m/oslash)},
+	booktitle = {2006 47th {Annual} {IEEE} {Symposium} on {Foundations} of {Computer} {Science} ({FOCS}'06)},
+	author = {Andersen, Reid and Chung, Fan and Lang, Kevin},
+	month = oct,
+	year = {2006},
+	note = {ISSN: 0272-5428},
+	keywords = {Algorithm design and analysis, Analytical models, Clustering algorithms, Computational modeling, Educational institutions, Linear systems, Mathematics, Partitioning algorithms, Probability distribution, Vectors},
+	pages = {475--486},
+}
+
+@inproceedings{kloster_heat_2014,
+	address = {New York, NY, USA},
+	series = {{KDD} '14},
+	title = {Heat kernel based community detection},
+	isbn = {978-1-4503-2956-9},
+	url = {https://doi.org/10.1145/2623330.2623706},
+	doi = {10.1145/2623330.2623706},
+	abstract = {The heat kernel is a type of graph diffusion that, like the much-used personalized PageRank diffusion, is useful in identifying a community nearby a starting seed node. We present the first deterministic, local algorithm to compute this diffusion and use that algorithm to study the communities that it produces. Our algorithm is formally a relaxation method for solving a linear system to estimate the matrix exponential in a degree-weighted norm. We prove that this algorithm stays localized in a large graph and has a worst-case constant runtime that depends only on the parameters of the diffusion, not the size of the graph. On large graphs, our experiments indicate that the communities produced by this method have better conductance than those produced by PageRank, although they take slightly longer to compute. On a real-world community identification task, the heat kernel communities perform better than those from the PageRank diffusion.},
+	urldate = {2022-12-02},
+	booktitle = {Proceedings of the 20th {ACM} {SIGKDD} international conference on {Knowledge} discovery and data mining},
+	publisher = {Association for Computing Machinery},
+	author = {Kloster, Kyle and Gleich, David F.},
+	month = aug,
+	year = {2014},
+	keywords = {heat kernel, local clustering},
+	pages = {1386--1395},
 }
