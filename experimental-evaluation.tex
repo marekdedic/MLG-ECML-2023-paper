@@ -72,6 +72,15 @@ The metrics used were:
   \item Global assortativity \cite{newman_mixing_2003} is a measure of the tendency of nodes to connect with other similar nodes, rather than dissimilar nodes.
 \end{itemize}
 
+The values of these metrics at different steps of the adaptive prolongation algorithm are shown in Figure~\ref{fig:metrics}.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width = \linewidth]{images/metrics/metrics.pdf}
+  \caption{Values of the metrics for different datasets at different steps of the adpative prolongation algorithm. Overlaid as the dashed line is the accuracy of the downstream classifier.}
+  \label{fig:metrics}
+\end{figure*}
+
 \subsection{Comparison of coarsening approaches}
 
 For GDC coarsening, only the top-\( k \) sparsification method produces reliable results as thresholding leads to instability in the coarsening process, either collapsing the whole graph almost immediately, or not collapsing it at all. As for the other parameters, we followed \cite{gasteiger_diffusion_2019}. Both of the diffusion methods propsed in \cite{gasteiger_diffusion_2019} were implemented with the recommended parameter values, that is the heat kernel was used with the diffusion time \( t = 5 \) and the Personalized PageRank algorithm with the teleport probability \( \alpha = 0.15 \) and the recommended normalization. To be able to compute graph diffusion for larger graphs, approximate diffusion algorithms were used. For PPR, a version of the Andersen algorithm \cite{andersen_local_2006} with \( \epsilon = 10^{-2} \) was used and for heat kernel diffusion, a version of the Kloster-Gleich algorithm \cite{kloster_heat_2014} with \( \epsilon = 10^{-5} \) was used. Both of these algorithms were modified to produce edge weights as part of their output.
