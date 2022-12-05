@@ -4,7 +4,32 @@
 
 \subsubsection{Datasets}
 
-The proposed methods were experimentally verified on several datasets. The datasets Cora and CiteSeer \cite{yang_revisiting_2016} were used with the \enquote{full} train-test split as in \cite{chen_fastgcn_2018}. Two larger datasets were also used, the PubMed dataset \cite{yang_revisiting_2016} containing 19 717 nodes and 88 648 edges, and the DBLP dataset \cite{bojchevski_deep_2018} containing 17 716 nodes and 105 734 edges. In addition, 6 variants of the Twitch dataset \cite{rozemberczki_multi-scale_2021} were used, ranging from 1 912 to 9 498 nodes.
+The proposed methods were experimentally verified on several datasets. The datasets Cora and CiteSeer \cite{yang_revisiting_2016} were used with the \enquote{full} train-test split as in \cite{chen_fastgcn_2018}. Two larger datasets were also used, the PubMed dataset \cite{yang_revisiting_2016} and the DBLP dataset \cite{bojchevski_deep_2018}. In addition, 6 variants of the Twitch dataset \cite{rozemberczki_multi-scale_2021} were used. The basic properties of these datasets are listed in Table~\ref{tab:dataset-sizes}.
+
+\begin{table*}
+  \begin{center}
+    \begin{minipage}{280pt} % Tune this when the table is changed using the lua-visual-debug package
+      \caption{Basic properties of the used datasets}
+      \label{tab:dataset-sizes}
+      \begin{tabular}{lrrrr}
+        \toprule
+        \textbf{Dataset} & \textbf{Nodes} & \textbf{Edges} & \textbf{Node features} & \textbf{Classes} \\
+        \midrule
+        Cora             & 2 708          & 10 556         & 1 433                  & 7                \\
+        CiteSeer         & 3 327          & 9 104          & 3 703                  & 6                \\
+        PubMed           & 19 717         & 88 648         & 500                    & 3                \\
+        DBLP             & 17 716         & 105 734        & 1 639                  & 4                \\
+        Twitch-DE        & 9 498          & 315 774        & 128                    & 2                \\
+        Twitch-EN        & 7 126          & 77 774         & 128                    & 2                \\
+        Twitch-ES        & 4 648          & 123 412        & 128                    & 2                \\
+        Twitch-FR        & 6 551          & 231 883        & 128                    & 2                \\
+        Twitch-PT        & 1 912          & 64 510         & 128                    & 2                \\
+        Twitch-RU        & 4 385          & 78 993         & 128                    & 2                \\
+        \bottomrule
+      \end{tabular}
+    \end{minipage}
+  \end{center}
+\end{table*}
 
 \subsubsection{Methodology of experiments}
 
@@ -58,7 +83,7 @@ To further study the model properties, the Friedman two-way analysis of ranks wa
 
 \subsection{The relationship of the results and the properties of the graph}
 
-When the models for DBLP and PubMed are studied more closely, both reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. To investigate this hypothesis, an array of graph metrics was applied to the graphs generated during the adaptive prolongation algorithm run. All of the metrics were applied in two scenarios -- \enquote{absolute}, where the metric was applied to the graph at a particular step in the prolongation process, and \enquote{incremental}, where the metric was applied to the graph induced by the edge set \( \mathspace{C} \), that is, the set of edges to be contracted at that step.
+When the models for DBLP and PubMed are studied more closely, both reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. To investigate this hypothesis, several graph metrics were applied to the graphs generated during the adaptive prolongation algorithm run. All of the metrics were applied in two scenarios -- \enquote{absolute}, where the metric was applied to the graph at a particular step in the prolongation process, and \enquote{incremental}, where the metric was applied to the graph induced by the edge set \( \mathspace{C} \), that is, the set of edges to be contracted at that step.
 
 The metrics used were:
 \begin{itemize}
