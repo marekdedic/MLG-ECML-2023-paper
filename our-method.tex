@@ -27,15 +27,16 @@ In order to offer a more fine-grained observation of the graph complexity and it
   \label{alg:adaptive-prolongation}
   \begin{algorithmic}
     \Require $ G $ \Comment The original graph
-    \Require $ \mathvec{e}_{i+1} $ \Comment The previous embedding
     \Require $ \mathvec{y}_\mathrm{train} $ \Comment Training labels
-    \Require $ coarsening\_maps $ \Comment A list of all the original graph coarsenings
     \Require $ n_p $ \Comment The number of nodes to prolong
-    \Ensure $ merges\_to\_prolong $ \Comment A list of node merges to be prolonged (\enquote{undone})
+    \Require $ \mathvec{e}_{i + 1} $ \Comment The previous embedding
+    \Require $ coarsening\_maps $ \Comment A list of all the original graph coarsenings
+    \Ensure $ \mathvec{e}_i $ \Comment The next embedding
     \Ensure $ new\_coarsening\_maps $ \Comment Updated coarsening records without the prolonged merges
     \Statex
     \State $ node\_order \gets \Call{get\_node\_order}{G, \bm{e}_{i+1}, \bm{y}_\mathrm{train}, coarsening\_maps} $
     \State $ merges\_to\_prolong \gets \Call{select\_merges}{node\_order, n_p, coarsening\_maps} $
+    \State $ \mathvec{e}_i \gets $ use $ merges\_to\_prolong $ to prolong the embedding $ \mathvec{e}_{i + 1} $
     \State $ new\_coarsening\_maps \gets \Call{undo\_merges}{coarsening\_maps, merges\_to\_prolong} $
     \Statex
     \Function{get\_node\_order}{$ G, \bm{e}_{i+1}, \bm{y}_\mathrm{train}, coarsening\_maps $}
@@ -56,7 +57,7 @@ In order to offer a more fine-grained observation of the graph complexity and it
     \Statex
     \Function{resolve\_merge}{$ node, already\_selected\_merges, coarsening\_maps $}
         \State $ merge \gets \mathrm{null} $
-        \For{$ coarsening\_map \in coarsening\_maps $ from finest graph to coarsest}
+        \For{$ coarsening\_map \in coarsening\_maps $, i.e. all steps of the original coarsening from finest to coarsest}
             \State $ merge\_candidate \gets $ find in $ coarsening\_map $ a merge that affects $ node $, if not found, continue with next $ coarsening\_map $
             \If{$ merge\_candidate \in already\_selected\_merges $}
                 \State \Return $ merge $
