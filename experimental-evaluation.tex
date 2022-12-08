@@ -108,9 +108,8 @@ Following recent best-practice recommendations regarding verifying the statistic
 \end{table}
 
 \subsection{The relationship of the results and the properties of the graph}
-% TODO: Whole section
 
-When the models for DBLP and PubMed are studied more closely, both reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. To investigate this hypothesis, several graph metrics were applied to the graphs generated during the adaptive prolongation algorithm run. All of the metrics were applied in two scenarios -- \enquote{absolute}, where the metric was applied to the graph at a particular step in the prolongation process, and \enquote{incremental}, where the metric was applied to the graph induced by the edge set \( \mathspace{C} \), that is, the set of edges to be contracted at that step.
+When the models for DBLP and PubMed are studied more closely, both reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. To investigate this hypothesis and try to explain the behaviour of the model in general, several graph metrics were applied to the graphs generated during the adaptive prolongation algorithm run. All of the metrics were applied in two scenarios -- \enquote{absolute}, where the metric was applied to the graph at a particular step in the prolongation process, and \enquote{incremental}, where the metric was applied to the graph induced by the edge set \( \mathspace{C} \), that is, the set of edges to be contracted at that step.
 
 The metrics used were:
 \begin{itemize}
@@ -124,13 +123,20 @@ The metrics used were:
   \item Global assortativity \cite{newman_mixing_2003} is a measure of the tendency of nodes to connect with other similar nodes, rather than dissimilar nodes.
 \end{itemize}
 
-The values of these metrics at different steps of the adaptive prolongation algorithm are shown in Figure~\ref{fig:metrics}.
+The values of these metrics at different steps of the adaptive prolongation algorithm are shown in Figure~\ref{fig:metrics-absolute} and Figure~\ref{fig:metrics-incremental}. On the Twitch dataset, the metrics show very few consistent behaviours, namely the universal rice in node homophily in the absolute scenario and the sudden rise of label informativeness in the incremental scenario. The behaviour on the other datasets is substantially different with a general preference for a slow rise in the metric value in the absolute scenario, with the exception of global assortativity. As for PubMed and DBLP specifically, most of the metrics rise quickly and then plateau at the same point as the local minimum of the performance. This suggests the explanation of the graph being heterophilic when very coarse, then reaching a point where new nodes are mostly added to existing neighbourhoods, at which point the accuracy temporarily stops growing.
 
 \begin{figure*}
   \centering
-  \includegraphics[width = \linewidth]{images/metrics/metrics.pdf}
-  \caption{Values of the metrics for different datasets at different steps of the adpative prolongation algorithm. Overlaid as the dashed line is the accuracy of the downstream classifier.}
-  \label{fig:metrics}
+  \includegraphics[width = \linewidth]{images/metrics-absolute/metrics-absolute.pdf}
+  \caption{Values of the metrics for different datasets at different steps of the adpative prolongation algorithm in the absolute scenario. Overlaid as the dashed line is the accuracy of the downstream classifier.}
+  \label{fig:metrics-absolute}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width = \linewidth]{images/metrics-incremental/metrics-incremental.pdf}
+  \caption{Values of the metrics for different datasets at different steps of the adpative prolongation algorithm in the incremental scenario. Overlaid as the dashed line is the accuracy of the downstream classifier.}
+  \label{fig:metrics-incremental}
 \end{figure*}
 
 \subsection{Comparison of coarsening approaches}
