@@ -78,7 +78,7 @@ In order to study the effect of the adaptive prolongation, the adaptive prolonga
 
 The behaviour of the model somewhat differs between the used datasets. For the Cora, CiteSeer, DBLP and PubMed datasets, the model starts from a very low performance, which quickly rises as the model trains for several prolongation steps. The model trained on CiteSeer attains performance comparable to the reference model when approximately half of all nodes are available to it. On the other hand, with Cora, the model slowly approaches the reference model for the whole duration of training, only reaching comparable performance at a point where nearly the whole graph is available to it. Models trained on the two larger datasets, DBLP and PubMed, exhibit a different behaviour in that they briefly reach a global maximum followed by a slight decrease in performance until finally approaching the performance of the reference model in a manner similar to the models trained on Cora and CiteSeer. This behaviour is further discussed in the next section. The Twitch dataset is substantially different, with very high initial performance and only small performance gains with increasing number of nodes available, with different variants of it exhibiting this effect to a different magnitude.
 
-To further study the model properties from a statistical point of view, the results were evaluated at \( k \)-th deciles of the node count of the full graph, for all possible values of \( k \). At each decile, the performance of the model was compared to the baseline node2vec model using the Wilcoxon signed-rank test with the Holm-Bonferroni correction for multiple hypothesis testing. The hypotheses that the 2 models are equivalent were tested on all datasets. None of the hypotheses were rejected by the test at the 5\% level of significance. We attribute this mainly to the Twitch dataset, for which the performance of the adaptive approach is very good even under heavy coarsening
+To further study the model properties from a statistical point of view, the results were evaluated at \( k \)-th deciles of the node count of the full graph, for all possible values of \( k \). At each decile, the performance of the model was compared to the baseline node2vec model using the Wilcoxon signed-rank test with the Holm-Bonferroni correction for multiple hypothesis testing with the hypothesis that the models are equivalent. None of the hypotheses were rejected by the test at the 5\% level of significance. We attribute this mainly to the Twitch dataset, for which the performance of the adaptive approach is very good even under heavy coarsening
 
 Following recent best-practice recommendations regarding verifying the statistical validity of results \cite{benavoli_time_2017}, the results were also studied from the point of view of Bayesian estimation. Similarly to the frequentist approach, the performance of the model was compared to that of the baseline model at \( k \)-th deciles of the node count, for all possible values of \( k \). The comparison was done using the Bayesian Wilcoxon signed-rank test \cite{benavoli_bayesian_2014} for 3 different widths of the region of practical equivalence (ROPE), 1\%, 5\% and 10\%. The probabilities that the two models are practically equivalent are listed in Table~\ref{tab:bayesian-adaptive}. Of a particular note is the fact that at 50\% complexity, the models have over a 95\% probability of being within 5 percentage points of performance -- showing that the proposed method may offer a significant complexity reduction in exchange for a relatively minor decrease in performance.
 
@@ -91,16 +91,16 @@ Following recent best-practice recommendations regarding verifying the statistic
         \toprule
         \textbf{Nodes} & \textbf{1\% ROPE} & \textbf{5\% ROPE} & \textbf{10\% ROPE} \\
         \midrule
-        10\%                & 0.1\%             & 29.1\%            & 57.8\%             \\
-        20\%                & 0.2\%             & 39.0\%            & 90.5\%             \\
-        30\%                & 0.1\%             & 54.5\%            & 98.6\%             \\
-        40\%                & 0.1\%             & 71.0\%            & 100.0\%            \\
-        50\%                & 0.9\%             & 95.2\%            & 100.0\%            \\
-        60\%                & 8.5\%             & 99.8\%            & 100.0\%            \\
-        70\%                & 32.6\%            & 100.0\%           & 100.0\%            \\
-        80\%                & 62.1\%            & 100.0\%           & 100.0\%            \\
-        90\%                & 67.4\%            & 100.0\%           & 100.0\%            \\
-        100\%               & 83.9\%            & 100.0\%           & 100.0\%            \\
+        \textbf{10\%}  & 0.1\%             & 29.1\%            & 57.8\%             \\
+        \textbf{20\%}  & 0.2\%             & 39.0\%            & 90.5\%             \\
+        \textbf{30\%}  & 0.1\%             & 54.5\%            & 98.6\%             \\
+        \textbf{40\%}  & 0.1\%             & 71.0\%            & 100.0\%            \\
+        \textbf{50\%}  & 0.9\%             & 95.2\%            & 100.0\%            \\
+        \textbf{60\%}  & 8.5\%             & 99.8\%            & 100.0\%            \\
+        \textbf{70\%}  & 32.6\%            & 100.0\%           & 100.0\%            \\
+        \textbf{80\%}  & 62.1\%            & 100.0\%           & 100.0\%            \\
+        \textbf{90\%}  & 67.4\%            & 100.0\%           & 100.0\%            \\
+        \textbf{100\%} & 83.9\%            & 100.0\%           & 100.0\%            \\
         \bottomrule
       \end{tabular}
     \end{minipage}
@@ -134,7 +134,6 @@ The values of these metrics at different steps of the adaptive prolongation algo
 \end{figure*}
 
 \subsection{Comparison of coarsening approaches}
-% TODO: Whole section
 
 For GDC coarsening, only the top-\( k \) sparsification method produces reliable results as thresholding leads to instability in the coarsening process, either collapsing the whole graph almost immediately, or not collapsing it at all. As for the other parameters, we followed \cite{gasteiger_diffusion_2019}. Both of the diffusion methods propsed in \cite{gasteiger_diffusion_2019} were implemented with the recommended parameter values, that is the heat kernel was used with the diffusion time \( t = 5 \) and the Personalized PageRank algorithm with the teleport probability \( \alpha = 0.15 \) and the recommended normalization. To be able to compute graph diffusion for larger graphs, approximate diffusion algorithms were used. For PPR, a version of the Andersen algorithm \cite{andersen_local_2006} with \( \epsilon = 10^{-2} \) was used and for heat kernel diffusion, a version of the Kloster-Gleich algorithm \cite{kloster_heat_2014} with \( \epsilon = 10^{-5} \) was used. Both of these algorithms were modified to produce edge weights as part of their output.
 
@@ -147,4 +146,56 @@ For GDC coarsening, only the top-\( k \) sparsification method produces reliable
 
 The behaviour of the models (Figure~\ref{fig:coarsening-algorithms}) again differs substantially between the datasets. Generally, the methods behave in a similar manner, retaining decent performance even at coarser levels and only improving slightly as more data is available. For Cora, CiteSeer, PubMed and DBLP datasets, the GDC based coarsenings outperform standard HARP at most coarsening levels, with PPR having higher accuracy when there is a difference between the two. This suggests that the GDC algorithm is able to preserve the global structure of the graph better than HARP over successive coarsenings. Twitch-EN and Twitch-PT are the only two datasets where HARP outperforms the diffusion-based methods, with other variants showing either comparable performance of all the approaches, or a preference towards GDC. Of note is the fact that the PPR algorithm only coarsened some variants of the Twitch dataset slightly, a problem not shared by the heat diffusion approach.
 
-An identical statistical test to the one described in Section~\ref{sec:adaptive-experiments} was carried out for all of the coarsening algorithms. Only the GDC coarsening with the heat kernel rejected the hypothesis that the accuracy is the same from the \( k \)-th decile onwards at the 5\% significance level, for \( k \in \left\{ 1, 2, 3 \right\} \). The Holm-corrected familywise p-values for \( k \in \left\{ 1, 2, 3, 4, 5 \right\} \) were \( 0.019, 0.023, 0.027, 0.071, 0.8 \), respectively. For other algorithms, the hypotheses weren't rejected for any value of \( k \).
+Statistical tests similar to the ones described in Section~\ref{sec:adaptive-experiments} were carried out to compare the different models. The Friedmann two-way analysis of ranks with the Holm-Bonferroni correction was used to test the hypothesis that all of the methods are equivalent at \( k \)-th deciles for all possible values of \( k \). This hypothesis was rejected for \( k \in \left\{ 1, 2, 3, 4 \right\} \) with Holm-corrected familywise p-values \( 3.36 \times 10^{-3}, 4.35 \times 10^{-3}, 7.36 \times 10^{-4}, 6.77 \times 10^{-3} \), respectively. For these deciles, a post-hoc pairwise Wilcoxon test was performed between the HARP, PPR and heat kernel methods. At the 5\% significance level, the test did not reject the hypothesis that HARP and the heat kernel are equivalent for any \( k \), rejected the hypothesis that HARP and PPR are equivalent for all values of \( k \in \left\{ 1, 2, 3, 4 \right\} \) with Holm-corrected p-values \( 0.023, 0.023, 0.023, 0.047 \) respectively and rejected the hypothesis that the heat kernel and PPR are equivalent for \( k \in \left\{ 1, 3 \right\} \) with Holm-corrected p-values \( 0.035, 0.046 \) respectively.
+
+The coarsening approaches were also compared using Bayesian estimation, using the Bayesian Wilcoxon signed-rank test in a pairwise fashion for all possible values of \( k \) with a 5\% region of practically equivalence. When comparing HARP to the heat kernel, the two methods had over 98\% probability of being practically equivalent for all values of \( k \). The comparison of HARP and PPR is listed in Table~\ref{tab:bayesian-harp-ppr} and the comparison of the heat kernel and PPR in Table~\ref{tab:bayesian-heat-ppr} The results show that all the methods are practically equivalent when the graph is only slightly coarsened and at higher levels of coarsening, PPR dominates both other methods in the situations where it is available.
+
+\begin{table}
+  \begin{center}
+    \begin{minipage}{180pt} % Tune this when the table is changed using the lua-visual-debug package
+      \caption{Comparison of HARP coarsening and PPR based coarsening based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
+      \label{tab:bayesian-harp-ppr}
+      \begin{tabular}{lrrr}
+        \toprule
+        \textbf{Nodes} & \textbf{HARP} & \textbf{Equivalent} & \textbf{PPR} \\
+        \midrule
+        \textbf{10\%}  & 0.0\%         & 41.1\%            & 58.9\%         \\
+        \textbf{20\%}  & 0.0\%         & 69.1\%            & 30.9\%         \\
+        \textbf{30\%}  & 0.0\%         & 84.5\%            & 15.5\%         \\
+        \textbf{40\%}  & 0.0\%         & 97.9\%            & 2.2\%          \\
+        \textbf{50\%}  & 0.0\%         & 99.8\%            & 0.2\%          \\
+        \textbf{60\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{70\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{80\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{90\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{100\%} & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \bottomrule
+      \end{tabular}
+    \end{minipage}
+  \end{center}
+\end{table}
+
+\begin{table}
+  \begin{center}
+    \begin{minipage}{180pt} % Tune this when the table is changed using the lua-visual-debug package
+      \caption{Comparison of heat kernel and PPR based coarsenings based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
+      \label{tab:bayesian-heat-ppr}
+      \begin{tabular}{lrrr}
+        \toprule
+        \textbf{Nodes} & \textbf{Heat} & \textbf{Equivalent} & \textbf{PPR} \\
+        \midrule
+        \textbf{10\%}  & 0.0\%         & 58.1\%            & 41.9\%         \\
+        \textbf{20\%}  & 0.0\%         & 89.4\%            & 10.6\%         \\
+        \textbf{30\%}  & 0.0\%         & 99.9\%            & 0.1\%         \\
+        \textbf{40\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{50\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{60\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{70\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{80\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{90\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \textbf{100\%} & 0.0\%         & 100.0\%           & 0.0\%          \\
+        \bottomrule
+      \end{tabular}
+    \end{minipage}
+  \end{center}
+\end{table}
