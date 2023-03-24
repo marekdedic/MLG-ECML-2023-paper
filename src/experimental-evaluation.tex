@@ -7,28 +7,25 @@
 The proposed methods were experimentally verified on several datasets. The datasets Cora and CiteSeer \cite{yang_revisiting_2016} were used with the \enquote{full} train-test split as in \cite{chen_fastgcn_2018}. Two larger datasets were also used, the PubMed dataset \cite{yang_revisiting_2016} and the DBLP dataset \cite{bojchevski_deep_2018}. In addition, 6 variants of the Twitch dataset \cite{rozemberczki_multi-scale_2021} were used. The basic properties of these datasets are listed in Table~\ref{tab:dataset-sizes}.
 
 \begin{table*}
-  \begin{center}
-    \begin{minipage}{280pt} % Tune this when the table is changed using the lua-visual-debug package
-      \caption{Basic properties of the used datasets}
-      \label{tab:dataset-sizes}
-      \begin{tabular}{lrrrr}
-        \toprule
-        \textbf{Dataset} & \textbf{Nodes} & \textbf{Edges} & \textbf{Node features} & \textbf{Classes} \\
-        \midrule
-        Cora             & 2 708          & 10 556         & 1 433                  & 7                \\
-        CiteSeer         & 3 327          & 9 104          & 3 703                  & 6                \\
-        PubMed           & 19 717         & 88 648         & 500                    & 3                \\
-        DBLP             & 17 716         & 105 734        & 1 639                  & 4                \\
-        Twitch-DE        & 9 498          & 315 774        & 128                    & 2                \\
-        Twitch-EN        & 7 126          & 77 774         & 128                    & 2                \\
-        Twitch-ES        & 4 648          & 123 412        & 128                    & 2                \\
-        Twitch-FR        & 6 551          & 231 883        & 128                    & 2                \\
-        Twitch-PT        & 1 912          & 64 510         & 128                    & 2                \\
-        Twitch-RU        & 4 385          & 78 993         & 128                    & 2                \\
-        \bottomrule
-      \end{tabular}
-    \end{minipage}
-  \end{center}
+  \caption{Basic properties of the used datasets}
+  \label{tab:dataset-sizes}
+  \centering
+  \begin{tabular}{lrrrr}
+    \toprule
+    \textbf{Dataset} & \textbf{Nodes} & \textbf{Edges} & \textbf{Node features} & \textbf{Classes} \\
+    \midrule
+    Cora             & 2 708          & 10 556         & 1 433                  & 7                \\
+    CiteSeer         & 3 327          & 9 104          & 3 703                  & 6                \\
+    PubMed           & 19 717         & 88 648         & 500                    & 3                \\
+    DBLP             & 17 716         & 105 734        & 1 639                  & 4                \\
+    Twitch-DE        & 9 498          & 315 774        & 128                    & 2                \\
+    Twitch-EN        & 7 126          & 77 774         & 128                    & 2                \\
+    Twitch-ES        & 4 648          & 123 412        & 128                    & 2                \\
+    Twitch-FR        & 6 551          & 231 883        & 128                    & 2                \\
+    Twitch-PT        & 1 912          & 64 510         & 128                    & 2                \\
+    Twitch-RU        & 4 385          & 78 993         & 128                    & 2                \\
+    \bottomrule
+  \end{tabular}
 \end{table*}
 
 \subsubsection{Methodology of experiments}
@@ -38,31 +35,28 @@ The hyper-parameters for both the node2vec model used for the embedding training
 The achitecture of the algorithm was identical accross the dataset, with the only difference being in the values of the hyper-parameters, as listed in Table~\ref{tab:hyperparameter-values}. For the Cora dataset, the node2vec model generated an embedding in \( \mathfield{R}^{128} \) from \( 4 \) random walks of length \( 20 \) for each node with a context window of size \( 5 \). The optimizer ADAM \cite{kingma_adam:_2017} was used with a learning rate of \( 0.01 \) and batches of \( 128 \) samples. The model was trained for \( 5 \) epochs and in each step of the adaptive prolongation, \( 100 \) nodes were prolonged, until reaching the original graph. The MLP classifier using the embeddings featured \( 3 \) linear layers of \( 128 \) neurons with batch normalization after each layer. Each layer was normalized using dropout \cite{srivastava_dropout_2014} with the rate of \( 0.5 \). Finally, a linear layer was used for the class prediction. For the classifier, ADAM with a learning rate of \( 0.01 \) was used for \( 30 \) epochs of training with the cross-entropy loss function. Dataset features weren't used for the classifier training as the aim of this work is to compare the embeddings. The experiment was run \( 10 \) times end-to-end and results averaged. The experiments were implemented using PyTorch \cite{paszke_pytorch_2019} and PyTorch Geometric \cite{fey_fast_2019}.
 
 \begin{table*}
-  \begin{center}
-    \begin{minipage}{360pt} % Tune this when the table is changed using the lua-visual-debug package
-      \caption{Hyper-parameter values used for different datasets}
-      \label{tab:hyperparameter-values}
-      \begin{tabular}{lrrrrr}
-        \toprule
-        \textbf{Hyper-parameter} & \textbf{Cora} & \textbf{CiteSeer} & \textbf{PubMed} & \textbf{DBLP} & \textbf{Twitch} \\
-        \midrule
-        Embedding dimension      & 128           & 32                & 64              & 32            & 128             \\
-        \# of random walks       & 4             & 5                 & 3               & 2             & 10              \\
-        Random walk length       & 20            & 20                & 40              & 20            & 80              \\
-        Context window size      & 5             & 5                 & 20              & 5             & 3               \\
-        Node2vec learning rate   & 0.01          & 0.01              & 0.01            & 0.01          & 0.025           \\
-        Node2vec batch size      & 128           & 128               & 128             & 128           & 128             \\
-        Node2vec epochs          & 5             & 7                 & 1               & 1             & 5               \\
-        \# of prolonged nodes    & 100           & 150               & 1000            & 800           & 200             \\
-        \# of MLP layers         & 3             & 3                 & 1               & 3             & 2               \\
-        MLP hidden layer width   & 128           & 256               & 128             & 256           & 64              \\
-        Dropout rate             & 0.5           & 0.5               & 0.5             & 0.5           & 0.5             \\
-        MLP learning rate        & 0.01          & 0.01              & 0.01            & 0.01          & 0.01            \\
-        MLP epochs               & 30            & 80                & 300             & 300           & 500             \\
-        \bottomrule
-      \end{tabular}
-    \end{minipage}
-  \end{center}
+  \caption{Hyper-parameter values used for different datasets}
+  \label{tab:hyperparameter-values}
+  \centering
+  \begin{tabular}{lrrrrr}
+    \toprule
+    \textbf{Hyper-parameter} & \textbf{Cora} & \textbf{CiteSeer} & \textbf{PubMed} & \textbf{DBLP} & \textbf{Twitch} \\
+    \midrule
+    Embedding dimension      & 128           & 32                & 64              & 32            & 128             \\
+    \# of random walks       & 4             & 5                 & 3               & 2             & 10              \\
+    Random walk length       & 20            & 20                & 40              & 20            & 80              \\
+    Context window size      & 5             & 5                 & 20              & 5             & 3               \\
+    Node2vec learning rate   & 0.01          & 0.01              & 0.01            & 0.01          & 0.025           \\
+    Node2vec batch size      & 128           & 128               & 128             & 128           & 128             \\
+    Node2vec epochs          & 5             & 7                 & 1               & 1             & 5               \\
+    \# of prolonged nodes    & 100           & 150               & 1000            & 800           & 200             \\
+    \# of MLP layers         & 3             & 3                 & 1               & 3             & 2               \\
+    MLP hidden layer width   & 128           & 256               & 128             & 256           & 64              \\
+    Dropout rate             & 0.5           & 0.5               & 0.5             & 0.5           & 0.5             \\
+    MLP learning rate        & 0.01          & 0.01              & 0.01            & 0.01          & 0.01            \\
+    MLP epochs               & 30            & 80                & 300             & 300           & 500             \\
+    \bottomrule
+  \end{tabular}
 \end{table*}
 
 \subsection{Evaluation of the adaptive approach}\label{sec:adaptive-experiments}
@@ -83,28 +77,25 @@ To further study the model properties from a statistical point of view, the resu
 Following recent best-practice recommendations regarding verifying the statistical validity of results \cite{benavoli_time_2017}, the results were also studied from the point of view of Bayesian estimation. Similarly to the frequentist approach, the performance of the model was compared to that of the baseline model at \( k \)-th deciles of the node count, for all possible values of \( k \). The comparison was done using the Bayesian Wilcoxon signed-rank test \cite{benavoli_bayesian_2014} for 3 different widths of the region of practical equivalence (ROPE), 1\%, 5\% and 10\%. The probabilities that the two models are practically equivalent are listed in Table~\ref{tab:bayesian-adaptive}. Of a particular note is the fact that at 50\% complexity, the models have over a 95\% probability of being within 5 percentage points of performance -- showing that the proposed method may offer a significant complexity reduction in exchange for a relatively minor decrease in performance.
 
 \begin{table}
-  \begin{center}
-    \begin{minipage}{210pt} % Tune this when the table is changed using the lua-visual-debug package
-      \caption{The probabilities that the adaptive approach will be practically equivalent to node2vec when compared on different fractions of the full graph and with different widths of the region of practical equivalence.}
-      \label{tab:bayesian-adaptive}
-      \begin{tabular}{lrrr}
-        \toprule
-        \textbf{Nodes} & \textbf{1\% ROPE} & \textbf{5\% ROPE} & \textbf{10\% ROPE} \\
-        \midrule
-        \textbf{10\%}  & 0.1\%             & 29.1\%            & 57.8\%             \\
-        \textbf{20\%}  & 0.2\%             & 39.0\%            & 90.5\%             \\
-        \textbf{30\%}  & 0.1\%             & 54.5\%            & 98.6\%             \\
-        \textbf{40\%}  & 0.1\%             & 71.0\%            & 100.0\%            \\
-        \textbf{50\%}  & 0.9\%             & 95.2\%            & 100.0\%            \\
-        \textbf{60\%}  & 8.5\%             & 99.8\%            & 100.0\%            \\
-        \textbf{70\%}  & 32.6\%            & 100.0\%           & 100.0\%            \\
-        \textbf{80\%}  & 62.1\%            & 100.0\%           & 100.0\%            \\
-        \textbf{90\%}  & 67.4\%            & 100.0\%           & 100.0\%            \\
-        \textbf{100\%} & 83.9\%            & 100.0\%           & 100.0\%            \\
-        \bottomrule
-      \end{tabular}
-    \end{minipage}
-  \end{center}
+  \caption{The probabilities that the adaptive approach will be practically equivalent to node2vec when compared on different fractions of the full graph and with different widths of the region of practical equivalence.}
+  \label{tab:bayesian-adaptive}
+  \centering
+  \begin{tabular}{lrrr}
+    \toprule
+    \textbf{Nodes} & \textbf{1\% ROPE} & \textbf{5\% ROPE} & \textbf{10\% ROPE} \\
+    \midrule
+    \textbf{10\%}  & 0.1\%             & 29.1\%            & 57.8\%             \\
+    \textbf{20\%}  & 0.2\%             & 39.0\%            & 90.5\%             \\
+    \textbf{30\%}  & 0.1\%             & 54.5\%            & 98.6\%             \\
+    \textbf{40\%}  & 0.1\%             & 71.0\%            & 100.0\%            \\
+    \textbf{50\%}  & 0.9\%             & 95.2\%            & 100.0\%            \\
+    \textbf{60\%}  & 8.5\%             & 99.8\%            & 100.0\%            \\
+    \textbf{70\%}  & 32.6\%            & 100.0\%           & 100.0\%            \\
+    \textbf{80\%}  & 62.1\%            & 100.0\%           & 100.0\%            \\
+    \textbf{90\%}  & 67.4\%            & 100.0\%           & 100.0\%            \\
+    \textbf{100\%} & 83.9\%            & 100.0\%           & 100.0\%            \\
+    \bottomrule
+  \end{tabular}
 \end{table}
 
 \subsection{The relationship of the results and the properties of the graph}
@@ -157,51 +148,45 @@ Statistical tests similar to the ones described in Section~\ref{sec:adaptive-exp
 The coarsening approaches were also compared using Bayesian estimation, using the Bayesian Wilcoxon signed-rank test in a pairwise fashion for all possible values of \( k \) with a 5\% region of practically equivalence. When comparing HARP to the heat kernel, the two methods had over 98\% probability of being practically equivalent for all values of \( k \). The comparison of HARP and PPR is listed in Table~\ref{tab:bayesian-harp-ppr} and the comparison of the heat kernel and PPR in Table~\ref{tab:bayesian-heat-ppr} The results show that all the methods are practically equivalent when the graph is only slightly coarsened and at higher levels of coarsening, PPR dominates both other methods in the situations where it is available.
 
 \begin{table}
-  \begin{center}
-    \begin{minipage}{180pt} % Tune this when the table is changed using the lua-visual-debug package
-      \caption{Comparison of HARP coarsening and PPR based coarsening based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
-      \label{tab:bayesian-harp-ppr}
-      \begin{tabular}{lrrr}
-        \toprule
-        \textbf{Nodes} & \textbf{HARP} & \textbf{Equivalent} & \textbf{PPR} \\
-        \midrule
-        \textbf{10\%}  & 0.0\%         & 41.1\%            & 58.9\%         \\
-        \textbf{20\%}  & 0.0\%         & 69.1\%            & 30.9\%         \\
-        \textbf{30\%}  & 0.0\%         & 84.5\%            & 15.5\%         \\
-        \textbf{40\%}  & 0.0\%         & 97.9\%            & 2.2\%          \\
-        \textbf{50\%}  & 0.0\%         & 99.8\%            & 0.2\%          \\
-        \textbf{60\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{70\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{80\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{90\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{100\%} & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \bottomrule
-      \end{tabular}
-    \end{minipage}
-  \end{center}
+  \caption{Comparison of HARP coarsening and PPR based coarsening based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
+  \label{tab:bayesian-harp-ppr}
+  \centering
+  \begin{tabular}{lrrr}
+    \toprule
+    \textbf{Nodes} & \textbf{HARP} & \textbf{Equivalent} & \textbf{PPR} \\
+    \midrule
+    \textbf{10\%}  & 0.0\%         & 41.1\%            & 58.9\%         \\
+    \textbf{20\%}  & 0.0\%         & 69.1\%            & 30.9\%         \\
+    \textbf{30\%}  & 0.0\%         & 84.5\%            & 15.5\%         \\
+    \textbf{40\%}  & 0.0\%         & 97.9\%            & 2.2\%          \\
+    \textbf{50\%}  & 0.0\%         & 99.8\%            & 0.2\%          \\
+    \textbf{60\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{70\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{80\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{90\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{100\%} & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \bottomrule
+  \end{tabular}
 \end{table}
 
 \begin{table}
-  \begin{center}
-    \begin{minipage}{180pt} % Tune this when the table is changed using the lua-visual-debug package
-      \caption{Comparison of heat kernel and PPR based coarsenings based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
-      \label{tab:bayesian-heat-ppr}
-      \begin{tabular}{lrrr}
-        \toprule
-        \textbf{Nodes} & \textbf{Heat} & \textbf{Equivalent} & \textbf{PPR} \\
-        \midrule
-        \textbf{10\%}  & 0.0\%         & 58.1\%            & 41.9\%         \\
-        \textbf{20\%}  & 0.0\%         & 89.4\%            & 10.6\%         \\
-        \textbf{30\%}  & 0.0\%         & 99.9\%            & 0.1\%         \\
-        \textbf{40\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{50\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{60\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{70\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{80\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{90\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \textbf{100\%} & 0.0\%         & 100.0\%           & 0.0\%          \\
-        \bottomrule
-      \end{tabular}
-    \end{minipage}
-  \end{center}
+  \caption{Comparison of heat kernel and PPR based coarsenings based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
+  \label{tab:bayesian-heat-ppr}
+  \centering
+  \begin{tabular}{lrrr}
+    \toprule
+    \textbf{Nodes} & \textbf{Heat} & \textbf{Equivalent} & \textbf{PPR} \\
+    \midrule
+    \textbf{10\%}  & 0.0\%         & 58.1\%            & 41.9\%         \\
+    \textbf{20\%}  & 0.0\%         & 89.4\%            & 10.6\%         \\
+    \textbf{30\%}  & 0.0\%         & 99.9\%            & 0.1\%         \\
+    \textbf{40\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{50\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{60\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{70\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{80\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{90\%}  & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \textbf{100\%} & 0.0\%         & 100.0\%           & 0.0\%          \\
+    \bottomrule
+  \end{tabular}
 \end{table}
