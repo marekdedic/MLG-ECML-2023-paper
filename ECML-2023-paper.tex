@@ -134,7 +134,7 @@ Given a model \( M \) that operates on graphs, a performance metric \( P \left( 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{performance-complexity.pdf}
+  \includegraphics[width=0.45\textwidth]{images/performance-complexity/performance-complexity.pdf}
   \caption{An example of a performance-complexity curve for a sequence of graphs.}
   \label{fig:performance-complexity}
 \end{figure}
@@ -182,7 +182,7 @@ The first step is independent of the rest of the computation and can be done ahe
 
 \begin{figure*}
   \centering
-  \includegraphics[width=\textwidth]{harp-overview.pdf}
+  \includegraphics[width=\textwidth]{images/harp-overview/harp-overview.pdf}
   \caption{An overview of the HARP processing pipeline with one level of coarsening}
   \label{fig:harp-overview}
 \end{figure*}
@@ -216,7 +216,7 @@ In order to offer a more fine-grained observation of the graph complexity and it
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{adaptive-prolongation.pdf}
+  \includegraphics[width=0.45\textwidth]{images/adaptive-prolongation/adaptive-prolongation.pdf}
     \caption{A schematic explanation of the adaptive prolongation algorithm for obtaining the embedding \( \Psi_{i} \) from \( \Psi_{i + 1} \).}
   \label{fig:adaptive-prolongation}
 \end{figure}
@@ -385,7 +385,7 @@ In order to study the effect of the adaptive prolongation, the adaptive prolonga
 
 \begin{figure*}
   \centering
-  \includegraphics[width = \linewidth]{adaptive-coarsening.pdf}
+  \includegraphics[width = \linewidth]{images/adaptive-coarsening/adaptive-coarsening.pdf}
   \caption{Downstream classifier accuracies at different steps of adaptive prolongation using the basic HARP coarsening algorithm. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the solid line representing the mean and the shaded area denoting one standard deviation.}
   \label{fig:adaptive-coarsening}
 \end{figure*}
@@ -441,14 +441,14 @@ The values of these metrics at different steps of the adaptive prolongation algo
 
 \begin{figure*}
   \centering
-  \includegraphics[width = \linewidth]{metrics-absolute.pdf}
+  \includegraphics[width = \linewidth]{images/metrics-absolute/metrics-absolute.pdf}
   \caption{Values of the metrics for different datasets at different steps of the adpative prolongation algorithm in the absolute scenario. Overlaid as the dashed line is the accuracy of the downstream classifier.}
   \label{fig:metrics-absolute}
 \end{figure*}
 
 \begin{figure*}
   \centering
-  \includegraphics[width = \linewidth]{metrics-incremental.pdf}
+  \includegraphics[width = \linewidth]{images/metrics-incremental/metrics-incremental.pdf}
   \caption{Values of the metrics for different datasets at different steps of the adpative prolongation algorithm in the incremental scenario. Overlaid as the dashed line is the accuracy of the downstream classifier.}
   \label{fig:metrics-incremental}
 \end{figure*}
@@ -459,7 +459,7 @@ For GDC coarsening, only the top-\( k \) sparsification method produces reliable
 
 \begin{figure*}
   \centering
-  \includegraphics[width=\linewidth]{coarsening-algorithms.pdf}
+  \includegraphics[width=\linewidth]{images/coarsening-algorithms/coarsening-algorithms.pdf}
   \caption{Downstream classifier accuracies at different steps of adaptive prolongation for different coarsening algorithms. Dashed line shows the baseline node2vec model accuracy. The node count is taken relative to the total node count in each dataset. The results are averaged over multiple runs, with the solid line representing the mean and the shaded area denoting one standard deviation.}
   \label{fig:coarsening-algorithms}
 \end{figure*}
