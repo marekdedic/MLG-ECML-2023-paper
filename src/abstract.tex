@@ -1,0 +1,13 @@
+\abstract{
+Graph based models are used for tasks with increasing size and computational demands. We present a method for studying graph properties from the point of view of a downstream task. This method allows a user to precisely select the resolution at which the graph in question should be coarsened. Our method builds on an existing algorithm for pretraining on coarser graphs, HARP. We extend both main parts of the algorithm in order to observe the effect of graph coarsening to model quality on a fine level. We present a general framework for graph coarsenings, allowing is to cover, apart from HARP, two alternative algorithms based on graph diffusion convolution. Additionally, we present a novel way for refining the reduced graph in a targeted way based on the downstream classification confidence for particular nodes. Together, these enhancements provide sufficient detail where needed, while collapsing structures where per-node information is not necessary for high model performance.
+Hence, the method provides a general meta-model for enhancing graph embedding models such as node2vec. We apply it to several datasets, compare the considered coarsenings on them and discuss the differing behaviour on each of them in the context of their properties.
+}
+
+\keywords{
+  Graph representation learning,
+  Graph coarsening,
+  Graph diffusion,
+  Graph homophily,
+  Performance-complexity trade-off,
+  HARP
+}
