@@ -80,17 +80,7 @@ Following recent best-practice recommendations regarding verifying the statistic
 
 When the models for DBLP and PubMed are studied more closely, both reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. To investigate this hypothesis and try to explain the behaviour of the model in general, several graph metrics were applied to the graphs generated during the adaptive prolongation algorithm run. All of the metrics were applied in two scenarios -- \enquote{absolute}, where the metric was applied to the graph at a particular step in the prolongation process, and \enquote{incremental}, where the metric was applied to the graph induced by the edge set \( \mathspace{C} \), that is, the set of edges to be contracted at that step.
 
-The metrics used were:
-\begin{itemize}
-  \item Edge homophily \cite{zhu_beyond_2020} is the fraction of edges connecting nodes of the same class.
-  \item Node homophily \cite{pei_geom-gcn_2020} is the fraction of node neighbours having the same class as the node in question, averaged over all nodes.
-  \item Class homophily \cite{lim_large_2021} is a variant of node homophily that attempts to modify it in such a way as to make it invariant to the number of classes. The metric measures excess node homophily when compared to a null model where edges are independent of node labels.
-  \item Adjusted homophily \cite{platonov_characterizing_2022} is a modification of edge homophily targeted at ensuring it is not not biased towards particular class size distributions and that the metric has a constant maximum attained only for perfectly homophilous graphs.
-  \item Balanced accuracy \cite{platonov_characterizing_2022} is a modification of edge homophily that balances each class's contribution.
-  \item Adjusted accuracy \cite{platonov_characterizing_2022} is a modification of balanced accuracy aimed at ensuring a constant baseline.
-  \item Label informativeness \cite{platonov_characterizing_2022} is a measure of the influence of a node's neighbours' classes to the label of the node itself.
-  \item Global assortativity \cite{newman_mixing_2003} is a measure of the tendency of nodes to connect with other similar nodes, rather than dissimilar nodes.
-\end{itemize}
+The metrics used were edge homophily \cite{zhu_beyond_2020}, node homophily \cite{pei_geom-gcn_2020}, class homophily \cite{lim_large_2021}, adjusted homophily \cite{platonov_characterizing_2022}, balanced accuracy \cite{platonov_characterizing_2022}, adjusted accuracy \cite{platonov_characterizing_2022}, label informativeness \cite{platonov_characterizing_2022}, and global assortativity \cite{newman_mixing_2003}.
 
 The values of these metrics at different steps of the adaptive prolongation algorithm are shown in Figure~\ref{fig:metrics-absolute} and Figure~\ref{fig:metrics-incremental}. In both the absolute and incremental scenarios, most metrics rise over training until hitting a plateau at the same point as the performance stop increasing. The change is the most pronounced in the global assortativity metric, which actually decreases after this point. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense. Such a behaviour may introduce nodes which have a different label than their neighbourhoods (a kind of noise in the data), which is a possible explanation for the local minimum in performance.
 
