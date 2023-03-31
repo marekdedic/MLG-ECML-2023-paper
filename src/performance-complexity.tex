@@ -10,7 +10,7 @@ Given a model \( M \) that operates on graphs, a performance metric \( P \left( 
   \label{fig:performance-complexity}
 \end{figure}
 
-This performance-complexity characteristics allows for a choice of an optimal \textbf{working point} for the model M -- i.e., the choice of the optimal coarsening level \( G_i \), which directly influences both the performance and the complexity of the model. The choice of the working point is subjective and depends on the particular use-case, downstream task and the environment in which the model is to be deployed. In general, however, two distinct ways of using the characteristics emerge:
+This performance-complexity characteristic allows for a choice of an optimal \textbf{working point} for the model M -- i.e., the choice of the optimal coarsening level \( G_i \), which directly influences both the performance and the complexity of the model. The choice of the working point is subjective and depends on the particular use-case, downstream task and the environment in which the model is to be deployed. In general, however, two distinct ways of using the characteristic emerge:
 \begin{itemize}
   \item Finding the most performant model for a given complexity budget. That is, for a given maximum allowable complexity \( C_\mathrm{max} \), a graph \( G_i \) is to be found that maximizes \( P \left( G_i, M \right) \) while maintaining \( C \left( G_i, M \right) \leq C_\mathrm{max} \).
   \item Finding the least complex model satisfying a performance target. That is, for a given minimum acceptable performance \( P_\mathrm{min} \), a graph \( G_i \) is to be found that minimizes \( C \left( G_i, M \right) \) while maintaining \( P \left( G_i, M \right) \geq P_\mathrm{min} \).

@@ -108,7 +108,7 @@ The metrics used were:
   \item Node homophily \cite{pei_geom-gcn_2020} is the fraction of node neighbours having the same class as the node in question, averaged over all nodes.
   \item Class homophily \cite{lim_large_2021} is a variant of node homophily that attempts to modify it in such a way as to make it invariant to the number of classes. The metric measures excess node homophily when compared to a null model where edges are independent of node labels.
   \item Adjusted homophily \cite{platonov_characterizing_2022} is a modification of edge homophily targeted at ensuring it is not not biased towards particular class size distributions and that the metric has a constant maximum attained only for perfectly homophilous graphs.
-  \item Balanced accuracy \cite{platonov_characterizing_2022} is a modification of edge homophily that balances each classes' contribution.
+  \item Balanced accuracy \cite{platonov_characterizing_2022} is a modification of edge homophily that balances each class's contribution.
   \item Adjusted accuracy \cite{platonov_characterizing_2022} is a modification of balanced accuracy aimed at ensuring a constant baseline.
   \item Label informativeness \cite{platonov_characterizing_2022} is a measure of the influence of a node's neighbours' classes to the label of the node itself.
   \item Global assortativity \cite{newman_mixing_2003} is a measure of the tendency of nodes to connect with other similar nodes, rather than dissimilar nodes.
@@ -148,7 +148,7 @@ Statistical tests similar to the ones described in Section~\ref{sec:adaptive-exp
 The coarsening approaches were also compared using Bayesian estimation, using the Bayesian Wilcoxon signed-rank test in a pairwise fashion for all possible values of \( k \) with a 5\% region of practically equivalence. When comparing HARP to the heat kernel, the two methods had over 98\% probability of being practically equivalent for all values of \( k \). The comparison of HARP and PPR is listed in Table~\ref{tab:bayesian-harp-ppr} and the comparison of the heat kernel and PPR in Table~\ref{tab:bayesian-heat-ppr} The results show that all the methods are practically equivalent when the graph is only slightly coarsened and at higher levels of coarsening, PPR dominates both other methods in the situations where it is available.
 
 \begin{table}
-  \caption{Comparison of HARP coarsening and PPR based coarsening based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
+  \caption{Comparison of HARP coarsening and PPR based coarsening based on the Bayesian Wilcoxon signed-rank test. The left and right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
   \label{tab:bayesian-harp-ppr}
   \centering
   \begin{tabular}{lrrr}
@@ -170,7 +170,7 @@ The coarsening approaches were also compared using Bayesian estimation, using th
 \end{table}
 
 \begin{table}
-  \caption{Comparison of heat kernel and PPR based coarsenings based on the Bayesian Wilcoxon signed-rank test. The left an right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
+  \caption{Comparison of heat kernel and PPR based coarsenings based on the Bayesian Wilcoxon signed-rank test. The left and right columns list the probability of each respective method having higher accuracy, while the middle column shows the probability of the 2 methods being practically equivalent with a 5\% ROPE.}
   \label{tab:bayesian-heat-ppr}
   \centering
   \begin{tabular}{lrrr}
