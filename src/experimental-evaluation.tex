@@ -78,25 +78,11 @@ Following recent best-practice recommendations regarding verifying the statistic
 
 \subsection{The relationship of the results and the properties of the graph}
 
-When the models for DBLP and PubMed are studied more closely, both reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. To investigate this hypothesis and try to explain the behaviour of the model in general, several graph metrics were applied to the graphs generated during the adaptive prolongation algorithm run. All of the metrics were applied in two scenarios -- \enquote{absolute}, where the metric was applied to the graph at a particular step in the prolongation process, and \enquote{incremental}, where the metric was applied to the graph induced by the edge set \( \mathspace{C} \), that is, the set of edges to be contracted at that step.
+When the models for DBLP and PubMed are studied more closely, both reach a local maximum at around 14\% of the graph, followed by a slight decline and gradual approach to the baseline. This suggests a global structure in the data, which the model learns at the point of the local maxima. To investigate this hypothesis and try to explain the behaviour of the model in general, several graph metrics were applied to the graphs generated during the adaptive prolongation algorithm run. All of the metrics were applied to the graph \( G_i \) at each step in the prolongation process.
 
 The metrics used were edge homophily \cite{zhu_beyond_2020}, node homophily \cite{pei_geom-gcn_2020}, class homophily \cite{lim_large_2021}, adjusted homophily \cite{platonov_characterizing_2022}, balanced accuracy \cite{platonov_characterizing_2022}, adjusted accuracy \cite{platonov_characterizing_2022}, label informativeness \cite{platonov_characterizing_2022}, and global assortativity \cite{newman_mixing_2003}.
 
-The values of these metrics at different steps of the adaptive prolongation algorithm are shown in Figure~\ref{fig:metrics-absolute} and Figure~\ref{fig:metrics-incremental}. In both the absolute and incremental scenarios, most metrics rise over training until hitting a plateau at the same point as the performance stop increasing. The change is the most pronounced in the global assortativity metric, which actually decreases after this point. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense. Such a behaviour may introduce nodes which have a different label than their neighbourhoods (a kind of noise in the data), which is a possible explanation for the local minimum in performance.
-
-\begin{figure*}
-  \centering
-  \includegraphics[width = \linewidth]{images/metrics-absolute/metrics-absolute.pdf}
-  \caption{Values of the metrics for different datasets at different steps of the adaptive prolongation algorithm in the absolute scenario. Overlaid as the dashed line is the accuracy of the downstream classifier.}
-  \label{fig:metrics-absolute}
-\end{figure*}
-
-\begin{figure*}
-  \centering
-  \includegraphics[width = \linewidth]{images/metrics-incremental/metrics-incremental.pdf}
-  \caption{Values of the metrics for different datasets at different steps of the adaptive prolongation algorithm in the incremental scenario. Overlaid as the dashed line is the accuracy of the downstream classifier.}
-  \label{fig:metrics-incremental}
-\end{figure*}
+The values of these metrics were compared to the classification accuracy and a strong correlation was found for the majority of them, with correlation coefficient of \( -0.66 \) for global assortativity and between \( 0.94 \) and \( 0.96 \) for all the other metrics, averaged across the datasets. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense. Such a behaviour may introduce nodes which have a different label than their neighbourhoods (a kind of noise in the data), which is a possible explanation for the local optima in performance.
 
 \subsection{Comparison of coarsening approaches}
 
