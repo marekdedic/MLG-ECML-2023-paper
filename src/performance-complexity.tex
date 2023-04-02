@@ -1,6 +1,6 @@
 \section{The performance-complexity trade-off problem}\label{sec:performance-complexity}
 
-The main aim of this work is to explore the performance-complexity characteristics in the context of graph learning, as considered, for example, in \cite{prochazka_downstream_2022}. Consider an undirected graph \( G \) with nodes \( V \left( G \right) \) and edges \( E \left( G \right) \). The result of the graph coarsening part of the algorithm is a sequence of graphs \( G_0, G_1, G_2, \dots, G_L \) where \( G_0 = G \) and \( L \in \mathfield{N} \) is a hyper-parameter of the method.
+The main aim of this work is to explore the performance-complexity characteristics in the context of graph learning, as introduced in \cite{prochazka_downstream_2022}. Consider an undirected graph \( G \) with nodes \( V \left( G \right) \) and edges \( E \left( G \right) \). The result of the graph coarsening part of the algorithm is a sequence of graphs \( G_0, G_1, G_2, \dots, G_L \) where \( G_0 = G \) and \( L \in \mathfield{N} \) is a hyper-parameter of the method.
 Given a model \( M \) that operates on graphs, a performance metric, and a complexity metric, the sequence \( G_0, G_1, \dots, G_L \) corresponds to points in the performance-complexity plane, where the original graph \( G_0 \) usually provides the best performance and incurs the most complexity and subsequent coarsened graphs improve complexity and hurt performance. -- see Figure~\ref{fig:performance-complexity} for an illustration.
 
 \begin{figure}
