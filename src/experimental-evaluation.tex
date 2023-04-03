@@ -4,7 +4,7 @@
 
 \subsubsection{Datasets}
 
-The proposed methods were experimentally verified on several datasets. The datasets Cora and CiteSeer \cite{yang_revisiting_2016} were used with the \enquote{full} train-test split as in \cite{chen_fastgcn_2018}. Two larger datasets were also used, the PubMed dataset \cite{yang_revisiting_2016} and the DBLP dataset \cite{bojchevski_deep_2018}. In addition, 6 variants of the Twitch dataset \cite{rozemberczki_multi-scale_2021} were used.
+The proposed methods were experimentally verified on several datasets. The datasets Cora and CiteSeer \cite{yang_revisiting_2016} were used with the \enquote{full} train-test split as in \cite{chen_fastgcn_2018}. In addition, 2 variants of the Twitch dataset \cite{rozemberczki_multi-scale_2021} with the hignest node count (DE and EN) were used. Five medium sized datasets were also used, the PubMed dataset \cite{yang_revisiting_2016}, the DBLP dataset \cite{bojchevski_deep_2018}, the IMDB dataset \cite{xinyu_magnn:_2020} and both variants of the Coauthor dataset \cite{shchur_pitfalls_2019}. Finally, one large dataset was used, the OGB ArXiv dataset \cite{weihua_open_2021}.
 
 \subsubsection{Methodology of experiments}
 
@@ -18,21 +18,21 @@ The achitecture of the algorithm was identical accross the dataset, with the onl
   \centering
   \begin{tabular}{lrrrrr}
     \toprule
-    \textbf{Hyper-parameter} & \textbf{Cora} & \textbf{CiteSeer} & \textbf{PubMed} & \textbf{DBLP} & \textbf{Twitch} \\
+    \textbf{Hyper-parameter} & \textbf{Cora} & \textbf{CiteSeer} & \textbf{PubMed} & \textbf{DBLP} & \textbf{Twitch} & \textbf{IMDB} & \textbf{ArXiv} & \textbf{Coauthor} \\
     \midrule
-    Embedding dimension      & 128           & 32                & 64              & 32            & 128             \\
-    \# of random walks       & 4             & 5                 & 3               & 2             & 10              \\
-    Random walk length       & 20            & 20                & 40              & 20            & 80              \\
-    Context window size      & 5             & 5                 & 20              & 5             & 3               \\
-    Node2vec learning rate   & 0.01          & 0.01              & 0.01            & 0.01          & 0.025           \\
-    Node2vec batch size      & 128           & 128               & 128             & 128           & 128             \\
-    Node2vec epochs          & 5             & 7                 & 1               & 1             & 5               \\
-    \# of prolonged nodes    & 100           & 150               & 1000            & 800           & 200             \\
-    \# of MLP layers         & 3             & 3                 & 1               & 3             & 2               \\
-    MLP hidden layer width   & 128           & 256               & 128             & 256           & 64              \\
-    Dropout rate             & 0.5           & 0.5               & 0.5             & 0.5           & 0.5             \\
-    MLP learning rate        & 0.01          & 0.01              & 0.01            & 0.01          & 0.01            \\
-    MLP epochs               & 30            & 80                & 300             & 300           & 500             \\
+    Embedding dimension      & 128           & 32                & 64              & 32            & 128             & 128           & 128            & 128               \\
+    \# of random walks       & 4             & 5                 & 3               & 2             & 10              & 40            & 10             & 40                \\
+    Random walk length       & 20            & 20                & 40              & 20            & 80              & 100           & 80             & 10                \\
+    Context window size      & 5             & 5                 & 20              & 5             & 3               & 5             & 20             & 5                 \\
+    Node2vec learning rate   & 0.01          & 0.01              & 0.01            & 0.01          & 0.025           & 0.01          & 0.01           & 0.01              \\
+    Node2vec batch size      & 128           & 128               & 128             & 128           & 128             & 256           & 128            & 256               \\
+    Node2vec epochs          & 5             & 7                 & 1               & 1             & 5               & 1             & 1              & 1                 \\
+    %\# of prolonged nodes    & 100           & 150               & 1000            & 800           & 200             & 1400          & 8000           & 1250              \\
+    \# of MLP layers         & 3             & 3                 & 1               & 3             & 2               & 2             & 3              & 2                 \\
+    MLP hidden layer width   & 128           & 256               & 128             & 256           & 64              & 64            & 256            & 16                \\
+    Dropout rate             & 0.5           & 0.5               & 0.5             & 0.5           & 0.5             & 0.5           & 0.5            & 0.5               \\
+    MLP learning rate        & 0.01          & 0.01              & 0.01            & 0.01          & 0.01            & 0.01          & 0.01           & 0.01              \\
+    MLP epochs               & 30            & 80                & 300             & 300           & 500             & 100           & 300            & 100               \\
     \bottomrule
   \end{tabular}
 \end{table*}
@@ -48,11 +48,11 @@ In order to study the effect of the adaptive prolongation, the adaptive prolonga
   \label{fig:adaptive-coarsening}
 \end{figure*}
 
-The behaviour of the model somewhat differs between the used datasets. For the Cora, CiteSeer, DBLP and PubMed datasets, the model starts from a very low performance, which quickly rises as the model trains for several prolongation steps. The model trained on CiteSeer attains performance comparable to the reference model when approximately half of all nodes are available to it. On the other hand, with Cora, the model slowly approaches the reference model for the whole duration of training, only reaching comparable performance at a point where nearly the whole graph is available to it. Models trained on the two larger datasets, DBLP and PubMed, exhibit a different behaviour in that they briefly reach a local maximum followed by a slight decrease in performance until finally approaching the performance of the reference model in a manner similar to the models trained on Cora and CiteSeer. This behaviour is further discussed in the next section. The Twitch dataset is substantially different, with very high initial performance and only small performance gains with increasing number of nodes available, with different variants of it exhibiting this effect to a different magnitude.
+The behaviour of the model somewhat differs between the used datasets. For the Cora, CiteSeer, DBLP, PubMed, ArXiv and Coauthor datasets, the model starts from a very low performance, which quickly rises as the model trains for several prolongation steps. The model trained on CiteSeer attains performance comparable to the reference model when approximately half of all nodes are available to it. On the other hand, with e. g. Coauthor-CS, the model slowly approaches the reference model for the whole duration of training, only reaching comparable performance at a point where nearly the whole graph is available to it. Models trained on the two medium-sized datasets, DBLP and PubMed, exhibit a different behaviour in that they briefly reach a local maximum followed by a slight decrease in performance until finally approaching the performance of the reference model in a manner similar to the models trained on Cora and CiteSeer. The ArXiv dataset exhibits a similar behaviour to a lesser extent. This behaviour is further discussed in the next section. The Twitch and IMDB datasets are substantially different, with very high initial performance and only small performance gains with increasing number of nodes available, with different variants of it exhibiting this effect to a different magnitude.
 
-To further study the model properties from a statistical point of view, the results were evaluated at \( k \)-th deciles of the node count of the full graph, for all possible values of \( k \). At each decile, the performance of the model was compared to the baseline node2vec model using the Wilcoxon signed-rank test with the Holm-Bonferroni correction for multiple hypothesis testing with the hypothesis that the models are equivalent. None of the hypotheses were rejected by the test at the 5\% level of significance. We attribute this mainly to the Twitch dataset, for which the performance of the adaptive approach is very good even under heavy coarsening
+To further study the model properties from a statistical point of view, the results were evaluated at \( k \)-th deciles of the node count of the full graph, for all possible values of \( k \). At each decile, the performance of the model was compared to the baseline node2vec model using the Wilcoxon signed-rank test with the Holm-Bonferroni correction for multiple hypothesis testing with the hypothesis that the models are equivalent. The hypotheses were rejected by the test at the 5\% level of significance for \( k \in \left\{ 1, 2, 3, 4, 5 \right\} \).
 
-Following recent best-practice recommendations regarding verifying the statistical validity of results \cite{benavoli_time_2017}, the results were also studied from the point of view of Bayesian estimation. Similarly to the frequentist approach, the performance of the model was compared to that of the baseline model at \( k \)-th deciles of the node count, for all possible values of \( k \). The comparison was done using the Bayesian Wilcoxon signed-rank test \cite{benavoli_bayesian_2014} for 3 different widths of the region of practical equivalence (ROPE), 1\%, 5\% and 10\%. The probabilities that the two models are practically equivalent are listed in Table~\ref{tab:bayesian-adaptive}. Of a particular note is the fact that at 50\% complexity, the models have over a 95\% probability of being within 5 percentage points of performance -- showing that the proposed method may offer a significant complexity reduction in exchange for a relatively minor decrease in performance.
+Following recent best-practice recommendations regarding verifying the statistical validity of results \cite{benavoli_time_2017}, the results were also studied from the point of view of Bayesian estimation. Similarly to the frequentist approach, the performance of the model was compared to that of the baseline model at \( k \)-th deciles of the node count, for all possible values of \( k \). The comparison was done using the Bayesian Wilcoxon signed-rank test \cite{benavoli_bayesian_2014} for 3 different widths of the region of practical equivalence (ROPE), 1\%, 5\% and 10\%. The probabilities that the two models are practically equivalent are listed in Table~\ref{tab:bayesian-adaptive}. Of a particular note is the fact that at 60\% complexity, the models have over a 99\% probability of being within 10 percentage points of performance -- showing that the proposed method may offer a significant complexity reduction in exchange for a relatively minor decrease in performance.
 
 \begin{table}
   \caption{The probabilities that the adaptive approach will be practically equivalent to node2vec when compared on different fractions of the full graph and with different widths of the region of practical equivalence.}
@@ -62,16 +62,16 @@ Following recent best-practice recommendations regarding verifying the statistic
     \toprule
     \textbf{Nodes} & \textbf{1\% ROPE} & \textbf{5\% ROPE} & \textbf{10\% ROPE} \\
     \midrule
-    \textbf{10\%}  & 0.1\%             & 29.1\%            & 57.8\%             \\
-    \textbf{20\%}  & 0.2\%             & 39.0\%            & 90.5\%             \\
-    \textbf{30\%}  & 0.1\%             & 54.5\%            & 98.6\%             \\
-    \textbf{40\%}  & 0.1\%             & 71.0\%            & 100.0\%            \\
-    \textbf{50\%}  & 0.9\%             & 95.2\%            & 100.0\%            \\
-    \textbf{60\%}  & 8.5\%             & 99.8\%            & 100.0\%            \\
-    \textbf{70\%}  & 32.6\%            & 100.0\%           & 100.0\%            \\
-    \textbf{80\%}  & 62.1\%            & 100.0\%           & 100.0\%            \\
-    \textbf{90\%}  & 67.4\%            & 100.0\%           & 100.0\%            \\
-    \textbf{100\%} & 83.9\%            & 100.0\%           & 100.0\%            \\
+    \textbf{10\%}  & 0\%               & 0.3\%             & 2.5\%              \\
+    \textbf{20\%}  & 0\%               & 0.8\%             & 14.1\%             \\
+    \textbf{30\%}  & 0\%               & 1.7\%             & 35.3\%             \\
+    \textbf{40\%}  & 0\%               & 5.3\%             & 72.0\%             \\
+    \textbf{50\%}  & 0.1\%             & 35.3\%            & 85.7\%             \\
+    \textbf{60\%}  & 0.6\%             & 62.2\%            & 99.7\%             \\
+    \textbf{70\%}  & 32.0\%            & 84.7\%            & 100.0\%            \\
+    \textbf{80\%}  & 30.0\%            & 99.9\%            & 100.0\%            \\
+    \textbf{90\%}  & 48.9\%            & 100.0\%           & 100.0\%            \\
+    \textbf{100\%} & 87.7\%            & 100.0\%           & 100.0\%            \\
     \bottomrule
   \end{tabular}
 \end{table}
