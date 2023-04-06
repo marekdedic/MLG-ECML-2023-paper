@@ -8,6 +8,6 @@ Our work builds on the HARP method \cite{chen_harp_2018} for pretraining methods
 After all the coarsened graphs are pre-computed ahead-of-time, the method itself can be executed by repeating the following steps on the graphs from the coarsest to the finest (i.e. from \( G_L \) to \( G_0 \)):
 \begin{enumerate}\setcounter{enumi}{1}
   \item \textbf{Training on an intermediary graph}. The graph embedding model is trained on \( G_i \), producing its embedding \( \Phi_{G_i} \).
-  \item \textbf{Embedding prolongation}. The embedding \( \Phi_{G_i} \) is \textit{prolonged} (i.e. refined) into \( \Phi_{G_{i - 1}} \), which is then used as the starting point for training on \( G_{i - 1} \).
+  \item \textbf{Embedding prolongation}. The embedding \( \Phi_{G_i} \) is \textit{prolonged} (i.e. refined) into \( \Phi_{G_{i - 1}} \) by copying embeddings of merged nodes. \( \Phi_{G_{i - 1}} \) is then used as the starting point for training on \( G_{i - 1} \).
 \end{enumerate}
 These steps are repeated until \( \Phi_{G_0} \) is computed. The particular details of the coarsening and prolongation steps are further explained in \cite{chen_harp_2018}.
