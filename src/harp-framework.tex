@@ -1,15 +1,13 @@
 \section{A coarsening framework based on HARP}\label{sec:harp}
 
-The sequence \( G_0, G_1, G_2, \dots, G_L \) introduced in Section~\ref{sec:performance-complexity} is generated in HARP one step at a time, that is, graph \( G_i \) is generated from the graph \( G_{i - 1} \) by coarsening it -- lowering the number of nodes and edges while preserving in some sense the general structure of the graph. Following \cite{chen_harp_2018}, let \( \varphi_i \) denote the mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). In this work, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions. Therefore, each coarsening corresponds to a set \( \mathcal{C} \subseteq E \left( G \right) \), i.e. a subset of edges of the original graph. This description of a graph coarsening is inspired by \cite{schulz_mining_2019}, which is why it differs from the weaker definition of a graph reduction as selecting a subset of nodes and edges \cite{huang_scaling_2021,loukas_graph_2019}.
-
-In an overview, the HARP algorithm consists of the following steps:
+Our work builds on the HARP method \cite{chen_harp_2018} for pretraining methods such as node2vec \cite{grover_node2vec_2016} on coarsened graphs. While HARP itself works with and modifies the graph structure, this is not the main interest of its authors, who focus more on the classification accuracy for the original graph. The sequence \( G_0, G_1, G_2, \dots, G_L \) introduced in Section~\ref{sec:performance-complexity} is generated in HARP consecutively. Let \( \varphi_i \) denote this mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). Following \cite{schulz_mining_2019}, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions. Therefore, each coarsening corresponds to a set \( \mathcal{C} \subseteq E \left( G \right) \). In an overview, the HARP algorithm consists of the following steps:
 
 \begin{enumerate}
-  \item \textbf{Dataset augmentation}. The graph \( G \) is consecutively reduced in size by the application of several graph coarsening schemas.
+  \item \textbf{Consecutive graph coarsening}.
 \end{enumerate}
 After all the coarsened graphs are pre-computed ahead-of-time, the method itself can be executed by repeating the following steps on the graphs from the coarsest to the finest (i.e. from \( G_L \) to \( G_0 \)):
 \begin{enumerate}\setcounter{enumi}{1}
-  \item \textbf{Training on an intermediary graph}. The graph embedding model is trained on \( G_i \), producing \( \Phi_{G_i} \), an embedding of the graph in a Euclidean space.
+  \item \textbf{Training on an intermediary graph}. The graph embedding model is trained on \( G_i \), producing its embedding \( \Phi_{G_i} \).
   \item \textbf{Embedding prolongation}. The embedding \( \Phi_{G_i} \) is \textit{prolonged} (i.e. refined) into \( \Phi_{G_{i - 1}} \), which is then used as the starting point for training on \( G_{i - 1} \).
 \end{enumerate}
 These steps are repeated until \( \Phi_{G_0} \) is computed. The particular details of the coarsening and prolongation steps are further explained in \cite{chen_harp_2018}.
