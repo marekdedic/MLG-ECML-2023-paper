@@ -1,4 +1,4 @@
-\section{A coarsening framework based on HARP}\label{sec:harp}
+\section{An overview of the HARP algorithm}\label{sec:harp}
 
 Our work builds on the HARP method \cite{chen_harp_2018} for pretraining methods such as node2vec \cite{grover_node2vec_2016} on coarsened graphs. While HARP itself works with and modifies the graph structure, this is not the main interest of its authors, who focus more on the classification accuracy for the original graph. The sequence \( G_0, G_1, G_2, \dots, G_L \) introduced in Section~\ref{sec:performance-complexity} is generated in HARP consecutively. Let \( \varphi_i \) denote this mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). Following \cite{schulz_mining_2019}, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions. Therefore, each coarsening corresponds to a set \( \mathcal{C} \subseteq E \left( G \right) \). In an overview, the HARP algorithm consists of the following steps:
 
