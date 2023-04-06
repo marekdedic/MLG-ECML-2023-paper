@@ -1,13 +1,8 @@
 \section{An overview of the HARP algorithm}\label{sec:harp}
 
-Our work builds on the HARP method \cite{chen_harp_2018} for pretraining methods such as node2vec \cite{grover_node2vec_2016} on coarsened graphs. While HARP itself works with and modifies the graph structure, this is not the main interest of its authors, who focus more on the classification accuracy for the original graph. The sequence \( G_0, G_1, G_2, \dots, G_L \) introduced in Section~\ref{sec:performance-complexity} is generated in HARP consecutively. Let \( \varphi_i \) denote this mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). Following \cite{schulz_mining_2019}, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions. Therefore, each coarsening corresponds to a set \( \mathcal{C} \subseteq E \left( G \right) \). In an overview, the HARP algorithm consists of the following steps:
-
+Our work builds on the HARP method \cite{chen_harp_2018} for pretraining methods such as node2vec \cite{grover_node2vec_2016} on coarsened graphs. While HARP itself works with and modifies the graph structure, this is not the main interest of its authors, who focus more on the classification accuracy for the original graph. The sequence \( G_0, G_1, G_2, \dots, G_L \) is generated in HARP consecutively. Let \( \varphi_i \) denote this mapping \( G_i = \varphi_i \left( G_{i - 1} \right) \). Following \cite{schulz_mining_2019}, we restrict the definition of such a coarsening \( \varphi_i \) to only consist of a series of edge contractions \( \mathcal{C} \subseteq E \left( G \right) \). In an overview, the HARP algorithm first ahead-of-time consecutively coarsens the graph. The method itself can then be executed by repeating the following steps on the graphs from the coarsest to the finest (i.e. from \( G_L \) to \( G_0 \)):
 \begin{enumerate}
-  \item \textbf{Consecutive graph coarsening}.
-\end{enumerate}
-After all the coarsened graphs are pre-computed ahead-of-time, the method itself can be executed by repeating the following steps on the graphs from the coarsest to the finest (i.e. from \( G_L \) to \( G_0 \)):
-\begin{enumerate}\setcounter{enumi}{1}
   \item \textbf{Training on an intermediary graph}. The graph embedding model is trained on \( G_i \), producing its embedding \( \Phi_{G_i} \).
   \item \textbf{Embedding prolongation}. The embedding \( \Phi_{G_i} \) is \textit{prolonged} (i.e. refined) into \( \Phi_{G_{i - 1}} \) by copying embeddings of merged nodes. \( \Phi_{G_{i - 1}} \) is then used as the starting point for training on \( G_{i - 1} \).
 \end{enumerate}
-These steps are repeated until \( \Phi_{G_0} \) is computed. The particular details of the coarsening and prolongation steps are further explained in \cite{chen_harp_2018}.
+The particular details of the coarsening and prolongation steps are further explained in \cite{chen_harp_2018}.
