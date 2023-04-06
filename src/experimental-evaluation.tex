@@ -2,9 +2,9 @@
 
 The proposed methods were experimentally verified on 10 pulicly available datasets: Cora, CiteSeer \cite{yang_revisiting_2016}, Twitch variants DE and EN \cite{rozemberczki_multi-scale_2021}, PubMed \cite{yang_revisiting_2016}, DBLP \cite{bojchevski_deep_2018}, IMDB \cite{fu_magnn_2020}, both variants of the Coauthor dataset \cite{shchur_pitfalls_2019} and the OGB ArXiv dataset \cite{hu_open_2021}.
 
-The achitecture of the model was identical accross the datasets, with the only difference being in the values of the hyper-parameters,  which were initially set to values used in prior art (see \cite{hu_open_2021, fey_fast_2019}) and then manually fine-tuned separately for each dataset. The node2vec algorithm was used for generating the node embeddings, with an MLP classifier providing the predictions for node classification. The experiment was run \( 10 \) times end-to-end and results averaged.
+The achitecture of the model was identical accross the datasets, with the only difference being in the values of the hyper-parameters, which were initially set to values used in prior art (see \cite{hu_open_2021, fey_fast_2019}) and then manually fine-tuned separately for each dataset. The node2vec algorithm was used for generating the node embeddings, with an MLP classifier providing the predictions for node classification. The experiment was run \( 10 \) times end-to-end and results averaged.
 
-In order to study the effect of the adaptive prolongation, the adaptive prolongation method was used to assess the performance of downstream transductive classification at different coarsening levels. The previously described model was trained with adaptive prolongation based on coarsenings pre-computed by the HARP coarsening algorithm. For each prolongation step, the intermediary embedding was afterwards fully prolonged to obtain an embedding of the original graph \( G \). A classifier was then trained with this embedding as input. This setup allows us to compare classification accuracy at each step of the adaptive prolongation. Figure~\ref{fig:adaptive-coarsening} shows the results of this experiment, compared with a baseline node2vec model (that is, without any coarsening or prolongation) that was trained for the same number of epochs as the total epochs of the adaptive model over all prolongation steps.
+In order to study the effect of adaptive prolongation, the method was used to assess the performance of downstream transductive classification at different coarsening levels. For each prolongation step, the intermediary embedding was fully prolonged to obtain an embedding of the original graph \( G \). A classifier was then trained with this embedding as input. This setup allows us to compare classification accuracy at each step of the adaptive prolongation. Figure~\ref{fig:adaptive-coarsening} shows the results of this experiment, compared with a baseline node2vec model (that is, without any coarsening or prolongation) that was trained for the same number of epochs as the total epochs of the adaptive model over all prolongation steps.
 
 \begin{figure}
   \centering
@@ -13,26 +13,4 @@ In order to study the effect of the adaptive prolongation, the adaptive prolonga
   \label{fig:adaptive-coarsening}
 \end{figure}
 
-Following recent best-practice recommendations regarding verifying the statistical validity of results \cite{benavoli_time_2017}, the results were studied from the point of view of Bayesian estimation. The performance of the model was compared to that of the baseline model at \( k \)-th deciles of the node count, for all possible values of \( k \). The comparison was done using the Bayesian Wilcoxon signed-rank test \cite{benavoli_bayesian_2014} for 3 different widths of the region of practical equivalence (ROPE), 1\%, 5\% and 10\%. The probabilities that the two models are practically equivalent are listed in Table~\ref{tab:bayesian-adaptive}. Of a particular note is the fact that at 60\% complexity, the models have over a 99\% probability of being within 10 percentage points of performance -- showing that the proposed method may offer a significant complexity reduction in exchange for a relatively minor decrease in performance.
-
-\begin{table}
-  \caption{The probabilities that the adaptive approach will be practically equivalent to node2vec when compared on different fractions of the full graph and with different widths of the region of practical equivalence.}
-  \label{tab:bayesian-adaptive}
-  \centering
-  \begin{tabular}{lrrr}
-    \toprule
-    \textbf{Nodes} & \textbf{1\% ROPE} & \textbf{5\% ROPE} & \textbf{10\% ROPE} \\
-    \midrule
-    \textbf{10\%}  & 0\%               & 0.3\%             & 2.5\%              \\
-    \textbf{20\%}  & 0\%               & 0.8\%             & 14.1\%             \\
-    \textbf{30\%}  & 0\%               & 1.7\%             & 35.3\%             \\
-    \textbf{40\%}  & 0\%               & 5.3\%             & 72.0\%             \\
-    \textbf{50\%}  & 0.1\%             & 35.3\%            & 85.7\%             \\
-    \textbf{60\%}  & 0.6\%             & 62.2\%            & 99.7\%             \\
-    \textbf{70\%}  & 32.0\%            & 84.7\%            & 100.0\%            \\
-    \textbf{80\%}  & 30.0\%            & 99.9\%            & 100.0\%            \\
-    \textbf{90\%}  & 48.9\%            & 100.0\%           & 100.0\%            \\
-    \textbf{100\%} & 87.7\%            & 100.0\%           & 100.0\%            \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+The results were statistically validated by comparing the adaptive prolongation model to the baseline model at \( k \)-th deciles of node count using the Bayesian Wilcoxon signed-rank test \cite{benavoli_bayesian_2014} with a region of practical equivalence (ROPE) of 5\% and 10\%. The results of note are that at 60\% complexity, the models have over a 99\% probability of being within 10 percentage points of performance and at 80\% complexity, they have over 99\% probability of being withing 5 percentage points of performance. This shows that the proposed method may offer a significant complexity reduction in exchange for a relatively minor decrease in performance.
