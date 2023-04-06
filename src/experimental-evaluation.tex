@@ -1,12 +1,8 @@
 \section{Experimental evaluation}\label{sec:experimental-evaluation}
 
-\subsection{Experiment setup}
-
 The proposed methods were experimentally verified on 10 pulicly available datasets: Cora, CiteSeer \cite{yang_revisiting_2016}, Twitch variants DE and EN \cite{rozemberczki_multi-scale_2021}, PubMed \cite{yang_revisiting_2016}, DBLP \cite{bojchevski_deep_2018}, IMDB \cite{fu_magnn_2020}, both variants of the Coauthor dataset \cite{shchur_pitfalls_2019} and the OGB ArXiv dataset \cite{hu_open_2021}.
 
 The achitecture of the model was identical accross the datasets, with the only difference being in the values of the hyper-parameters,  which were initially set to values used in prior art (see \cite{hu_open_2021, fey_fast_2019}) and then manually fine-tuned separately for each dataset. The node2vec algorithm was used for generating the node embeddings, with an MLP classifier providing the predictions for node classification. The experiment was run \( 10 \) times end-to-end and results averaged.
-
-\subsection{Evaluation of the adaptive approach}\label{sec:adaptive-experiments}
 
 In order to study the effect of the adaptive prolongation, the adaptive prolongation method was used to assess the performance of downstream transductive classification at different coarsening levels. The previously described model was trained with adaptive prolongation based on coarsenings pre-computed by the HARP coarsening algorithm. For each prolongation step, the intermediary embedding was afterwards fully prolonged to obtain an embedding of the original graph \( G \). A classifier was then trained with this embedding as input. This setup allows us to compare classification accuracy at each step of the adaptive prolongation. Figure~\ref{fig:adaptive-coarsening} shows the results of this experiment, compared with a baseline node2vec model (that is, without any coarsening or prolongation) that was trained for the same number of epochs as the total epochs of the adaptive model over all prolongation steps.
 
