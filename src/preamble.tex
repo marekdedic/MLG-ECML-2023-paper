@@ -1,9 +1,9 @@
-\documentclass[sn-mathphys,pdflatex,iicol]{sn-jnl}
+\documentclass[runningheads]{llncs}
 
-%\usepackage{polyglossia} % Must come before biblatex
+\usepackage{polyglossia} % Must come before biblatex
 \usepackage{adjustbox}
 %\usepackage{amsfonts}
-%\usepackage{amsmath}
+\usepackage{amsmath}
 %\usepackage{bm}
 %\usepackage{booktabs}
 \usepackage{csquotes}
@@ -11,15 +11,12 @@
 %\usepackage{fontspec}
 \usepackage{geometry}
 %\usepackage{graphicx}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 %\usepackage{lua-visual-debug}
 %\usepackage{tabularx}
 
-%\setdefaultlanguage{english}
-%\setotherlanguage{czech}
-
-\jyear{2023}
-\raggedbottom
+\setdefaultlanguage{english}
+\setotherlanguage{czech}
 
 \hypersetup{
 	pdfencoding=auto,
@@ -27,11 +24,6 @@
 	bookmarksopen=true,
 	bookmarksopenlevel=3
 }
-
-\geometry{margin=1cm, inner=0.5cm, bottom=0.7cm}
-\makeatletter
-\def\sectionfont{\reset@font\fontfamily{\rmdefault}\fontsize{11bp}{12bp}\bfseries\selectfont\raggedright\boldmath}
-\makeatother
 
 \newcommand{\name}[1]{\textit{#1}}
 \newcommand{\mathfield}{\ensuremath{\mathbb}}
@@ -45,3 +37,5 @@
 
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
+
+\bibliographystyle{splncs04}
