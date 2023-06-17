@@ -72,4 +72,25 @@ When the models for DBLP and PubMed are studied more closely, both reach a local
 
 The measures used were edge homophily \cite{zhu_beyond_2020}, node homophily \cite{pei_geom-gcn_2020}, class homophily \cite{lim_large_2021}, adjusted homophily \cite{platonov_characterizing_2022}, balanced accuracy \cite{platonov_characterizing_2022}, adjusted accuracy \cite{platonov_characterizing_2022}, label informativeness \cite{platonov_characterizing_2022}, and global assortativity \cite{newman_mixing_2003}.
 
-The values of these measures were compared to the classification accuracy and a strong correlation was found for the majority of them, with correlation coefficient of \( -0.66 \) for global assortativity and between \( 0.94 \) and \( 0.96 \) for all the other measures, averaged across the datasets. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense. Such a behaviour may introduce nodes which have a different label than their neighbourhoods (a kind of noise in the data), which is a possible explanation for the local optima in performance.
+\begin{table}
+  \caption{The Pearson correlation coefficients of the relationship between 8 graph measures and the classification accuracy accross the prolongation procedure.}
+  \label{tab:measure-correlations}
+  \centering
+  \begin{tabular}{lrr}
+    \toprule
+    \textbf{Measure}               & \textbf{DBLP} & \textbf{PubMed} \\
+    \midrule
+    \textbf{Edge homophily}        &  0.91         &  0.99           \\
+    \textbf{Node homophily}        &  0.94         &  0.96           \\
+    \textbf{Class homophily}       &  0.89         &  0.99           \\
+    \textbf{Adjusted homophily}    &  0.91         &  0.99           \\
+    \textbf{Balanced accuracy}     &  0.89         &  0.99           \\
+    \textbf{Adjusted accuracy}     &  0.89         &  0.99           \\
+    \textbf{Label informativeness} &  0.94         &  0.98           \\
+    \textbf{Global assortativity}  & -0.94         & -0.38           \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+The values of these measures were compared to the classification accuracy and a strong correlation was found for the majority of them, as listed in Table \ref{tab:measure-correlations}. This suggests the explanation of the graphs being heterophilic when very coarse (as could be expected), then reaching a point where the global structure of the graph is in place and is then only refined in a local sense. Such a behaviour may introduce nodes which have a different label than their neighbourhoods (a kind of noise in the data), which is a possible explanation for the local optima in performance.
