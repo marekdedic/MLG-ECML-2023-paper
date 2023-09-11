@@ -13,6 +13,7 @@ While the prolongation used by HARP is sufficient when used only as a means of p
 
 Let us denote \( \Psi_K, \dots, \Psi_0 \) the resulting embedding sequence. Similarly to standard HARP prolongation, the algorithm starts with the coarsest graph \( G_L \), trains a graph model to compute its embedding \( \Psi_K \) and gradually refines it until reaching the embedding \( \Psi_0 \). These prolongation steps are interlaid with continued training of the graph model, as in standard HARP. A description of a single prolongation step from \( \Psi_{i + 1} \) to \( \Psi_i \) follows, is schematically outlined in Figure~\ref{fig:adaptive-prolongation} and described in detail in Algorithm \ref{alg:adaptive-prolongation}.
 
+% TODO: Add line numbers and link to them from the text
 \begin{algorithm*}
   \caption{Adaptive prolongation}
   \label{alg:adaptive-prolongation}
